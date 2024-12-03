@@ -150,63 +150,68 @@ document.querySelectorAll('.menu-link').forEach(link => {
     let animationFrame;
     
     function createParticle(x, y) {
-        if (!isHovering) return;
-        
         const particle = document.createElement('div');
         particle.className = 'electricity-particle';
-        electricity.appendChild(particle);
         
-        const size = 1 + Math.random() * 2;
-        const startX = x;
-        const startY = y;
-        const lifetime = 500 + Math.random() * 1000;
-        
+        // Varied particle sizes
+        const size = Math.random() * 2 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
-        let progress = 0;
-        let lastTime = performance.now();
+        // Start from center
+        particle.style.left = `${x}%`;
+        particle.style.top = `${y}%`;
         
-        function updateParticle(currentTime) {
-            const deltaTime = currentTime - lastTime;
-            lastTime = currentTime;
-            progress += deltaTime / lifetime;
-            
-            if (progress >= 1) {
-                particle.remove();
-                return;
-            }
-            
-            const pos = particleEffects[effect](startX, startY, progress);
-            particle.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`;
-            particle.style.opacity = 1 - progress;
-            
-            requestAnimationFrame(updateParticle);
-        }
-        
-        requestAnimationFrame(updateParticle);
+        return particle;
     }
-    
+
     function startEffect(e) {
         isHovering = true;
-        const rect = electricity.getBoundingClientRect();
-        const centerX = (e.clientX - rect.left) - rect.width / 2;
-        const centerY = (e.clientY - rect.top) - rect.height / 2;
+        const electricity = this.querySelector('.electricity');
+        if (!electricity) return;
         
-        function loop() {
-            if (!isHovering) return;
-            createParticle(centerX, centerY);
-            animationFrame = requestAnimationFrame(loop);
+        electricity.innerHTML = '';
+        
+        // More particles for a denser effect
+        for (let i = 0; i < 25; i++) {
+            const particle = createParticle(50, 50);
+            electricity.appendChild(particle);
+            
+            // Complex animation patterns
+            const baseAngle = (i / 25) * Math.PI * 2;
+            const speed = 1.2 + Math.random() * 0.6;
+            const radiusX = 30 + Math.random() * 15;
+            const radiusY = 25 + Math.random() * 12;
+            const phaseOffset = Math.random() * Math.PI * 2;
+            
+            let progress = phaseOffset;
+            function animate() {
+                if (!isHovering) return;
+                
+                progress += 0.03 * speed;
+                
+                // Combined sinusoidal patterns
+                const x = 50 + Math.sin(progress) * radiusX * Math.cos(progress * 0.5);
+                const y = 50 + Math.sin(progress * 1.5 + phaseOffset) * radiusY;
+                
+                particle.style.left = `${x}%`;
+                particle.style.top = `${y}%`;
+                particle.style.opacity = 0.5 + Math.sin(progress) * 0.3;
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
         }
-        loop();
     }
-    
+
     function stopEffect() {
         isHovering = false;
-        cancelAnimationFrame(animationFrame);
-        electricity.innerHTML = '';
+        const electricity = this.querySelector('.electricity');
+        if (electricity) {
+            electricity.innerHTML = '';
+        }
     }
-    
+
     link.addEventListener('mouseenter', startEffect);
     link.addEventListener('mouseleave', stopEffect);
     link.addEventListener('mousemove', (e) => {
