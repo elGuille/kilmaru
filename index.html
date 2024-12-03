@@ -1,35 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilmaru</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
     <div class="container">
         <header>
-            <h1>Kilmaru</h1>
+            <h1 class="title">Kilmaru</h1>
         </header>
         
         <nav class="main-nav">
             <ul>
-                <li><a href="about.html">about</a></li>
-                <li><a href="media.html">media</a></li>
-                <li><a href="experiments.html">experiments</a></li>
-                <li><a href="viral.html">viral</a></li>
+                <li><a href="about.html" class="menu-link"><span>about</span><div class="electricity"></div></a></li>
+                <li><a href="media.html" class="menu-link"><span>media</span><div class="electricity"></div></a></li>
+                <li><a href="experiments.html" class="menu-link"><span>experiments</span><div class="electricity"></div></a></li>
+                <li><a href="viral.html" class="menu-link"><span>viral</span><div class="electricity"></div></a></li>
             </ul>
         </nav>
 
         <footer>
             <div class="social-links">
-                <a href="https://instagram.com/" target="_blank">instagram</a>
-                <a href="https://tiktok.com/" target="_blank">tiktok</a>
-                <a href="https://youtube.com/" target="_blank">youtube</a>
-                <a href="https://x.com/" target="_blank">x</a>
-                <a href="#newsletter" class="newsletter-link">newsletter</a>
+                <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://tiktok.com/" target="_blank" aria-label="TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M19 9.5V5.5c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-4"></path>
+                        <path d="M12 15.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                        <path d="M19 9.5h-3c-1.1 0-2-.9-2-2v-2"></path>
+                    </svg>
+                </a>
+                <a href="https://youtube.com/" target="_blank" aria-label="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+                <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M4 4l7.2 10.8L4 20h3l5.4-8.1L17.6 20H20l-7.2-10.8L20 4h-3l-5.4 8.1L6.4 4H4z"></path>
+                    </svg>
+                </a>
+                <a href="#newsletter" class="newsletter-link" aria-label="Newsletter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
             </div>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
