@@ -2,7 +2,7 @@
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
     --particle-color: #1a1a1a;
-    --hover-color: #ff6b6b;
+    --hover-color: #ff4444;
     --electricity-color: rgba(26, 26, 26, 0.8);
 }
 
@@ -10,7 +10,7 @@
     --bg-color: #1a1a1a;
     --text-color: #ffffff;
     --particle-color: #ffffff;
-    --hover-color: #00ff9d;
+    --hover-color: #ff4444;
     --electricity-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -84,12 +84,13 @@ body {
 header {
     text-align: center;
     padding: 2rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .title {
-    font-family: 'Young Serif', serif;
-    font-size: 5.5rem;
+    font-family: 'Outfit', serif;
+    font-size: 4rem;
+    font-weight: 400;
     position: relative;
     margin-bottom: 2rem;
 }
@@ -99,7 +100,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -4rem 0;
+    margin: -2rem 0;
 }
 
 .main-nav ul {
@@ -107,23 +108,24 @@ header {
 }
 
 .main-nav ul li {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .menu-link {
     color: var(--text-color);
     text-decoration: none;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     font-weight: 300;
     position: relative;
-    transition: color 0.3s ease;
-    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0.5rem;
     display: inline-block;
 }
 
 .menu-link:hover {
     color: var(--hover-color);
+    transform: translateX(10px);
 }
 
 .menu-link span {
@@ -158,14 +160,9 @@ header {
 
 .social-links a {
     color: var(--text-color);
-    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.9rem;
     opacity: 0.7;
-    line-height: 0;
-}
-
-.social-links svg {
-    width: 20px;
-    height: 20px;
     transition: all 0.3s ease;
 }
 
@@ -176,11 +173,11 @@ header {
 
 @media (max-width: 768px) {
     .title {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .menu-link {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
     .theme-toggle {
