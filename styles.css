@@ -155,9 +155,10 @@ header {
     border-radius: 50%;
     mix-blend-mode: screen;
     transform-origin: center;
-    transition: all 0.1s linear;
+    transition: transform 0.1s ease-out;
     opacity: 0.7;
-    filter: blur(1px);
+    filter: blur(0.8px);
+    box-shadow: 0 0 2px var(--electricity-color);
 }
 
 .social-links {

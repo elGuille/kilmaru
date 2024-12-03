@@ -153,12 +153,11 @@ document.querySelectorAll('.menu-link').forEach(link => {
         const particle = document.createElement('div');
         particle.className = 'electricity-particle';
         
-        // Varied particle sizes
-        const size = Math.random() * 2 + 1;
+        // Varied particle sizes for more visual interest
+        const size = Math.random() * 3 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
-        // Start from center
         particle.style.left = `${x}%`;
         particle.style.top = `${y}%`;
         
@@ -172,31 +171,41 @@ document.querySelectorAll('.menu-link').forEach(link => {
         
         electricity.innerHTML = '';
         
-        // More particles for a denser effect
-        for (let i = 0; i < 25; i++) {
+        // Create more particles
+        for (let i = 0; i < 35; i++) {
             const particle = createParticle(50, 50);
             electricity.appendChild(particle);
             
             // Complex animation patterns
-            const baseAngle = (i / 25) * Math.PI * 2;
-            const speed = 1.2 + Math.random() * 0.6;
-            const radiusX = 30 + Math.random() * 15;
-            const radiusY = 25 + Math.random() * 12;
+            const baseAngle = (i / 35) * Math.PI * 2;
+            const speed = 1.5 + Math.random() * 0.8;
+            const radiusX = 35 + Math.random() * 20;
+            const radiusY = 30 + Math.random() * 15;
             const phaseOffset = Math.random() * Math.PI * 2;
+            const direction = Math.random() > 0.5 ? 1 : -1;
             
             let progress = phaseOffset;
             function animate() {
                 if (!isHovering) return;
                 
-                progress += 0.03 * speed;
+                progress += 0.04 * speed;
                 
-                // Combined sinusoidal patterns
-                const x = 50 + Math.sin(progress) * radiusX * Math.cos(progress * 0.5);
-                const y = 50 + Math.sin(progress * 1.5 + phaseOffset) * radiusY;
+                // Combine multiple sinusoidal patterns for more complex movement
+                const wobble = Math.sin(progress * 2) * 5;
+                const x = 50 + (Math.sin(progress * direction) * radiusX + wobble) * Math.cos(progress * 0.5);
+                const y = 50 + (Math.cos(progress * 1.5) * radiusY + wobble) * Math.sin(progress * 0.7);
+                
+                // Dynamic opacity based on position
+                const distanceFromCenter = Math.sqrt(Math.pow(x - 50, 2) + Math.pow(y - 50, 2));
+                const opacityFactor = 1 - (distanceFromCenter / 100);
                 
                 particle.style.left = `${x}%`;
                 particle.style.top = `${y}%`;
-                particle.style.opacity = 0.5 + Math.sin(progress) * 0.3;
+                particle.style.opacity = 0.3 + (opacityFactor * 0.7) + Math.sin(progress) * 0.2;
+                
+                // Add subtle scale animation
+                const scale = 1 + Math.sin(progress * 2) * 0.2;
+                particle.style.transform = `scale(${scale})`;
                 
                 requestAnimationFrame(animate);
             }
