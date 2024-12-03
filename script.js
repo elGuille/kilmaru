@@ -9,26 +9,6 @@ themeToggle.addEventListener('click', () => {
     updateParticlesColor(newTheme);
 });
 
-// Mouse follower for title with momentum
-const title = document.querySelector('.title');
-let mouseX = 0, mouseY = 0;
-let currentX = 0, currentY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX - window.innerWidth / 2) * 0.1;
-    mouseY = (e.clientY - window.innerHeight / 2) * 0.1;
-});
-
-function updateTitlePosition() {
-    currentX += (mouseX - currentX) * 0.1;
-    currentY += (mouseY - currentY) * 0.1;
-    
-    title.style.transform = `perspective(1000px) rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
-    requestAnimationFrame(updateTitlePosition);
-}
-
-updateTitlePosition();
-
 // Initialize particles
 function initParticles(theme) {
     particlesJS('particles-js', {
@@ -129,13 +109,47 @@ function updateParticlesColor(theme) {
 // Initialize particles with current theme
 initParticles(html.getAttribute('data-theme'));
 
+// Different particle effects for menu items
+const particleEffects = {
+    pulse: (x, y, progress) => ({
+        x: x + Math.cos(progress * Math.PI * 2) * 20,
+        y: y + Math.sin(progress * Math.PI * 2) * 20,
+        scale: 1 + Math.sin(progress * Math.PI) * 0.5
+    }),
+    spiral: (x, y, progress) => {
+        const angle = progress * Math.PI * 4;
+        const radius = progress * 30;
+        return {
+            x: x + Math.cos(angle) * radius,
+            y: y + Math.sin(angle) * radius,
+            scale: 1 - progress * 0.5
+        };
+    },
+    burst: (x, y, progress) => ({
+        x: x + (Math.random() - 0.5) * 100 * progress,
+        y: y + (Math.random() - 0.5) * 100 * progress,
+        scale: 1 - progress
+    }),
+    wave: (x, y, progress) => ({
+        x: x + Math.sin(progress * Math.PI * 4) * 30,
+        y: y + progress * 40,
+        scale: 1 - progress * 0.5
+    }),
+    lightning: (x, y, progress) => ({
+        x: x + (Math.random() - 0.5) * 20,
+        y: y + progress * 60,
+        scale: (1 - progress) * Math.random()
+    })
+};
+
 // Enhanced electricity effect for menu items
 document.querySelectorAll('.menu-link').forEach(link => {
     const electricity = link.querySelector('.electricity');
+    const effect = link.getAttribute('data-effect');
     let isHovering = false;
     let animationFrame;
     
-    function createElectricityParticle() {
+    function createParticle(x, y) {
         if (!isHovering) return;
         
         const particle = document.createElement('div');
@@ -143,10 +157,8 @@ document.querySelectorAll('.menu-link').forEach(link => {
         electricity.appendChild(particle);
         
         const size = 1 + Math.random() * 2;
-        const startX = Math.random() * 100 - 50;
-        const startY = Math.random() * 100 - 50;
-        const angle = Math.random() * Math.PI * 2;
-        const velocity = 1 + Math.random() * 2;
+        const startX = x;
+        const startY = y;
         const lifetime = 500 + Math.random() * 1000;
         
         particle.style.width = `${size}px`;
@@ -158,20 +170,16 @@ document.querySelectorAll('.menu-link').forEach(link => {
         function updateParticle(currentTime) {
             const deltaTime = currentTime - lastTime;
             lastTime = currentTime;
-            progress += deltaTime;
+            progress += deltaTime / lifetime;
             
-            if (progress >= lifetime) {
+            if (progress >= 1) {
                 particle.remove();
                 return;
             }
             
-            const t = progress / lifetime;
-            const x = startX + Math.cos(angle) * velocity * progress * 0.1;
-            const y = startY + Math.sin(angle) * velocity * progress * 0.1;
-            const scale = Math.sin(Math.PI * t);
-            
-            particle.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-            particle.style.opacity = 1 - t;
+            const pos = particleEffects[effect](startX, startY, progress);
+            particle.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`;
+            particle.style.opacity = 1 - progress;
             
             requestAnimationFrame(updateParticle);
         }
@@ -179,24 +187,34 @@ document.querySelectorAll('.menu-link').forEach(link => {
         requestAnimationFrame(updateParticle);
     }
     
-    function startElectricityEffect() {
+    function startEffect(e) {
         isHovering = true;
+        const rect = electricity.getBoundingClientRect();
+        const centerX = (e.clientX - rect.left) - rect.width / 2;
+        const centerY = (e.clientY - rect.top) - rect.height / 2;
+        
         function loop() {
             if (!isHovering) return;
-            for (let i = 0; i < 3; i++) {
-                createElectricityParticle();
-            }
+            createParticle(centerX, centerY);
             animationFrame = requestAnimationFrame(loop);
         }
         loop();
     }
     
-    function stopElectricityEffect() {
+    function stopEffect() {
         isHovering = false;
         cancelAnimationFrame(animationFrame);
         electricity.innerHTML = '';
     }
     
-    link.addEventListener('mouseenter', startElectricityEffect);
-    link.addEventListener('mouseleave', stopElectricityEffect);
+    link.addEventListener('mouseenter', startEffect);
+    link.addEventListener('mouseleave', stopEffect);
+    link.addEventListener('mousemove', (e) => {
+        if (isHovering) {
+            const rect = electricity.getBoundingClientRect();
+            const centerX = (e.clientX - rect.left) - rect.width / 2;
+            const centerY = (e.clientY - rect.top) - rect.height / 2;
+            createParticle(centerX, centerY);
+        }
+    });
 });
