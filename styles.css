@@ -18,6 +18,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* Responsive font-size adjustments */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
 }
 
 body {
@@ -27,6 +46,15 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* Mobile viewport fix */
+}
+
+/* Safari mobile viewport fix */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
 }
 
 #particles-js {
@@ -43,24 +71,30 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: clamp(1rem, 5vw, 2rem);
     position: relative;
     z-index: 2;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .theme-toggle {
     position: fixed;
-    top: 2rem;
-    right: 2rem;
+    top: clamp(1rem, 5vw, 2rem);
+    right: clamp(1rem, 5vw, 2rem);
     z-index: 3;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    width: 40px;
-    height: 40px;
+    width: clamp(36px, 8vw, 40px);
+    height: clamp(36px, 8vw, 40px);
     border-radius: 50%;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle:hover {
@@ -83,16 +117,17 @@ body {
 
 header {
     text-align: center;
-    padding: 4rem 0 2rem;
+    padding: clamp(2rem, 8vh, 4rem) 0 clamp(1rem, 4vh, 2rem);
     margin-bottom: 1rem;
 }
 
 .title {
     font-family: 'Young Serif', serif;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 900;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 4vh, 2rem);
+    line-height: 1.2;
 }
 
 .main-nav {
@@ -100,22 +135,26 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -2rem 0;
+    margin: clamp(-1rem, -4vh, -2rem) 0;
 }
 
 .main-nav ul {
     list-style: none;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 1rem;
 }
 
 .main-nav ul li {
-    margin: 1.5rem 0;
+    margin: clamp(1rem, 3vh, 1.5rem) 0;
+    text-align: center;
 }
 
 .menu-link {
     color: var(--text-color);
     text-decoration: none;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
     font-weight: 300;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -126,6 +165,14 @@ header {
 .menu-link:hover {
     color: var(--hover-color);
     transform: translateX(10px);
+}
+
+/* Touch device handling */
+@media (hover: none) {
+    .menu-link:active {
+        color: var(--hover-color);
+        transform: translateX(10px);
+    }
 }
 
 .menu-link span {
@@ -164,16 +211,18 @@ header {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: clamp(1rem, 4vw, 2rem);
+    padding: clamp(1rem, 4vh, 2rem) 0;
+    flex-wrap: wrap;
 }
 
 .social-links a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     opacity: 0.7;
     transition: all 0.3s ease;
+    padding: 0.5rem;
 }
 
 .social-links a:hover {
@@ -183,20 +232,20 @@ header {
 
 .coming-soon {
     text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: clamp(1rem, 4vw, 2rem);
+    margin-top: clamp(1rem, 4vh, 2rem);
 }
 
 .coming-soon h2 {
     font-family: 'Young Serif', serif;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
     margin-bottom: 1rem;
     color: var(--text-color);
 }
 
 .coming-soon p {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     margin-bottom: 2rem;
     opacity: 0.8;
 }
@@ -206,7 +255,7 @@ header {
     color: var(--text-color);
     text-decoration: none;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
     padding: 0.5rem 1rem;
     border: 1px solid var(--text-color);
     border-radius: 4px;
@@ -218,17 +267,43 @@ header {
     color: var(--bg-color);
 }
 
+/* Additional responsive adjustments */
 @media (max-width: 768px) {
-    .title {
-        font-size: 3rem;
+    .container {
+        padding: 1rem;
     }
     
-    .menu-link {
-        font-size: 1.2rem;
+    .social-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
     }
+    
+    .main-nav ul li {
+        margin: 1rem 0;
+    }
+}
 
+/* Small screen optimizations */
+@media (max-width: 480px) {
     .theme-toggle {
-        top: 1rem;
-        right: 1rem;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+    
+    .title {
+        margin-top: 1rem;
+    }
+    
+    .menu-link:hover {
+        transform: translateX(5px);
+    }
+    
+    .social-links {
+        padding: 1rem 0;
+    }
+    
+    .social-links a {
+        padding: 0.25rem;
     }
 }
