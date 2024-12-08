@@ -11,38 +11,45 @@ themeToggle.addEventListener('click', () => {
 
 // Initialize particles
 function initParticles(theme) {
+    const isMobile = window.innerWidth <= 768;
+    const particleCount = isMobile ? 30 : 60;
+    
     particlesJS('particles-js', {
         particles: {
             number: {
-                value: 80,
+                value: particleCount,
                 density: {
                     enable: true,
-                    value_area: 800
+                    value_area: 1200
                 }
             },
             color: {
                 value: theme === 'light' ? '#1a1a1a' : '#ffffff'
             },
             shape: {
-                type: 'circle'
+                type: "circle",
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                }
             },
             opacity: {
                 value: 0.3,
                 random: true,
                 anim: {
                     enable: true,
-                    speed: 1,
+                    speed: 0.2,
                     opacity_min: 0.1,
                     sync: false
                 }
             },
             size: {
-                value: 3,
+                value: 2,
                 random: true,
                 anim: {
                     enable: true,
-                    speed: 2,
-                    size_min: 0.1,
+                    speed: 1,
+                    size_min: 0.3,
                     sync: false
                 }
             },
@@ -55,11 +62,11 @@ function initParticles(theme) {
             },
             move: {
                 enable: true,
-                speed: 2,
-                direction: 'none',
+                speed: 0.8,
+                direction: "none",
                 random: true,
                 straight: false,
-                out_mode: 'out',
+                out_mode: "out",
                 bounce: false,
                 attract: {
                     enable: true,
@@ -69,15 +76,15 @@ function initParticles(theme) {
             }
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: "canvas",
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'bubble'
+                    mode: "bubble"
                 },
                 onclick: {
                     enable: true,
-                    mode: 'push'
+                    mode: "push"
                 },
                 resize: true
             },
@@ -85,12 +92,12 @@ function initParticles(theme) {
                 bubble: {
                     distance: 200,
                     size: 6,
-                    duration: 0.4,
-                    opacity: 0.8,
+                    duration: 2,
+                    opacity: 1,
                     speed: 3
                 },
                 push: {
-                    particles_nb: 4
+                    particles_nb: 6
                 }
             }
         },
@@ -109,126 +116,98 @@ function updateParticlesColor(theme) {
 // Initialize particles with current theme
 initParticles(html.getAttribute('data-theme'));
 
-// Different particle effects for menu items
-const particleEffects = {
-    pulse: (x, y, progress) => ({
-        x: x + Math.cos(progress * Math.PI * 2) * 20,
-        y: y + Math.sin(progress * Math.PI * 2) * 20,
-        scale: 1 + Math.sin(progress * Math.PI) * 0.5
-    }),
-    spiral: (x, y, progress) => {
-        const angle = progress * Math.PI * 4;
-        const radius = progress * 30;
-        return {
-            x: x + Math.cos(angle) * radius,
-            y: y + Math.sin(angle) * radius,
-            scale: 1 - progress * 0.5
-        };
-    },
-    burst: (x, y, progress) => ({
-        x: x + (Math.random() - 0.5) * 100 * progress,
-        y: y + (Math.random() - 0.5) * 100 * progress,
-        scale: 1 - progress
-    }),
-    wave: (x, y, progress) => ({
-        x: x + Math.sin(progress * Math.PI * 4) * 30,
-        y: y + progress * 40,
-        scale: 1 - progress * 0.5
-    }),
-    lightning: (x, y, progress) => ({
-        x: x + (Math.random() - 0.5) * 20,
-        y: y + progress * 60,
-        scale: (1 - progress) * Math.random()
-    })
-};
-
-// Enhanced electricity effect for menu items
-document.querySelectorAll('.menu-link').forEach(link => {
-    const electricity = link.querySelector('.electricity');
-    const effect = link.getAttribute('data-effect');
-    let isHovering = false;
-    let animationFrame;
+// Add glitch effect
+function addGlitchEffect() {
+    const container = document.querySelector('.container');
     
-    function createParticle(x, y) {
-        const particle = document.createElement('div');
-        particle.className = 'electricity-particle';
-        
-        // Varied particle sizes for more visual interest
-        const size = Math.random() * 3 + 1;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        particle.style.left = `${x}%`;
-        particle.style.top = `${y}%`;
-        
-        return particle;
-    }
+    setInterval(() => {
+        if (Math.random() < 0.15) {
+            const intensity = Math.random() * 8 - 4;
+            container.style.transform = `translate(${intensity}px, ${intensity}px)`;
+            setTimeout(() => {
+                container.style.transform = 'none';
+            }, 100 + Math.random() * 200);
+        }
+    }, 3000);
+}
 
-    function startEffect(e) {
-        isHovering = true;
-        const electricity = this.querySelector('.electricity');
-        if (!electricity) return;
-        
-        electricity.innerHTML = '';
-        
-        // Create more particles
-        for (let i = 0; i < 35; i++) {
-            const particle = createParticle(50, 50);
-            electricity.appendChild(particle);
-            
-            // Complex animation patterns
-            const baseAngle = (i / 35) * Math.PI * 2;
-            const speed = 1.5 + Math.random() * 0.8;
-            const radiusX = 35 + Math.random() * 20;
-            const radiusY = 30 + Math.random() * 15;
-            const phaseOffset = Math.random() * Math.PI * 2;
-            const direction = Math.random() > 0.5 ? 1 : -1;
-            
-            let progress = phaseOffset;
-            function animate() {
-                if (!isHovering) return;
-                
-                progress += 0.04 * speed;
-                
-                // Combine multiple sinusoidal patterns for more complex movement
-                const wobble = Math.sin(progress * 2) * 5;
-                const x = 50 + (Math.sin(progress * direction) * radiusX + wobble) * Math.cos(progress * 0.5);
-                const y = 50 + (Math.cos(progress * 1.5) * radiusY + wobble) * Math.sin(progress * 0.7);
-                
-                // Dynamic opacity based on position
-                const distanceFromCenter = Math.sqrt(Math.pow(x - 50, 2) + Math.pow(y - 50, 2));
-                const opacityFactor = 1 - (distanceFromCenter / 100);
-                
-                particle.style.left = `${x}%`;
-                particle.style.top = `${y}%`;
-                particle.style.opacity = 0.3 + (opacityFactor * 0.7) + Math.sin(progress) * 0.2;
-                
-                // Add subtle scale animation
-                const scale = 1 + Math.sin(progress * 2) * 0.2;
-                particle.style.transform = `scale(${scale})`;
-                
-                requestAnimationFrame(animate);
+addGlitchEffect();
+
+// Add menu hover particles
+function initMenuParticles() {
+    document.querySelectorAll('.menu-link').forEach(link => {
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'menu-particle';
+            return particle;
+        }
+
+        function animateParticles() {
+            const particle = createParticle();
+            link.appendChild(particle);
+
+            // Random starting position around the link
+            const rect = link.getBoundingClientRect();
+            const startX = Math.random() * rect.width;
+            const startY = Math.random() * rect.height;
+            particle.style.left = startX + 'px';
+            particle.style.top = startY + 'px';
+
+            // Animate the particle
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 30 + 20;
+            const duration = Math.random() * 1000 + 1000;
+            const startTime = Date.now();
+
+            function updateParticle() {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / duration;
+
+                if (progress >= 1) {
+                    particle.remove();
+                    return;
+                }
+
+                const currentX = startX + Math.cos(angle) * velocity * progress;
+                const currentY = startY + Math.sin(angle) * velocity * progress;
+                const currentOpacity = 0.5 * (1 - progress);
+
+                particle.style.left = currentX + 'px';
+                particle.style.top = currentY + 'px';
+                particle.style.opacity = currentOpacity;
+
+                requestAnimationFrame(updateParticle);
             }
-            animate();
-        }
-    }
 
-    function stopEffect() {
-        isHovering = false;
-        const electricity = this.querySelector('.electricity');
-        if (electricity) {
-            electricity.innerHTML = '';
+            requestAnimationFrame(updateParticle);
         }
-    }
 
-    link.addEventListener('mouseenter', startEffect);
-    link.addEventListener('mouseleave', stopEffect);
-    link.addEventListener('mousemove', (e) => {
-        if (isHovering) {
-            const rect = electricity.getBoundingClientRect();
-            const centerX = (e.clientX - rect.left) - rect.width / 2;
-            const centerY = (e.clientY - rect.top) - rect.height / 2;
-            createParticle(centerX, centerY);
+        let animationInterval;
+        
+        link.addEventListener('mouseenter', () => {
+            console.log('Mouse entered');  // Debug log
+            animationInterval = setInterval(animateParticles, 50);
+        });
+
+        link.addEventListener('mouseleave', () => {
+            console.log('Mouse left');  // Debug log
+            clearInterval(animationInterval);
+            // Clean up existing particles
+            link.querySelectorAll('.menu-particle').forEach(particle => {
+                particle.remove();
+            });
+        });
+    });
+}
+
+initMenuParticles();
+
+// Handle article card clicks
+document.querySelectorAll('.article-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const url = card.dataset.url;
+        if (url) {
+            window.open(url, '_blank');
         }
     });
 });
