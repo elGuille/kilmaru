@@ -2,107 +2,121 @@
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
+// Load saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+
 themeToggle.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
     updateParticlesColor(newTheme);
 });
 
-// Initialize particles
+// Initialize particles with performance optimizations
 function initParticles(theme) {
-    const isMobile = window.innerWidth <= 768;
-    const particleCount = isMobile ? 30 : 60;
-    
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: particleCount,
-                density: {
-                    enable: true,
-                    value_area: 1200
-                }
-            },
-            color: {
-                value: theme === 'light' ? '#1a1a1a' : '#ffffff'
-            },
-            shape: {
-                type: "circle",
-                stroke: {
-                    width: 0,
-                    color: "#000000"
-                }
-            },
-            opacity: {
-                value: 0.3,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 0.2,
-                    opacity_min: 0.1,
-                    sync: false
-                }
-            },
-            size: {
-                value: 2,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 1,
-                    size_min: 0.3,
-                    sync: false
-                }
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: theme === 'light' ? '#1a1a1a' : '#ffffff',
-                opacity: 0.2,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 0.8,
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-                attract: {
-                    enable: true,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "bubble"
+    try {
+        const isMobile = window.innerWidth <= 768;
+        const particleCount = isMobile ? 20 : 60;
+        
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: particleCount,
+                    density: {
+                        enable: true,
+                        value_area: 1200
+                    }
                 },
-                onclick: {
+                color: {
+                    value: theme === 'light' ? '#1a1a1a' : '#ffffff'
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 0.2,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 2,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        size_min: 0.3,
+                        sync: false
+                    }
+                },
+                line_linked: {
                     enable: true,
-                    mode: "push"
+                    distance: 150,
+                    color: theme === 'light' ? '#1a1a1a' : '#ffffff',
+                    opacity: 0.2,
+                    width: 1
                 },
-                resize: true
-            },
-            modes: {
-                bubble: {
-                    distance: 200,
-                    size: 6,
-                    duration: 2,
-                    opacity: 1,
-                    speed: 3
-                },
-                push: {
-                    particles_nb: 6
+                move: {
+                    enable: true,
+                    speed: isMobile ? 0.5 : 0.8,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
                 }
-            }
-        },
-        retina_detect: true
-    });
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: !isMobile,
+                        mode: "bubble"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    bubble: {
+                        distance: 200,
+                        size: 6,
+                        duration: 2,
+                        opacity: 1,
+                        speed: 3
+                    },
+                    push: {
+                        particles_nb: isMobile ? 2 : 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    } catch (error) {
+        console.error('Failed to initialize particles:', error);
+        // Hide particles container on error
+        const particlesContainer = document.getElementById('particles-js');
+        if (particlesContainer) {
+            particlesContainer.style.display = 'none';
+        }
+    }
 }
 
 function updateParticlesColor(theme) {
@@ -116,19 +130,37 @@ function updateParticlesColor(theme) {
 // Initialize particles with current theme
 initParticles(html.getAttribute('data-theme'));
 
-// Add glitch effect
+// Debounced glitch effect for better performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 function addGlitchEffect() {
     const container = document.querySelector('.container');
     
-    setInterval(() => {
+    const debouncedGlitch = debounce(() => {
         if (Math.random() < 0.15) {
             const intensity = Math.random() * 8 - 4;
-            container.style.transform = `translate(${intensity}px, ${intensity}px)`;
-            setTimeout(() => {
-                container.style.transform = 'none';
-            }, 100 + Math.random() * 200);
+            requestAnimationFrame(() => {
+                container.style.transform = `translate(${intensity}px, ${intensity}px)`;
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        container.style.transform = 'none';
+                    });
+                }, 100 + Math.random() * 200);
+            });
         }
-    }, 3000);
+    }, 100);
+
+    setInterval(debouncedGlitch, 3000);
 }
 
 addGlitchEffect();
