@@ -898,3 +898,45 @@ html, body {
         padding: 1.5rem;
     }
 }
+
+/* Coming soon */
+main {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Asteroids game styles */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    padding: 1rem 0;
+}
+
+#asteroidsCanvas {
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    width: 90%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 0 auto;
+}
+
+.controls {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+}
