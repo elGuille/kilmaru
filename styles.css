@@ -417,7 +417,7 @@ body {
     }
     
     .social-links a {
-        padding: 0.4rem;
+        padding: 0.4rem 0.8rem;
         font-size: 0.75rem;
         min-width: auto;
         max-width: none;
@@ -427,12 +427,14 @@ body {
     }
     
     .social-links a span:not(.social-icon) {
-        display: none;
+        display: inline-block;
+        font-size: 0.7rem;
+        margin-left: 0.3rem;
     }
     
     .social-icon {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .link-item {
@@ -582,9 +584,15 @@ body, #particles-js {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     padding: 2rem;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     justify-content: center;
+}
+
+.container.media-container {
+    max-width: 100%;
+    padding: 1rem;
 }
 
 .article-card {
@@ -601,42 +609,16 @@ body, #particles-js {
     flex-direction: column;
     position: relative;
     transition: opacity 0.3s ease;
+    min-height: 150px;
 }
 
-.article-card.loading::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.article-card a.article-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    background: var(--bg-color);
-    opacity: 0.7;
-}
-
-.article-card.loading::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--text-color);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-color: var(--text-color);
+    flex: 1;
 }
 
 .article-card h3 {
@@ -652,6 +634,18 @@ body, #particles-js {
     opacity: 0.8;
     margin: 0;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
 }
 
 /* Mobile Responsiveness */
