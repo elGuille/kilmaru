@@ -6,9 +6,9 @@
     --hover-color: rgba(26, 26, 26, 0.1);
     --accent-color: #5046e5;
     --secondary-text: #555555;
-    --card-bg: #f8f8f8;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --card-bg: #f2f2f2;
+    --card-shadow: none;
+    --card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 :root[data-theme="dark"] {
