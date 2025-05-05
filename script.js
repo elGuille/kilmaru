@@ -2,17 +2,36 @@
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
-// Load saved theme preference
-const savedTheme = localStorage.getItem('theme') || 'light';
+// Check for system preference
+function getSystemThemePreference() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+// Load saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme') || getSystemThemePreference();
 html.setAttribute('data-theme', savedTheme);
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateParticlesColor(newTheme);
+// Add event listener to all theme toggle buttons
+document.querySelectorAll('#themeToggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateParticlesColor(newTheme);
+    });
 });
+
+// Listen for system theme changes
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) { // Only apply if user hasn't set a preference
+            const newTheme = e.matches ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            updateParticlesColor(newTheme);
+        }
+    });
+}
 
 // Initialize particles with performance optimizations
 function initParticles(theme) {

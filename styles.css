@@ -345,7 +345,8 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
 }
 
 .social-links a {
@@ -363,6 +364,9 @@ body {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+    min-width: 110px;
+    max-width: 150px;
 }
 
 .social-links a:hover {
@@ -407,12 +411,23 @@ body {
     .social-links {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0 0.5rem;
     }
     
     .social-links a {
-        padding: 0.4rem 0.8rem;
+        padding: 0.5rem 0.8rem;
         font-size: 0.8rem;
+        min-width: auto;
+        flex: 0 0 calc(50% - 0.5rem);
+        margin-bottom: 0.5rem;
+        justify-content: flex-start;
+    }
+    
+    /* Make the Contact button full width and centered */
+    .social-links a:last-child {
+        flex: 0 0 100%;
+        justify-content: center;
     }
     
     .link-item {
