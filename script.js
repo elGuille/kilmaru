@@ -18,7 +18,7 @@ themeToggle.addEventListener('click', () => {
 function initParticles(theme) {
     try {
         const isMobile = window.innerWidth <= 768;
-        const particleCount = isMobile ? 20 : 60;
+        const particleCount = isMobile ? 15 : 40;
         
         particlesJS('particles-js', {
             particles: {
@@ -40,7 +40,7 @@ function initParticles(theme) {
                     }
                 },
                 opacity: {
-                    value: 0.3,
+                    value: 0.2,
                     random: true,
                     anim: {
                         enable: true,
@@ -68,7 +68,7 @@ function initParticles(theme) {
                 },
                 move: {
                     enable: true,
-                    speed: isMobile ? 0.5 : 0.8,
+                    speed: isMobile ? 0.3 : 0.5,
                     direction: "none",
                     random: true,
                     straight: false,
@@ -130,6 +130,74 @@ function updateParticlesColor(theme) {
 // Initialize particles with current theme
 initParticles(html.getAttribute('data-theme'));
 
+// Add hover effects to link items
+function initLinkHoverEffects() {
+    const linkItems = document.querySelectorAll('.link-item');
+    
+    linkItems.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.classList.add('hover-active');
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            link.classList.remove('hover-active');
+        });
+        
+        // Add subtle pulse animation on touch for mobile
+        if ('ontouchstart' in window) {
+            link.addEventListener('touchstart', () => {
+                link.classList.add('touch-active');
+                setTimeout(() => {
+                    link.classList.remove('touch-active');
+                }, 300);
+            });
+        }
+    });
+}
+
+// Initialize hover effects
+initLinkHoverEffects();
+
+// Add subtle animation to profile image
+const profileImage = document.querySelector('.profile-image-container');
+if (profileImage) {
+    profileImage.addEventListener('mouseenter', () => {
+        document.querySelector('.profile-image').style.transform = 'scale(1.05)';
+    });
+    
+    profileImage.addEventListener('mouseleave', () => {
+        document.querySelector('.profile-image').style.transform = 'scale(1)';
+    });
+}
+
+// Add subtle animations on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    const links = document.querySelectorAll('.link-item');
+    const socialLinks = document.querySelectorAll('.social-links a');
+    
+    // Fade in elements with slight delay between each
+    setTimeout(() => {
+        container.style.opacity = '1';
+        
+        // Animate links with staggered delay
+        links.forEach((link, index) => {
+            setTimeout(() => {
+                link.style.opacity = '1';
+                link.style.transform = 'translateY(0)';
+            }, 100 + (index * 50));
+        });
+        
+        // Animate social links
+        socialLinks.forEach((link, index) => {
+            setTimeout(() => {
+                link.style.opacity = '1';
+                link.style.transform = 'translateY(0)';
+            }, 300 + (index * 50));
+        });
+    }, 100);
+});
+
 // Debounced glitch effect for better performance
 function debounce(func, wait) {
     let timeout;
@@ -164,75 +232,6 @@ function addGlitchEffect() {
 }
 
 addGlitchEffect();
-
-// Add menu hover particles
-function initMenuParticles() {
-    document.querySelectorAll('.menu-link').forEach(link => {
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'menu-particle';
-            return particle;
-        }
-
-        function animateParticles() {
-            const particle = createParticle();
-            link.appendChild(particle);
-
-            // Random starting position around the link
-            const rect = link.getBoundingClientRect();
-            const startX = Math.random() * rect.width;
-            const startY = Math.random() * rect.height;
-            particle.style.left = startX + 'px';
-            particle.style.top = startY + 'px';
-
-            // Animate the particle
-            const angle = Math.random() * Math.PI * 2;
-            const velocity = Math.random() * 30 + 20;
-            const duration = Math.random() * 1000 + 1000;
-            const startTime = Date.now();
-
-            function updateParticle() {
-                const elapsed = Date.now() - startTime;
-                const progress = elapsed / duration;
-
-                if (progress >= 1) {
-                    particle.remove();
-                    return;
-                }
-
-                const currentX = startX + Math.cos(angle) * velocity * progress;
-                const currentY = startY + Math.sin(angle) * velocity * progress;
-                const currentOpacity = 0.5 * (1 - progress);
-
-                particle.style.left = currentX + 'px';
-                particle.style.top = currentY + 'px';
-                particle.style.opacity = currentOpacity;
-
-                requestAnimationFrame(updateParticle);
-            }
-
-            requestAnimationFrame(updateParticle);
-        }
-
-        let animationInterval;
-        
-        link.addEventListener('mouseenter', () => {
-            console.log('Mouse entered');  // Debug log
-            animationInterval = setInterval(animateParticles, 50);
-        });
-
-        link.addEventListener('mouseleave', () => {
-            console.log('Mouse left');  // Debug log
-            clearInterval(animationInterval);
-            // Clean up existing particles
-            link.querySelectorAll('.menu-particle').forEach(particle => {
-                particle.remove();
-            });
-        });
-    });
-}
-
-initMenuParticles();
 
 // Handle article card clicks
 document.querySelectorAll('.article-card').forEach(card => {
