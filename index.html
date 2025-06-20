@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,120 +9,53 @@
     <link rel="shortcut icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="description" content="Kilmaru - Creative experiments and media">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <!-- Desktop Layout (Original Website) -->
-    <div class="desktop-container">
-        <div class="container">
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-            
-            <div class="profile-section">
-                <div class="profile-image-container">
-                    <img src="images/profile.jpg" alt="Kilmaru Logo" class="profile-image">
-                </div>
-                <h1 class="title">Kilmaru</h1>
-                <p class="bio">Creative experiments and media</p>
-            </div>
-            
-            <div class="links-section">
-                <a href="experiments.html" class="link-item">
-                    <span class="link-text">Experiments</span>
-                    <span class="link-icon">★</span>
-                </a>
-                <a href="viral.html" class="link-item">
-                    <span class="link-text">Viral</span>
-                </a>
-                <a href="media.html" class="link-item">
-                    <span class="link-text">Media</span>
-                </a>
-                <a href="https://kilmaru.substack.com" target="_blank" class="link-item">
-                    <span class="link-text">Mailing List</span>
-                </a>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://instagram.com/kilmaruig" target="_blank">
-                    <span class="social-icon">📷</span>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://tiktok.com/@kilmaru" target="_blank">
-                    <span class="social-icon">🎵</span>
-                    <span>TikTok</span>
-                </a>
-                <a href="https://youtube.com/@kilmaruyt" target="_blank">
-                    <span class="social-icon">📺</span>
-                    <span>YouTube</span>
-                </a>
-                <a href="mailto:hi@kilmaru.com?bcc=kilmarubiz@gmail.com">
-                    <span class="social-icon">✉️</span>
-                    <span>Contact</span>
-                </a>
-            </div>
-        </div>
+    <div class="menu-dots-container">
+        <div class="dots">...</div>
     </div>
-    
-    <!-- Mobile Layout (Linktree-like) -->
-    <div class="mobile-container">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        
+    <div class="main-container">
         <div class="profile-section">
             <div class="profile-image-container">
-                <img src="images/profile.jpg" alt="Kilmaru Logo" class="profile-image">
+                <img src="images/profile.jpg" alt="Kilmaru" class="profile-image">
             </div>
-            <h1 class="title">Kilmaru</h1>
+            <h1 class="title">@kilmaru</h1>
             <p class="bio">Creative experiments and media</p>
         </div>
         
         <div class="links-section">
             <a href="experiments.html" class="link-item">
+                <img src="images/favicon.png" alt="" class="button-image">
                 <span class="link-text">Experiments</span>
-                <span class="link-icon">★</span>
             </a>
             <a href="viral.html" class="link-item">
+                <img src="images/favicon.png" alt="" class="button-image">
                 <span class="link-text">Viral</span>
             </a>
             <a href="media.html" class="link-item">
+                <img src="images/favicon.png" alt="" class="button-image">
                 <span class="link-text">Media</span>
             </a>
             <a href="https://kilmaru.substack.com" target="_blank" class="link-item">
+                <img src="images/favicon.png" alt="" class="button-image">
                 <span class="link-text">Mailing List</span>
             </a>
         </div>
         
         <div class="social-links">
-            <a href="https://instagram.com/kilmaruig" target="_blank">
-                <span class="social-icon">📷</span>
-                <span>Instagram</span>
+            <a href="https://instagram.com/kilmaruig" target="_blank" aria-label="Instagram">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="https://tiktok.com/@kilmaru" target="_blank">
-                <span class="social-icon">🎵</span>
-                <span>TikTok</span>
+            <a href="https://tiktok.com/@kilmaru" target="_blank" aria-label="TikTok">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path></svg>
             </a>
-            <a href="https://youtube.com/@kilmaruyt" target="_blank">
-                <span class="social-icon">📺</span>
-                <span>YouTube</span>
-            </a>
-            <a href="mailto:hi@kilmaru.com?bcc=kilmarubiz@gmail.com">
-                <span class="social-icon">✉️</span>
-                <span>Contact</span>
+            <a href="https://youtube.com/@kilmaruyt" target="_blank" aria-label="YouTube">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             </a>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
