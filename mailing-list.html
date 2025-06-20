@@ -1,46 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mailing List - Kilmaru</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Kilmaru">
+    <link rel="stylesheet" href="styles.css?v=1.1">
     <style>
         .substack-embed {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 2rem;
+            width: 100%;
+            margin: 1rem 0;
         }
-        
         .substack-embed iframe {
-            max-width: 480px;
             width: 100%;
             height: 150px;
-            border: none;
+            border-radius: 20px;
+            border: 2px solid #000;
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div class="container">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        <header>
-            <h1 class="title"><a href="index.html" style="text-decoration: none; color: inherit;">Kilmaru</a></h1>
-        </header>
+    <div class="main-container">
+        <div class="profile-section">
+            <a href="index.html">
+                <img src="images/profile.jpg" alt="Kilmaru" class="profile-image">
+            </a>
+            <h1 class="username">Mailing List</h1>
+        </div>
+        
         <div class="substack-embed">
-            <iframe src="https://kilmaru.substack.com/embed" width="480" height="150" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+            <iframe src="https://kilmaru.substack.com/embed" frameborder="0" scrolling="no"></iframe>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/kilmaruig" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://tiktok.com/@kilmaru" target="_blank" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path></svg>
+            </a>
+            <a href="https://youtube.com/@kilmaruyt" target="_blank" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
