@@ -69,7 +69,7 @@ body {
     background-color: var(--button-bg);
     color: var(--text-color-dark);
     text-decoration: none;
-    padding: 0.75rem 1rem;
+    padding: 0.975rem 1rem;
     border-radius: 999px;
     font-weight: 500;
     font-size: 0.95rem;
@@ -143,6 +143,27 @@ body {
 }
 
 .simple-back-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-color-dark);
+}
+
+.fixed-back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background-color: var(--button-bg);
+    color: var(--text-color-dark);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 500;
+    border: 2px solid var(--text-color-dark);
+    box-shadow: 4px 4px 0px var(--text-color-dark);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.fixed-back-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--text-color-dark);
 }

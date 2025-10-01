@@ -9,23 +9,102 @@
     <link rel="shortcut icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Kilmaru">
     <link rel="stylesheet" href="styles.css?v=1.1">
+    <style>
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background-color: var(--button-bg);
+            border: 2px solid var(--text-color-dark);
+            box-shadow: 4px 4px 0px var(--text-color-dark);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-color-dark);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-color-dark);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-color-dark);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .stat-sublabel {
+            font-size: 0.85rem;
+            color: var(--text-color-dark);
+            opacity: 0.6;
+            margin-top: 0.25rem;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-card {
+            animation: countUp 0.6s ease-out forwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
+    </style>
 </head>
 <body>
+    <a href="index.html" class="fixed-back-button">← Back</a>
     <div class="main-container">
         <div class="profile-section">
-            <a href="index.html">
-                <img src="images/profile.jpg" alt="Kilmaru" class="profile-image">
-            </a>
-            <h1 class="username">Viral</h1>
+            <h1 class="username">Viral Impact</h1>
         </div>
 
-        <h2 class="page-title">Coming Soon</h2>
-        <a href="index.html" class="simple-back-button">Back to Home</a>
-        
-        <div class="social-links" style="position: absolute; bottom: 2rem;">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" data-target="2000000000">0</div>
+                <div class="stat-label">Total Views</div>
+                <div class="stat-sublabel">Across All Platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="5800000000">0</div>
+                <div class="stat-label">Watch Time</div>
+                <div class="stat-sublabel">Hours Viewed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="250000000">0</div>
+                <div class="stat-label">Engagement</div>
+                <div class="stat-sublabel">Likes & Reactions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="3000000">0</div>
+                <div class="stat-label">Comments</div>
+                <div class="stat-sublabel">Community Interactions</div>
+            </div>
+        </div>
+
+        <div class="social-links">
             <a href="https://instagram.com/kilmaruig" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
@@ -35,7 +114,50 @@
             <a href="https://youtube.com/@kilmaruyt" target="_blank" aria-label="YouTube">
                 <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             </a>
+            <a href="mailto:hi@kilmaru.com" aria-label="Email">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
         </div>
     </div>
+
+    <script>
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                // Format number with B, M, K suffixes
+                let displayValue;
+                if (current >= 1000000000) {
+                    displayValue = (current / 1000000000).toFixed(1) + 'B';
+                } else if (current >= 1000000) {
+                    displayValue = (current / 1000000).toFixed(1) + 'M';
+                } else if (current >= 1000) {
+                    displayValue = (current / 1000).toFixed(1) + 'K';
+                } else {
+                    displayValue = Math.floor(current);
+                }
+
+                element.textContent = displayValue;
+            }, 16);
+        }
+
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.stat-number').forEach(element => {
+                const target = parseInt(element.getAttribute('data-target'));
+                setTimeout(() => {
+                    animateCounter(element, target);
+                }, 500);
+            });
+        });
+    </script>
 </body>
 </html>
