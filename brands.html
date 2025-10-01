@@ -5,66 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brands - Kilmaru</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.1">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 0;
-            margin: 0;
+            padding: 6rem 2rem 4rem;
         }
 
-        .container {
-            width: 100vw;
-            height: 100vh;
+        .brands-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        img {
-            max-width: 95vw;
-            max-height: 95vh;
-            width: auto;
+        .brands-image {
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 8px 8px 0px var(--text-color-dark);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .brands-image img {
+            width: 100%;
             height: auto;
-            object-fit: contain;
             display: block;
-        }
-
-        .back-button {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background-color: #ffffff;
-            color: #000000;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 999px;
-            font-weight: 500;
-            border: 2px solid #000000;
-            box-shadow: 4px 4px 0px #000000;
-            transition: all 0.2s ease;
-        }
-
-        .back-button:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #000000;
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Back</a>
-    <div class="container">
-        <img src="images/brands.png" alt="Brands">
+    <a href="index.html" class="fixed-back-button">← Back</a>
+    <div class="brands-container">
+        <div class="brands-image">
+            <img src="images/brands.png" alt="Brands">
+        </div>
     </div>
 </body>
 </html>
