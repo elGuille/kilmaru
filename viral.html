@@ -15,11 +15,17 @@
     <style>
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .stat-card {
@@ -75,7 +81,7 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="fixed-back-button">← Back</a>
+    <a href="./" class="fixed-back-button">← Back</a>
     <div class="main-container">
         <div class="profile-section">
             <h1 class="username">Viral Impact</h1>
@@ -88,9 +94,9 @@
                 <div class="stat-sublabel">Across All Platforms</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-target="5800000000">0</div>
+                <div class="stat-number" data-target="1900">0</div>
                 <div class="stat-label">Watch Time</div>
-                <div class="stat-sublabel">Hours Viewed</div>
+                <div class="stat-sublabel">Years Viewed</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="250000000">0</div>
