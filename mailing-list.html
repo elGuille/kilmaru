@@ -108,7 +108,7 @@
     <a href="./" class="fixed-back-button">← Back</a>
     <div class="main-container">
         <div class="profile-section">
-            <img src="images/Sora.png" alt="Sora" style="width: 80px; height: 80px; object-fit: contain;">
+            <img src="./images/Sora.png" alt="Sora" style="width: 80px; height: 80px; object-fit: contain;">
             <h1 class="username">Participate in the Sora Code Giveaway</h1>
         </div>
 
@@ -127,7 +127,7 @@
                         >
                     </div>
                     <button type="submit" class="form-button" id="submitBtn">
-                        Subscribe
+                        Participate
                     </button>
                 </form>
                 <div id="message" class="message"></div>
@@ -163,7 +163,7 @@
 
             const email = document.getElementById('email').value;
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Subscribing...';
+            submitBtn.textContent = 'Participating...';
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -180,7 +180,7 @@
 
                 // With no-cors, we can't read the response, so assume success
                 message.className = 'message success';
-                message.textContent = 'Successfully subscribed! Thank you.';
+                message.textContent = 'You\'re now participating! Thank you.';
                 message.style.display = 'block';
                 form.reset();
 
@@ -190,7 +190,7 @@
                 message.style.display = 'block';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Subscribe';
+                submitBtn.textContent = 'Participate';
 
                 setTimeout(() => {
                     message.style.display = 'none';
