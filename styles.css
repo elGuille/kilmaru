@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #007bff;
+    --bg-color: #3a3a3a;
     --text-color-light: #ffffff;
-    --text-color-dark: #000000;
-    --button-bg: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.2);
+    --text-color-dark: #1a1a1a;
+    --button-bg: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 * {
