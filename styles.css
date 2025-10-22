@@ -3,6 +3,7 @@
     --text-color-light: #ffffff;
     --text-color-dark: #1a1a1a;
     --button-bg: #f0f0f0;
+    --button-border: #888888;
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -45,8 +46,8 @@ body {
 }
 
 .profile-image {
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 3px solid var(--text-color-light);
     object-fit: cover;
@@ -77,13 +78,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--text-color-dark);
-    box-shadow: 4px 4px 0px var(--text-color-dark);
+    border: 2px solid var(--button-border);
+    box-shadow: 4px 4px 0px var(--button-border);
 }
 
 .link-item:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--text-color-dark);
+    box-shadow: 2px 2px 0px var(--button-border);
 }
 
 .link-text {
@@ -105,8 +106,8 @@ body {
     text-decoration: none;
     padding: 1.5rem;
     border-radius: 20px;
-    border: 2px solid var(--text-color-dark);
-    box-shadow: 4px 4px 0px var(--text-color-dark);
+    border: 2px solid var(--button-border);
+    box-shadow: 4px 4px 0px var(--button-border);
     transition: all 0.2s ease;
     height: 100%;
     display: flex;
@@ -115,7 +116,7 @@ body {
 
 .article-card:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--text-color-dark);
+    box-shadow: 2px 2px 0px var(--button-border);
 }
 
 .article-card h3 {
@@ -136,15 +137,15 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: 999px;
     font-weight: 500;
-    border: 2px solid var(--text-color-dark);
-    box-shadow: 4px 4px 0px var(--text-color-dark);
+    border: 2px solid var(--button-border);
+    box-shadow: 4px 4px 0px var(--button-border);
     transition: all 0.2s ease;
     margin-top: 2rem;
 }
 
 .simple-back-button:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--text-color-dark);
+    box-shadow: 2px 2px 0px var(--button-border);
 }
 
 .fixed-back-button {
@@ -157,15 +158,15 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: 999px;
     font-weight: 500;
-    border: 2px solid var(--text-color-dark);
-    box-shadow: 4px 4px 0px var(--text-color-dark);
+    border: 2px solid var(--button-border);
+    box-shadow: 4px 4px 0px var(--button-border);
     transition: all 0.2s ease;
     z-index: 100;
 }
 
 .fixed-back-button:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--text-color-dark);
+    box-shadow: 2px 2px 0px var(--button-border);
 }
 
 .page-title {
@@ -183,13 +184,14 @@ body {
 }
 
 .social-links a {
-    color: var(--text-color-light);
+    color: #999999;
     text-decoration: none;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-links a:hover {
     transform: scale(1.1);
+    color: var(--text-color-light);
 }
 
 .social-links svg {
@@ -197,7 +199,7 @@ body {
     height: 28px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 2;
+    stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
