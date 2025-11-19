@@ -80,6 +80,29 @@
             cursor: not-allowed;
             transform: none;
         }
+
+        .message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+            border: 2px solid var(--button-border);
+            box-shadow: 4px 4px 0px var(--button-border);
+        }
+
+        .message.success {
+            background-color: #f0f0f0;
+            color: #3a3a3a;
+        }
+
+        .message.error {
+            background-color: #ff6b6b;
+            color: #ffffff;
+            border-color: #ff4757;
+            box-shadow: 4px 4px 0px #ff4757;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +134,7 @@
             </div>
 
             <button type="submit" class="submit-btn">Send Message</button>
+            <div id="message" class="message"></div>
         </form>
 
         <div class="social-links">
@@ -153,19 +177,30 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    alert("Success! Your message has been sent.");
+                    showMessage("Success! Your message has been sent.", "success");
                     form.reset();
                 } else {
-                    alert("Error: " + data.message);
+                    showMessage("Error: " + data.message, "error");
                 }
 
             } catch (error) {
-                alert("Something went wrong. Please try again.");
+                showMessage("Something went wrong. Please try again.", "error");
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
+
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = 'message ' + type;
+            messageEl.style.display = 'block';
+
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
     </script>
 </body>
 </html>
