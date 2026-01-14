@@ -1,11 +1,79 @@
+/* Kilmaru - Dual Theme Styles */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@500;600;700&display=swap');
+
+/* ========================================
+   THEME VARIABLES
+   ======================================== */
+
+/* Comic Dark Theme (Default) */
 :root {
+    --bg-color: #1a0a1f;
+    --bg-image: url('images/pulp-chaos-bg.png');
+    --bg-secondary: #0d0511;
+    --text-color-light: #ffffff;
+    --text-color-dark: #1a0a1f;
+    --accent-primary: #e619e6;
+    --accent-primary-bright: #ff2aff;
+    --accent-secondary: #d4e619;
+    --accent-secondary-bright: #e6ff2a;
+    --button-bg: #e619e6;
+    --button-text: #ffffff;
+    --button-border: #d4e619;
+    --shadow-color: rgba(230, 25, 230, 0.4);
+    --social-color: #e619e6;
+    --social-hover: #d4e619;
+    --profile-border: #e619e6;
+    --card-bg: rgba(230, 25, 230, 0.15);
+    --card-border: #e619e6;
+
+    /* Theme-specific display properties */
+    --font-display: 'Bangers', cursive;
+    --username-size: 2rem;
+    --username-weight: 400;
+    --username-spacing: 2px;
+    --username-shadow: 2px 2px 0px var(--accent-primary), 4px 4px 0px rgba(0, 0, 0, 0.3);
+    --button-radius: 8px;
+    --button-transform: uppercase;
+    --button-spacing: 1px;
+    --halftone-opacity: 1;
+}
+
+/* Classic Gray Theme */
+[data-theme="classic"] {
     --bg-color: #3a3a3a;
+    --bg-image: none;
+    --bg-secondary: #2a2a2a;
     --text-color-light: #ffffff;
     --text-color-dark: #1a1a1a;
+    --accent-primary: #f0f0f0;
+    --accent-primary-bright: #ffffff;
+    --accent-secondary: #2a2a2a;
+    --accent-secondary-bright: #1a1a1a;
     --button-bg: #f0f0f0;
+    --button-text: #1a1a1a;
     --button-border: #2a2a2a;
     --shadow-color: rgba(0, 0, 0, 0.3);
+    --social-color: #999999;
+    --social-hover: #ffffff;
+    --profile-border: #ffffff;
+    --card-bg: #f0f0f0;
+    --card-border: #2a2a2a;
+
+    /* Classic theme typography */
+    --font-display: 'Inter', sans-serif;
+    --username-size: 1.125rem;
+    --username-weight: 600;
+    --username-spacing: 0;
+    --username-shadow: none;
+    --button-radius: 999px;
+    --button-transform: none;
+    --button-spacing: 0;
+    --halftone-opacity: 0;
 }
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
 
 * {
     box-sizing: border-box;
@@ -16,6 +84,10 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-color-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -25,7 +97,102 @@ body {
     flex-direction: column;
     min-height: 100vh;
     padding: 5rem 1rem 2rem;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease;
 }
+
+/* ========================================
+   COMIC HALFTONE BACKGROUND EFFECTS
+   ======================================== */
+
+/* Dark overlay to tone down background image */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+            rgba(26, 10, 31, 0.75) 0%,
+            rgba(26, 10, 31, 0.85) 50%,
+            rgba(26, 10, 31, 0.75) 100%);
+    opacity: var(--halftone-opacity);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* ========================================
+   THEME TOGGLE SWITCH
+   ======================================== */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 52px;
+    height: 28px;
+    border-radius: 14px;
+    border: 2px solid var(--accent-primary);
+    background: var(--bg-color);
+    cursor: pointer;
+    padding: 2px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* The sliding knob */
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    left: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Move knob to the right when classic theme */
+[data-theme="classic"] .theme-toggle::before {
+    left: calc(100% - 22px);
+    background: var(--accent-primary);
+}
+
+/* Icons inside the toggle */
+.theme-toggle svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: var(--accent-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.6;
+    position: absolute;
+}
+
+.theme-toggle .icon-comic {
+    left: 6px;
+}
+
+.theme-toggle .icon-classic {
+    right: 6px;
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
 
 .main-container {
     width: 100%;
@@ -34,7 +201,13 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
+
+/* ========================================
+   PROFILE SECTION
+   ======================================== */
 
 .profile-section {
     display: flex;
@@ -49,14 +222,36 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid var(--text-color-light);
+    border: 4px solid var(--profile-border);
+    box-shadow: 0 0 20px var(--shadow-color);
     object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    box-shadow: 0 0 30px var(--shadow-color);
+    transform: scale(1.02);
 }
 
 .username {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: var(--username-size);
+    font-weight: var(--username-weight);
+    letter-spacing: var(--username-spacing);
+    color: var(--accent-secondary);
+    text-shadow: var(--username-shadow);
+    transition: all 0.3s ease;
 }
+
+/* Classic theme username color override */
+[data-theme="classic"] .username {
+    color: var(--text-color-light);
+    text-shadow: none;
+}
+
+/* ========================================
+   LINKS SECTION
+   ======================================== */
 
 .links-section {
     width: 100%;
@@ -67,22 +262,54 @@ body {
 }
 
 .link-item {
-    background-color: var(--button-bg);
-    color: var(--text-color-dark);
+    background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-primary-bright) 100%);
+    color: var(--button-text);
     text-decoration: none;
-    padding: 0.975rem 1rem;
-    border-radius: 999px;
-    font-weight: 500;
+    padding: 1rem 1.25rem;
+    border-radius: var(--button-radius);
+    font-weight: 600;
     font-size: 0.95rem;
+    text-transform: var(--button-transform);
+    letter-spacing: var(--button-spacing);
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--button-border);
+    border: 3px solid var(--button-border);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Classic theme button style */
+[data-theme="classic"] .link-item {
+    background: var(--button-bg);
     box-shadow: 4px 4px 0px var(--button-border);
+    border-width: 2px;
+    padding: 0.975rem 1rem;
+}
+
+.link-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.link-item:hover::before {
+    left: 100%;
 }
 
 .link-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+[data-theme="classic"] .link-item:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--button-border);
 }
@@ -91,6 +318,10 @@ body {
     flex-grow: 1;
     text-align: center;
 }
+
+/* ========================================
+   ARTICLE GRID & CARDS
+   ======================================== */
 
 .article-grid {
     display: grid;
@@ -101,20 +332,31 @@ body {
 }
 
 .article-card {
-    background-color: var(--button-bg);
-    color: var(--text-color-dark);
+    background: var(--card-bg);
+    color: var(--text-color-light);
     text-decoration: none;
     padding: 1.5rem;
-    border-radius: 20px;
-    border: 2px solid var(--button-border);
-    box-shadow: 4px 4px 0px var(--button-border);
-    transition: all 0.2s ease;
+    border-radius: 12px;
+    border: 2px solid var(--card-border);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+[data-theme="classic"] .article-card {
+    color: var(--text-color-dark);
+    border-radius: 20px;
+    box-shadow: 4px 4px 0px var(--button-border);
+}
+
 .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+[data-theme="classic"] .article-card:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--button-border);
 }
@@ -122,28 +364,52 @@ body {
 .article-card h3 {
     margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+}
+
+[data-theme="classic"] .article-card h3 {
+    color: var(--text-color-dark);
 }
 
 .article-card p {
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.5;
     flex-grow: 1;
+    opacity: 0.9;
 }
 
+/* ========================================
+   BACK BUTTONS
+   ======================================== */
+
 .simple-back-button {
-    background-color: var(--button-bg);
-    color: var(--text-color-dark);
+    background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-primary-bright) 100%);
+    color: var(--button-text);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 500;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    text-transform: var(--button-transform);
+    letter-spacing: var(--button-spacing);
     border: 2px solid var(--button-border);
-    box-shadow: 4px 4px 0px var(--button-border);
+    box-shadow: 0 4px 15px var(--shadow-color);
     transition: all 0.2s ease;
     margin-top: 2rem;
 }
 
+[data-theme="classic"] .simple-back-button {
+    background: var(--button-bg);
+    box-shadow: 4px 4px 0px var(--button-border);
+    border-radius: 999px;
+}
+
 .simple-back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+[data-theme="classic"] .simple-back-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--button-border);
 }
@@ -152,46 +418,84 @@ body {
     position: fixed;
     top: 2rem;
     left: 2rem;
-    background-color: var(--button-bg);
-    color: var(--text-color-dark);
+    background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-primary-bright) 100%);
+    color: var(--button-text);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 500;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    text-transform: var(--button-transform);
+    letter-spacing: var(--button-spacing);
     border: 2px solid var(--button-border);
-    box-shadow: 4px 4px 0px var(--button-border);
+    box-shadow: 0 4px 15px var(--shadow-color);
     transition: all 0.2s ease;
     z-index: 100;
 }
 
+[data-theme="classic"] .fixed-back-button {
+    background: var(--button-bg);
+    box-shadow: 4px 4px 0px var(--button-border);
+    border-radius: 999px;
+}
+
 .fixed-back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+[data-theme="classic"] .fixed-back-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--button-border);
 }
 
+/* ========================================
+   PAGE TITLE
+   ======================================== */
+
 .page-title {
+    font-family: var(--font-display);
+    color: var(--accent-secondary);
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    text-shadow: var(--username-shadow);
+    transition: all 0.3s ease;
+}
+
+[data-theme="classic"] .page-title {
     color: var(--text-color-light);
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    letter-spacing: 0;
+    text-shadow: none;
 }
+
+/* ========================================
+   SOCIAL LINKS
+   ======================================== */
 
 .social-links {
     display: flex;
     justify-content: center;
     gap: 1.75rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .social-links a {
-    color: #999999;
+    color: var(--social-color);
     text-decoration: none;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px var(--shadow-color));
 }
 
 .social-links a:hover {
-    transform: scale(1.1);
-    color: var(--text-color-light);
+    transform: scale(1.15);
+    color: var(--social-hover);
+}
+
+[data-theme="classic"] .social-links a {
+    filter: none;
 }
 
 .social-links svg {
@@ -204,11 +508,31 @@ body {
     stroke-linejoin: round;
 }
 
-/* Sora Link Styles */
+/* ========================================
+   SORA LINK (MY STORY) SPECIAL STYLES
+   ======================================== */
+
 .sora-link {
     position: relative;
     animation: vibrate 0.8s ease-in-out infinite;
     gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-secondary-bright) 100%) !important;
+    color: var(--text-color-dark) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+[data-theme="classic"] .sora-link {
+    background: var(--button-bg) !important;
+    color: var(--text-color-dark) !important;
+    border-color: var(--button-border) !important;
+}
+
+.sora-link:hover {
+    background: linear-gradient(135deg, var(--accent-secondary-bright) 0%, #f0ff4d 100%) !important;
+}
+
+[data-theme="classic"] .sora-link:hover {
+    background: var(--button-bg) !important;
 }
 
 .sora-icon {
@@ -217,23 +541,54 @@ body {
     object-fit: contain;
 }
 
-/* Vibration Animation - Slower */
+/* Vibration Animation */
 @keyframes vibrate {
-    0%, 100% { transform: translate(0, 0); }
-    10% { transform: translate(-0.5px, -0.5px); }
-    20% { transform: translate(0.5px, 0.5px); }
-    30% { transform: translate(-0.5px, 0.5px); }
-    40% { transform: translate(0.5px, -0.5px); }
-    50% { transform: translate(-0.5px, -0.5px); }
-    60% { transform: translate(0.5px, 0.5px); }
-    70% { transform: translate(-0.5px, 0.5px); }
-    80% { transform: translate(0.5px, -0.5px); }
-    90% { transform: translate(-0.5px, -0.5px); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    20% {
+        transform: translate(0.5px, 0.5px) rotate(0.5deg);
+    }
+
+    30% {
+        transform: translate(-0.5px, 0.5px) rotate(-0.5deg);
+    }
+
+    40% {
+        transform: translate(0.5px, -0.5px) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    60% {
+        transform: translate(0.5px, 0.5px) rotate(0.5deg);
+    }
+
+    70% {
+        transform: translate(-0.5px, 0.5px) rotate(-0.5deg);
+    }
+
+    80% {
+        transform: translate(0.5px, -0.5px) rotate(0.5deg);
+    }
+
+    90% {
+        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+    }
 }
 
 .sora-link:hover {
     animation: vibrate 0.5s ease-in-out infinite;
-    transform: translate(2px, 2px);
+    transform: translateY(-2px);
 }
 
 /* Pixelated Star Image */
@@ -245,4 +600,40 @@ body {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+    filter: drop-shadow(0 0 5px var(--shadow-color));
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 480px) {
+    .username {
+        font-size: 1.75rem;
+    }
+
+    [data-theme="classic"] .username {
+        font-size: 1.125rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .link-item {
+        padding: 0.9rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+    }
+
+    .theme-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
 }
