@@ -44,40 +44,64 @@
         }
 
         .stat-card {
-            background-color: var(--button-bg);
-            border: 2px solid var(--button-border);
-            box-shadow: 4px 4px 0px var(--button-border);
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            box-shadow: 4px 4px 0px var(--card-border), 0 0 20px var(--shadow-color);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
             transition: all 0.2s ease;
         }
 
+        [data-theme="classic"] .stat-card {
+            background: var(--button-bg);
+            box-shadow: 4px 4px 0px var(--button-border);
+        }
+
         .stat-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--card-border), 0 0 30px var(--shadow-color);
+        }
+
+        [data-theme="classic"] .stat-card:hover {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px var(--button-border);
         }
 
         .stat-number {
+            font-family: var(--font-display);
             font-size: 3rem;
             font-weight: 700;
-            color: var(--text-color-dark);
+            color: var(--accent-secondary);
             margin: 0;
             line-height: 1;
         }
 
+        [data-theme="classic"] .stat-number {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color-dark);
+        }
+
         .stat-label {
             font-size: 1rem;
-            color: var(--text-color-dark);
+            color: var(--text-color-light);
             margin-top: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        [data-theme="classic"] .stat-label {
+            color: var(--text-color-dark);
         }
 
         .stat-sublabel {
             font-size: 0.85rem;
-            color: var(--text-color-dark);
+            color: var(--text-color-light);
             opacity: 0.6;
             margin-top: 0.25rem;
+        }
+
+        [data-theme="classic"] .stat-sublabel {
+            color: var(--text-color-dark);
         }
 
         @keyframes countUp {

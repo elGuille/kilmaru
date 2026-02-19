@@ -29,7 +29,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #f0f0f0;
+            color: var(--text-color-light);
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -38,19 +38,25 @@
         .form-group textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 2px solid #555;
+            border: 2px solid var(--card-border);
             border-radius: 8px;
-            background-color: #2a2a2a;
-            color: #f0f0f0;
+            background-color: var(--card-bg);
+            color: var(--text-color-light);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
 
+        [data-theme="classic"] .form-group input,
+        [data-theme="classic"] .form-group textarea {
+            color: var(--text-color-dark);
+        }
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #888;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 2px var(--shadow-color);
         }
 
         .form-group textarea {
@@ -61,20 +67,33 @@
         .submit-btn {
             width: 100%;
             padding: 1rem;
-            background-color: #f0f0f0;
-            color: #3a3a3a;
-            border: none;
-            border-radius: 8px;
+            background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-primary-bright) 100%);
+            color: var(--button-text);
+            border: 2px solid var(--button-border);
+            border-radius: var(--button-radius);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
+            text-transform: var(--button-transform);
+            letter-spacing: var(--button-spacing);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        [data-theme="classic"] .submit-btn {
+            background: var(--button-bg);
+            box-shadow: 4px 4px 0px var(--button-border);
         }
 
         .submit-btn:hover {
-            background-color: #fff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-color);
+        }
+
+        [data-theme="classic"] .submit-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--button-border);
         }
 
         .submit-btn:disabled {
@@ -83,7 +102,7 @@
             transform: none;
         }
 
-        .message {
+        .form-message {
             margin-top: 1.5rem;
             padding: 1rem;
             border-radius: 12px;
@@ -94,12 +113,14 @@
             box-shadow: 4px 4px 0px var(--button-border);
         }
 
-        .message.success {
-            background-color: #f0f0f0;
-            color: #3a3a3a;
+        .form-message.success {
+            background-color: var(--card-bg);
+            color: var(--text-color-light);
+            border-color: var(--accent-secondary);
+            box-shadow: 4px 4px 0px var(--accent-secondary);
         }
 
-        .message.error {
+        .form-message.error {
             background-color: #ff6b6b;
             color: #ffffff;
             border-color: #ff4757;
@@ -118,7 +139,7 @@
             <h1 class="username">Contact</h1>
         </div>
 
-        <form id="form" class="contact-form">
+        <form id="contact-form" class="contact-form">
             <input type="hidden" name="redirect" value="https://kilmaru.com/">
 
             <div class="form-group">
@@ -137,7 +158,7 @@
             </div>
 
             <button type="submit" class="submit-btn">Send Message</button>
-            <div id="message" class="message"></div>
+            <div id="form-message" class="form-message"></div>
         </form>
 
         <div class="social-links">
@@ -171,13 +192,13 @@
     </div>
 
     <script>
-        const form = document.getElementById('form');
-        const submitBtn = form.querySelector('button[type="submit"]');
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-        form.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const formData = new FormData(form);
+            const formData = new FormData(contactForm);
             formData.append("access_key", "ccf14269-30c1-4db4-a7f4-c10b52a942b0");
 
             const originalText = submitBtn.textContent;
@@ -195,7 +216,7 @@
 
                 if (response.ok) {
                     showMessage("Success! Your message has been sent.", "success");
-                    form.reset();
+                    contactForm.reset();
                 } else {
                     showMessage("Error: " + data.message, "error");
                 }
@@ -209,9 +230,9 @@
         });
 
         function showMessage(text, type) {
-            const messageEl = document.getElementById('message');
+            const messageEl = document.getElementById('form-message');
             messageEl.textContent = text;
-            messageEl.className = 'message ' + type;
+            messageEl.className = 'form-message ' + type;
             messageEl.style.display = 'block';
 
             setTimeout(() => {
