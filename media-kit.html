@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background: var(--ink);
+  background: transparent;
   color: var(--paper);
   font-family: var(--body);
   font-weight: 400;
@@ -42,6 +42,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "ss01", "ss02";
+  position: relative;
+}
+
+/* ─── PARTICLE FIELD (3D background) ─── */
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hud, header, section, footer, .stat-strip {
+  position: relative;
+  z-index: 1;
 }
 
 ::selection {
@@ -138,11 +154,11 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 100vh;
+  min-height: 82vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 8rem 2.5rem 3rem;
+  padding: 5.5rem 2.5rem 2.5rem;
   position: relative;
 }
 
@@ -151,7 +167,7 @@ body {
   font-style: italic;
   font-size: 1rem;
   color: var(--paper-soft);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 440px;
   line-height: 1.5;
   font-variation-settings: "SOFT" 80, "opsz" 14;
@@ -170,7 +186,7 @@ body {
   letter-spacing: -0.02em;
   color: var(--paper);
   font-variation-settings: "SOFT" 100, "opsz" 144;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-title .line {
@@ -865,6 +881,9 @@ footer {
 </head>
 <body>
 
+<!-- 3D particle field -->
+<canvas id="particles" aria-hidden="true"></canvas>
+
 <!-- HUD -->
 <div class="hud">
   <a href="https://kilmaru.com" class="wordmark">Kilmaru</a>
@@ -1122,6 +1141,80 @@ footer {
 </footer>
 
 <script>
+// 3D particle field — minimalist warm starfield / dust motes
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let w = 0, h = 0, cx = 0, cy = 0;
+  const COUNT = 140;
+  const SPEED = 0.55;
+  const FOCAL = 420;
+  const MAX_Z = 1100;
+  const particles = [];
+
+  const resize = () => {
+    w = canvas.width = window.innerWidth * DPR;
+    h = canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    cx = w / 2;
+    cy = h / 2;
+  };
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  const spawn = (p, distributeDepth) => {
+    p.x = (Math.random() - 0.5) * 2400;
+    p.y = (Math.random() - 0.5) * 1800;
+    p.z = distributeDepth ? Math.random() * MAX_Z : MAX_Z;
+    p.base = 0.25 + Math.random() * 0.55; // per-particle brightness
+    p.drift = (Math.random() - 0.5) * 0.15; // subtle x drift for life
+  };
+
+  for (let i = 0; i < COUNT; i++) {
+    const p = {};
+    spawn(p, true);
+    particles.push(p);
+  }
+
+  // Pause animation when tab not visible
+  let running = true;
+  document.addEventListener('visibilitychange', () => {
+    running = document.visibilityState === 'visible';
+    if (running) requestAnimationFrame(loop);
+  });
+
+  const loop = () => {
+    if (!running) return;
+    // Subtle trail: clear with low-alpha fill for motion blur-ish fade
+    ctx.fillStyle = 'rgba(12, 10, 8, 0.28)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(235, 227, 213, 1)';
+
+    for (const p of particles) {
+      p.z -= SPEED;
+      p.x += p.drift;
+      if (p.z < 1) spawn(p);
+      const scale = FOCAL / p.z;
+      const sx = p.x * scale * DPR + cx;
+      const sy = p.y * scale * DPR + cy;
+      if (sx < -50 || sx > w + 50 || sy < -50 || sy > h + 50) continue;
+      const r = Math.max(0.4, scale * 1.1) * DPR;
+      const alpha = Math.min(1, scale * 0.9) * p.base;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.arc(sx, sy, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  };
+  loop();
+})();
+
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
