@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KILMARU — Media Kit</title>
-<meta name="description" content="Media Kit for Kilmaru, the Empty World Traveler. 4.1M followers. 2B+ views. Cinematic content creator.">
+<title>Kilmaru — Media Kit</title>
+<meta name="description" content="Press kit for Kilmaru, the solitude explorer. 4.1M followers. 2B+ views. Cinematic content from the world's emptiest cities.">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after {
   margin: 0;
@@ -16,55 +17,75 @@
 }
 
 :root {
-  --bg: #0a0a0a;
-  --bg-elevated: #111111;
-  --bg-card: #141414;
-  --text: #e8e8e8;
-  --text-muted: #858585;
-  --text-dim: #6a6a6a;
-  --accent: #4fd1c5;
-  --accent-dim: rgba(79, 209, 197, 0.12);
-  --accent-glow: rgba(79, 209, 197, 0.06);
-  --border: rgba(255, 255, 255, 0.06);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --ink: #0c0a08;            /* warm black */
+  --paper: #ebe5d7;          /* warm off-white (primary) */
+  --paper-soft: #c4beb0;     /* secondary text */
+  --paper-dim: #7d7668;      /* tertiary, labels */
+  --paper-faint: #3a352e;    /* dividers, rules */
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Instrument Sans', -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background: var(--ink);
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-weight: 300;
-  line-height: 1.7;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "ss02";
 }
 
-/* Film grain overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+::selection {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Layout primitives */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ─── EDITORIAL LABEL SYSTEM ─── */
+.label {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.label-italic {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--paper-soft);
+  font-variation-settings: "SOFT" 50, "opsz" 14;
 }
 
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 1.1s cubic-bezier(0.19, 1, 0.22, 1), transform 1.1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .reveal.visible {
@@ -72,43 +93,47 @@ body::after {
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
 
-/* ─── NAVIGATION ─── */
-nav {
+/* ─── NAV / HUD ─── */
+.hud {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  padding: 1.25rem 2rem;
+  z-index: 50;
+  padding: 1.75rem 2.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  align-items: baseline;
+  pointer-events: none;
 }
 
-nav .nav-logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 0.85rem;
-  letter-spacing: 0.3em;
-  color: var(--text);
+.hud a {
+  pointer-events: auto;
+  color: var(--paper);
   text-decoration: none;
 }
 
-nav .nav-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--text-dim);
+.hud .wordmark {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-variation-settings: "SOFT" 100, "opsz" 14;
+}
+
+.hud .frame-count {
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--paper-dim);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ─── HERO ─── */
@@ -116,1154 +141,1056 @@ nav .nav-label {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-end;
+  padding: 8rem 2.5rem 3rem;
   position: relative;
-  padding: 6rem 2rem 4rem;
-  overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
-  color: var(--accent);
-  text-transform: uppercase;
+.hero-kicker {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--paper-soft);
   margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-width: 440px;
+  line-height: 1.5;
+  font-variation-settings: "SOFT" 80, "opsz" 14;
+}
+
+.hero-kicker::before {
+  content: '— ';
+  color: var(--paper-dim);
 }
 
 .hero-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3.5rem, 12vw, 10rem);
-  letter-spacing: 0.05em;
-  line-height: 0.9;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-tagline {
-  font-family: var(--font-body);
+  font-family: var(--display);
   font-weight: 300;
-  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
-  color: var(--text-muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 4rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-size: clamp(3.5rem, 13vw, 11rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  margin-bottom: 2.5rem;
 }
 
-.hero-stats {
+.hero-title .line {
+  display: block;
+}
+
+.hero-title .line-2 {
+  padding-left: 8vw;
+}
+
+.hero-title .line-3 {
+  padding-left: 2vw;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-meta {
   display: flex;
-  gap: 3rem;
+  justify-content: space-between;
+  align-items: flex-end;
   flex-wrap: wrap;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeUp 1s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--paper-faint);
 }
 
-.hero-stat {
-  text-align: center;
-  position: relative;
+.hero-byline {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--paper-soft);
+  max-width: 380px;
+  line-height: 1.5;
+  font-variation-settings: "SOFT" 60, "opsz" 14;
+}
+
+.hero-byline .name {
+  font-style: normal;
+  color: var(--paper);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  font-variation-settings: "SOFT" 30, "opsz" 14, "wght" 500;
+}
+
+.hero-scroll-hint {
+  font-family: var(--body);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--paper-dim);
+  text-transform: uppercase;
+}
+
+/* ─── STAT STRIP ─── */
+.stat-strip {
+  border-top: 1px solid var(--paper-faint);
+  border-bottom: 1px solid var(--paper-faint);
+  padding: 3.5rem 0;
+  margin: 0;
+}
+
+.stat-strip-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.stat {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
+  position: relative;
 }
 
-.hero-stat::after {
+.stat:not(:last-child)::after {
   content: '';
   position: absolute;
   right: -1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 10%;
+  height: 80%;
   width: 1px;
-  height: 50px;
-  background: var(--border);
-}
-
-.hero-stat:last-child::after {
-  display: none;
-}
-
-.stat-icon {
-  width: 18px;
-  height: 18px;
-  color: var(--accent);
-  opacity: 0.75;
-}
-
-.stat-icon svg {
-  width: 100%;
-  height: 100%;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.stat-number {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--text);
-  line-height: 1.1;
-}
-
-.stat-number .accent {
-  color: var(--accent);
+  background: var(--paper-faint);
 }
 
 .stat-label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
+  font-family: var(--body);
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-top: 0.3rem;
+  color: var(--paper-dim);
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.stat-value {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--paper);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  letter-spacing: -0.02em;
 }
 
-.hero-scroll span {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
-  color: var(--text-dim);
-  text-transform: uppercase;
+.stat-value em {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.5em;
+  color: var(--paper-soft);
+  margin-left: 0.15em;
+  vertical-align: 0.3em;
 }
 
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+.stat-caption {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--paper-dim);
+  font-variation-settings: "SOFT" 60, "opsz" 12;
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
-  50% { opacity: 1; transform: scaleY(1); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ─── SECTION SHARED ─── */
+/* ─── SECTIONS ─── */
 section {
-  padding: 6rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 8rem 0;
 }
 
-.section-divider {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 1px;
-  background: var(--border);
-  position: relative;
-}
-
-.section-divider::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 60px;
-  height: 1px;
-  background: var(--accent);
-  opacity: 0.4;
-}
-
-.section-header {
-  margin-bottom: 3.5rem;
-}
-
-.section-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
+.section-label {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--paper-soft);
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-variation-settings: "SOFT" 50, "opsz" 14;
 }
 
-.section-eyebrow::before {
+.section-label::before {
   content: '';
-  width: 24px;
+  display: inline-block;
+  width: 32px;
   height: 1px;
-  background: var(--accent);
-  opacity: 0.5;
+  background: var(--paper-soft);
 }
 
-.section-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  line-height: 1.15;
-  color: var(--text);
+/* ─── STORY ─── */
+.story-headline {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin-bottom: 4rem;
+  max-width: 900px;
+  font-variation-settings: "SOFT" 100, "opsz" 72;
 }
 
-/* ─── THE STORY ─── */
-.story-grid {
+.story-headline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.story-body {
+  max-width: 640px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--paper-soft);
+}
+
+.story-body p {
+  margin-bottom: 1.5rem;
+}
+
+.story-body p:first-child::first-letter {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 4.5rem;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.6rem;
+  padding-top: 0.35rem;
+  color: var(--paper);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+.story-pullquote {
+  font-family: var(--display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  color: var(--paper);
+  max-width: 800px;
+  margin: 5rem 0 5rem 2rem;
+  padding-left: 2rem;
+  border-left: 1px solid var(--paper-faint);
+  font-variation-settings: "SOFT" 100, "opsz" 72;
+}
+
+.story-credits {
+  margin-top: 3rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--paper-dim);
+  line-height: 1.8;
+  max-width: 640px;
+  font-variation-settings: "SOFT" 50, "opsz" 14;
+}
+
+.story-credits .credit-label {
+  font-style: normal;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.story-credits .credit-name {
+  color: var(--paper-soft);
+}
+
+/* ─── AUDIENCE (editorial credit list) ─── */
+.audience-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 5rem 4rem;
+  max-width: 1100px;
+}
+
+.credit-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-list-title {
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--paper-faint);
+}
+
+.credit-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  font-family: var(--display);
+  font-size: 1rem;
+  color: var(--paper-soft);
+  font-variation-settings: "SOFT" 60, "opsz" 14;
+}
+
+.credit-row .dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--paper-faint);
+  transform: translateY(-4px);
+}
+
+.credit-row .value {
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+
+.engagement-spotlight {
+  grid-column: 1 / -1;
+  text-align: left;
+  padding-top: 4rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--paper-faint);
+  display: flex;
+  align-items: baseline;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.engagement-big {
+  font-family: var(--display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(5rem, 10vw, 8rem);
+  line-height: 0.9;
+  color: var(--paper);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  letter-spacing: -0.02em;
+}
+
+.engagement-text {
+  max-width: 360px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--paper-soft);
+  font-variation-settings: "SOFT" 60, "opsz" 14;
+}
+
+.engagement-text .label-inline {
+  font-style: normal;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+/* ─── SCENES (brand integration in screenplay style) ─── */
+.scenes {
+  display: flex;
+  flex-direction: column;
+}
+
+.scene {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--paper-faint);
+  display: grid;
+  grid-template-columns: 240px 1fr;
   gap: 4rem;
   align-items: start;
 }
 
-.story-text p {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.85;
+.scene:last-child {
+  border-bottom: 1px solid var(--paper-faint);
 }
 
-.story-text p:first-of-type::first-line {
-  color: var(--text);
-  font-weight: 400;
-}
-
-.story-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding-top: 0.5rem;
-}
-
-.highlight-card {
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg-card);
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.4s ease;
-}
-
-.highlight-card:hover {
-  border-color: rgba(79, 209, 197, 0.15);
-}
-
-.highlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: var(--accent);
-  opacity: 0.3;
-}
-
-.highlight-icon {
-  font-size: 1.1rem;
-  margin-bottom: 0.6rem;
-}
-
-.highlight-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-  color: var(--text);
-  margin-bottom: 0.3rem;
-}
-
-.highlight-desc {
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-}
-
-/* ─── AUDIENCE ─── */
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.audience-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 2rem 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.audience-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.audience-card:hover::after {
-  opacity: 0.4;
-}
-
-.audience-card-title {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-/* Bars */
-.bar-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.bar-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.bar-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.bar-label span:first-child {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.bar-label span:last-child {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-}
-
-.bar-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Donut chart */
-.donut-wrap {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.donut-svg {
-  width: 90px;
-  height: 90px;
-  flex-shrink: 0;
-}
-
-.donut-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.legend-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* Engagement big number */
-.engagement-block {
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.engagement-big {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 3.2rem;
-  color: var(--accent);
+.scene-number {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 3.5rem;
   line-height: 1;
-  margin-bottom: 0.3rem;
+  color: var(--paper);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
 }
 
-.engagement-label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
+.scene-number small {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  color: var(--paper-dim);
+  font-family: var(--body);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
 }
 
-.engagement-context {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  line-height: 1.6;
+.scene-body {
+  max-width: 600px;
 }
 
-/* ─── BRAND INTEGRATION ─── */
-.concepts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+.scene-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+  font-variation-settings: "SOFT" 80, "opsz" 48;
 }
 
-.concept-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 2.5rem 2rem;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
-}
-
-.concept-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(79, 209, 197, 0.15);
-}
-
-.concept-number {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
-  margin-bottom: 1.5rem;
-}
-
-.concept-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--text);
-  margin-bottom: 0.35rem;
-}
-
-.concept-vertical {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--accent);
+.scene-slug {
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
-}
-
-.concept-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.75;
+  color: var(--paper-dim);
   margin-bottom: 1.5rem;
-}
-
-.concept-brands {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-}
-
-.concept-brands strong {
-  color: var(--text-muted);
   font-weight: 500;
 }
 
-.concept-icon {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 1.6rem;
-  opacity: 0.15;
+.scene-desc {
+  font-family: var(--display);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--paper-soft);
+  margin-bottom: 1.5rem;
+  font-variation-settings: "SOFT" 40, "opsz" 14;
 }
 
-/* ─── PRESS ─── */
-.press-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+.scene-brands {
+  font-family: var(--body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--paper-dim);
 }
 
-.press-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 1.5rem;
-  text-decoration: none;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+.scene-brands span {
+  color: var(--paper-soft);
+}
+
+/* ─── PRESS (editorial list) ─── */
+.press-list {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
 }
 
-.press-item:hover {
-  border-color: rgba(79, 209, 197, 0.2);
-  transform: translateY(-2px);
+.press-entry {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 3rem;
+  align-items: baseline;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--paper-faint);
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.4s ease, padding-left 0.4s ease;
+}
+
+.press-entry:last-child {
+  border-bottom: 1px solid var(--paper-faint);
+}
+
+.press-entry:hover {
+  padding-left: 1rem;
+}
+
+.press-entry:hover .press-outlet {
+  color: var(--paper);
 }
 
 .press-outlet {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: var(--paper);
+  font-variation-settings: "SOFT" 80, "opsz" 48;
+  transition: color 0.4s ease;
 }
 
 .press-headline {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  line-height: 1.55;
-  flex-grow: 1;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--paper-soft);
+  line-height: 1.5;
+  font-variation-settings: "SOFT" 60, "opsz" 14;
 }
 
 .press-type {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: var(--accent);
+  font-family: var(--body);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  opacity: 0.7;
+  color: var(--paper-dim);
+  white-space: nowrap;
 }
 
 /* ─── CONTACT ─── */
-.contact-section {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 8rem 2rem;
+.contact {
+  padding: 10rem 0;
 }
 
-.contact-section .section-eyebrow {
-  justify-content: center;
-}
-
-.contact-section .section-eyebrow::before {
-  display: none;
-}
-
-.contact-section .section-title {
-  margin-bottom: 1rem;
-}
-
-.contact-desc {
-  font-size: 1rem;
-  color: var(--text-muted);
-  margin-bottom: 3rem;
-  line-height: 1.8;
+.contact-statement {
+  font-family: var(--display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  color: var(--paper);
+  max-width: 900px;
+  margin-bottom: 4rem;
+  font-variation-settings: "SOFT" 100, "opsz" 96;
+  letter-spacing: -0.015em;
 }
 
 .contact-form {
+  max-width: 560px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  text-align: left;
-  max-width: 500px;
-  margin: 0 auto;
+  gap: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.field label {
+  font-family: var(--body);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.field input,
+.field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--paper-faint);
+  padding: 0.75rem 0;
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-variation-settings: "SOFT" 40, "opsz" 14;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--paper-faint);
+  font-style: italic;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-bottom-color: var(--paper);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+  font-family: var(--display);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-field label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
+.submit-btn {
+  align-self: flex-start;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid var(--paper);
+  color: var(--paper);
+  padding: 1.1rem 2.5rem;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-}
-
-.form-field input,
-.form-field textarea {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 0.85rem 1rem;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 300;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-  border-color: rgba(79, 209, 197, 0.3);
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-submit {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--bg);
-  background: var(--accent);
-  border: none;
-  border-radius: 3px;
-  padding: 1rem 2rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-  margin-top: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.form-submit:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
+.submit-btn:hover:not(:disabled) {
+  background: var(--paper);
+  color: var(--ink);
 }
 
-.contact-alt {
-  margin-top: 2.5rem;
-  font-size: 0.78rem;
-  color: var(--text-dim);
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.contact-alt a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.3s;
+.form-status {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  min-height: 1.5rem;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  font-variation-settings: "SOFT" 60, "opsz" 14;
 }
 
-.contact-alt a:hover {
-  opacity: 0.7;
-}
+.form-status.show { opacity: 1; }
+.form-status.success { color: var(--paper); }
+.form-status.error { color: #d48a7a; }
 
 /* ─── FOOTER ─── */
 footer {
-  border-top: 1px solid var(--border);
-  width: 100%;
+  border-top: 1px solid var(--paper-faint);
+  padding: 2.5rem 2.5rem;
+  text-align: center;
 }
 
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
+.footer-line {
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.footer-logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 0.8rem;
-  letter-spacing: 0.25em;
-  color: var(--text);
-}
-
-.footer-copy {
-  font-size: 0.68rem;
-  color: var(--text-dim);
-}
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.footer-links a {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--text-dim);
+.footer-line a {
+  color: var(--paper-dim);
   text-decoration: none;
-  text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: var(--accent);
+.footer-line a:hover {
+  color: var(--paper);
+}
+
+.footer-line .sep {
+  color: var(--paper-faint);
+}
+
+.footer-copy {
+  margin-top: 1rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--paper-faint);
+  font-variation-settings: "SOFT" 50, "opsz" 12;
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .story-grid {
+@media (max-width: 960px) {
+  .audience-layout {
     grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .scene {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .scene-number {
+    font-size: 2.5rem;
+  }
+  .press-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .stat-strip-inner {
+    grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
-  .audience-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-stats {
-    gap: 2rem;
-  }
-  .hero-stat::after {
-    display: none;
-  }
+  .stat:nth-child(2)::after { display: none; }
+  .hero-title .line-2 { padding-left: 6vw; }
 }
 
 @media (max-width: 640px) {
-  section {
-    padding: 4rem 1.25rem;
-  }
-  nav {
-    padding: 1rem 1.25rem;
+  .container, .container-narrow, .hud, .hero, .stat-strip-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   .hero {
-    padding: 5rem 1.25rem 3rem;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
   }
-  .hero-stats {
-    flex-direction: column;
-    gap: 1.5rem;
+  section {
+    padding: 5rem 0;
+  }
+  .contact {
+    padding: 6rem 0;
+  }
+  .stat-strip {
+    padding: 2.5rem 0;
+  }
+  .stat-strip-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .stat:not(:last-child)::after {
+    display: none;
   }
   .form-row {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  .press-grid {
-    grid-template-columns: 1fr;
+  .story-pullquote {
+    margin: 3rem 0 3rem 0.5rem;
+    padding-left: 1.2rem;
   }
-  .concepts-grid {
-    grid-template-columns: 1fr;
+  .hud {
+    padding: 1.25rem 1.5rem;
   }
-  .footer-inner {
+  .hero-title .line-2 { padding-left: 0; }
+  .hero-title .line-3 { padding-left: 0; }
+  .engagement-spotlight {
     flex-direction: column;
-    text-align: center;
-    padding: 2rem 1.25rem;
-  }
-  .footer-links {
     gap: 1.5rem;
-  }
-  .contact-section {
-    padding: 5rem 1.25rem;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav>
-  <a href="https://kilmaru.com" class="nav-logo">KILMARU</a>
-  <span class="nav-label">Media Kit 2026</span>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-eyebrow">Cinematic Creator &middot; 30+ Countries &middot; 2B+ Views</div>
-  <h1 class="hero-title">KILMARU</h1>
-  <p class="hero-tagline">The Empty World Traveler</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M16 3.5a4 4 0 0 1 0 8"/><path d="M22 21c0-3-1.5-5.5-4-6.5"/></svg></div>
-      <div class="stat-number">4.1<span class="accent">M</span></div>
-      <div class="stat-label">Followers</div>
-    </div>
-    <div class="hero-stat">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <div class="stat-number">2<span class="accent">B+</span></div>
-      <div class="stat-label">Total Views</div>
-    </div>
-    <div class="hero-stat">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg></div>
-      <div class="stat-number">250<span class="accent">M+</span></div>
-      <div class="stat-label">Engagement</div>
-    </div>
-    <div class="hero-stat">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-      <div class="stat-number">1,900<span class="accent">+</span></div>
-      <div class="stat-label">Years Watch Time</div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- The Story -->
-<section id="story">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">01 &mdash; The Story</div>
-    <h2 class="section-title">What if you woke up<br>and everyone was gone?</h2>
-  </div>
-  <div class="story-grid">
-    <div class="story-text reveal reveal-delay-1">
-      <p>Kilmaru is a cinematic content creator who explores the world's most iconic cities — completely empty. Times Square with no crowds. Shibuya Crossing in silence. Airports, hotels, stadiums, entire metropolises — abandoned, as if humanity simply vanished overnight.</p>
-      <p>Filmed in first person, always hooded, never showing a face, with no dialogue — just atmospheric sound design and a haunting sense of solitude. The result is a genre-defining body of work that blurs the line between social media content and short film.</p>
-      <p>Pioneering what's now known as "solitude exploration," Kilmaru has built one of the most visually distinctive presences on the internet, with content that resonates across every culture, language, and demographic.</p>
-    </div>
-    <div class="story-highlights">
-      <div class="highlight-card reveal reveal-delay-2">
-        <div class="highlight-icon">🏆</div>
-        <div class="highlight-title">Monaco Streaming Film Festival</div>
-        <div class="highlight-desc">Award winner — recognized alongside traditional filmmakers for innovative short-form storytelling.</div>
-      </div>
-      <div class="highlight-card reveal reveal-delay-3">
-        <div class="highlight-icon">📰</div>
-        <div class="highlight-title">Global Press Coverage</div>
-        <div class="highlight-desc">Featured in Wired Italia, Newsweek, Corriere della Sera, The Sun, Daily Dot, Benzinga, Yahoo News, and more.</div>
-      </div>
-      <div class="highlight-card reveal reveal-delay-4">
-        <div class="highlight-icon">🎬</div>
-        <div class="highlight-title">Analyzed by Industry Experts</div>
-        <div class="highlight-desc">Corridor Crew (10M+ subscribers) and Night Mind featured in-depth breakdowns of the VFX and storytelling techniques.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- Audience -->
-<section id="audience">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">02 &mdash; Audience</div>
-    <h2 class="section-title">Global reach,<br>engaged community</h2>
-  </div>
-  <div class="audience-grid">
-    <!-- Geography -->
-    <div class="audience-card reveal reveal-delay-1">
-      <div class="audience-card-title">Geography</div>
-      <div class="bar-group">
-        <div class="bar-item">
-          <div class="bar-label"><span>Europe (UK, ES, IT, FR, DE)</span><span>28%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="28"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>United States</span><span>22%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="22"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>Southeast Asia</span><span>18%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="18"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>Latin America</span><span>15%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="15"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>Rest of World</span><span>17%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="17"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Age & Gender -->
-    <div class="audience-card reveal reveal-delay-2">
-      <div class="audience-card-title">Demographics</div>
-      <div class="bar-group" style="margin-bottom: 1.8rem;">
-        <div class="bar-item">
-          <div class="bar-label"><span>18–24</span><span>38%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="38"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>25–34</span><span>30%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="30"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>35–44</span><span>13%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="13"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>13–17</span><span>12%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="12"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>45+</span><span>7%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="7"></div></div>
-        </div>
-      </div>
-      <div class="donut-wrap">
-        <svg class="donut-svg" viewBox="0 0 36 36">
-          <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="3"/>
-          <circle cx="18" cy="18" r="14" fill="none" stroke="var(--accent)" stroke-width="3"
-            stroke-dasharray="58 42" stroke-dashoffset="25" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(79,209,197,0.3)" stroke-width="3"
-            stroke-dasharray="42 58" stroke-dashoffset="67" stroke-linecap="round"/>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item">
-            <span class="legend-dot" style="background: var(--accent);"></span>
-            Male 58%
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot" style="background: rgba(79,209,197,0.35);"></span>
-            Female 42%
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Engagement -->
-    <div class="audience-card reveal reveal-delay-3">
-      <div class="audience-card-title">Engagement</div>
-      <div class="engagement-block">
-        <div class="engagement-big">6.2%</div>
-        <div class="engagement-label">Avg. Engagement Rate</div>
-        <div class="bar-group">
-          <div class="bar-item">
-            <div class="bar-label"><span>Total Likes</span><span>87.5M</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="87.5"></div></div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label"><span>Total Comments</span><span>3M+</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="30"></div></div>
-          </div>
-        </div>
-        <p class="engagement-context" style="margin-top: 1.5rem;">3× industry average for creators with 1M+ followers. Content consistently outperforms benchmarks across platforms.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- Brand Integration Concepts -->
-<section id="concepts">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">03 &mdash; Brand Integration</div>
-    <h2 class="section-title">Concepts built for<br>cinematic storytelling</h2>
-  </div>
-  <div class="concepts-grid">
-    <div class="concept-card reveal reveal-delay-1">
-      <span class="concept-icon">🚗</span>
-      <div class="concept-number">CONCEPT 01</div>
-      <h3 class="concept-title">The Last Drive</h3>
-      <div class="concept-vertical">Automotive</div>
-      <p class="concept-desc">A luxury car navigates the empty streets of a major city. No traffic. No pedestrians. Only the sound of the engine echoing between skyscrapers. Kilmaru behind the wheel.</p>
-      <div class="concept-brands"><strong>Ideal for:</strong> Mercedes-Benz, BMW, Porsche, Genesis, Hyundai</div>
-    </div>
-    <div class="concept-card reveal reveal-delay-2">
-      <span class="concept-icon">🎧</span>
-      <div class="concept-number">CONCEPT 02</div>
-      <h3 class="concept-title">Sound of Silence</h3>
-      <div class="concept-vertical">Audio &middot; Technology</div>
-      <p class="concept-desc">Walking through a deserted airport in absolute silence. Headphones on. Music fills the void. The contrast between total silence and premium sound — felt, not explained.</p>
-      <div class="concept-brands"><strong>Ideal for:</strong> Sony, Bose, Bang & Olufsen, Apple AirPods Max</div>
-    </div>
-    <div class="concept-card reveal reveal-delay-3">
-      <span class="concept-icon">👟</span>
-      <div class="concept-number">CONCEPT 03</div>
-      <h3 class="concept-title">Empty Runway</h3>
-      <div class="concept-vertical">Fashion &middot; Streetwear</div>
-      <p class="concept-desc">Exploring a luxury shopping district — completely deserted. Every step showcases the product. No competition for attention. The clothing speaks for itself in a world of one.</p>
-      <div class="concept-brands"><strong>Ideal for:</strong> Nike, Adidas, New Balance, The North Face</div>
-    </div>
-    <div class="concept-card reveal reveal-delay-4">
-      <span class="concept-icon">🏨</span>
-      <div class="concept-number">CONCEPT 04</div>
-      <h3 class="concept-title">The Last Guest</h3>
-      <div class="concept-vertical">Hospitality &middot; Travel</div>
-      <p class="concept-desc">A five-star hotel with every light on but not a single guest. Hallways, the pool, the rooftop — all empty, all cinematic. A destination seen like never before.</p>
-      <div class="concept-brands"><strong>Ideal for:</strong> Hotel chains, tourism boards, airlines</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- Press -->
-<section id="press">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">04 &mdash; Press &amp; Features</div>
-    <h2 class="section-title">Featured in</h2>
-  </div>
-  <div class="press-grid">
-    <a href="#" class="press-item reveal reveal-delay-1" target="_blank" rel="noopener">
-      <div class="press-outlet">Wired Italia</div>
-      <div class="press-headline">"How the TikToker Creates Videos Where He Appears to be the Only Human on the Planet"</div>
-      <div class="press-type">Feature Article</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-1" target="_blank" rel="noopener">
-      <div class="press-outlet">Newsweek</div>
-      <div class="press-headline">"TikToker Claims They're on a 'Ghost Ship' in Latest Video Series"</div>
-      <div class="press-type">Feature Article</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-2" target="_blank" rel="noopener">
-      <div class="press-outlet">Corriere della Sera</div>
-      <div class="press-headline">"Who is Kilmaru: The Influencer Making Incredible Videos Where He Seems Alone in the World"</div>
-      <div class="press-type">Profile</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-2" target="_blank" rel="noopener">
-      <div class="press-outlet">Benzinga</div>
-      <div class="press-headline">"Popular TikTok Influencer claims to live in an Alternative Reality"</div>
-      <div class="press-type">Feature Article</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-3" target="_blank" rel="noopener">
-      <div class="press-outlet">Yahoo News</div>
-      <div class="press-headline">"TikTok user shares disturbing tale of waking up in an 'empty world'"</div>
-      <div class="press-type">News</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-3" target="_blank" rel="noopener">
-      <div class="press-outlet">Corridor Crew</div>
-      <div class="press-headline">"VFX Artists React to Kilmaru's Empty World Videos" — 10M+ subscriber channel</div>
-      <div class="press-type">Video Feature</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-4" target="_blank" rel="noopener">
-      <div class="press-outlet">The Sun</div>
-      <div class="press-headline">Coverage of the empty world and ghost ship series</div>
-      <div class="press-type">News</div>
-    </a>
-    <a href="#" class="press-item reveal reveal-delay-4" target="_blank" rel="noopener">
-      <div class="press-outlet">Monaco Streaming Film Festival</div>
-      <div class="press-headline">Award winner — Short-form cinematic content category</div>
-      <div class="press-type">Award</div>
-    </a>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- Contact -->
-<div class="contact-section" id="contact">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">05 &mdash; Contact</div>
-    <h2 class="section-title">Let's Create Together</h2>
-  </div>
-  <p class="contact-desc reveal reveal-delay-1">Interested in a collaboration that feels like cinema, not an ad? Let's build something your audience will remember.</p>
-  <form class="contact-form reveal reveal-delay-2" onsubmit="event.preventDefault();">
-    <div class="form-row">
-      <div class="form-field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-      </div>
-      <div class="form-field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="you@company.com" required>
-      </div>
-    </div>
-    <div class="form-field">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Tell us about your brand and what you have in mind..."></textarea>
-    </div>
-    <button type="submit" class="form-submit">Send Inquiry</button>
-  </form>
-  <p class="contact-alt reveal reveal-delay-3">
-    Or reach out directly at <a href="https://kilmaru.com/contact.html">kilmaru.com/contact</a>
-  </p>
+<!-- HUD -->
+<div class="hud">
+  <a href="https://kilmaru.com" class="wordmark">Kilmaru</a>
+  <span class="frame-count" id="frameCount">MK · 02:38:44:12</span>
 </div>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="footer-logo">KILMARU</div>
-      <div class="footer-copy">&copy; 2026 Kilmaru. All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <a href="https://tiktok.com/@kilmaru" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://instagram.com/kilmaruig" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://youtube.com/@kilmaruyt" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://kilmaru.com" target="_blank" rel="noopener">Website</a>
+<!-- HERO -->
+<header class="hero">
+  <div class="container" style="padding: 0;">
+    <p class="hero-kicker">A press kit, filed from an empty world.</p>
+    <h1 class="hero-title">
+      <span class="line">The Empty</span>
+      <span class="line line-2">World</span>
+      <span class="line line-3">Traveler.</span>
+    </h1>
+    <div class="hero-meta">
+      <p class="hero-byline">
+        <span class="name">Kilmaru</span><br>
+        A solitude explorer filming the world's most iconic cities as if no one else were left to see them.
+      </p>
+      <span class="hero-scroll-hint">Scroll ↓</span>
     </div>
   </div>
+</header>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="stat">
+      <span class="stat-label">Followers</span>
+      <span class="stat-value">4.1<em>M</em></span>
+      <span class="stat-caption">across TikTok &amp; Instagram</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Total Views</span>
+      <span class="stat-value">2<em>B+</em></span>
+      <span class="stat-caption">across all platforms</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Engagement</span>
+      <span class="stat-value">250<em>M+</em></span>
+      <span class="stat-caption">likes &amp; reactions</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Watch Time</span>
+      <span class="stat-value">1,900<em>yrs</em></span>
+      <span class="stat-caption">content consumed</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE STORY -->
+<section id="story">
+  <div class="container-narrow">
+    <p class="section-label reveal">The Story</p>
+    <h2 class="story-headline reveal reveal-d1">What if you <em>woke up</em>, and everyone was gone?</h2>
+    <div class="story-body reveal reveal-d2">
+      <p>Kilmaru is a cinematic content creator who explores the world's most iconic cities — completely empty. Times Square with no crowds. Shibuya Crossing in silence. Airports, hotels, stadiums, cruise ships: abandoned, as if humanity had simply vanished overnight.</p>
+      <p>Filmed in first person, always hooded, never showing a face, with no dialogue. Just atmospheric sound and a haunting sense of solitude. The result is a genre-defining body of work that sits somewhere between social media and short film.</p>
+      <p>Since 2021, Kilmaru has been pioneering what's now known as <em>solitude exploration</em> — a style that resonates across every culture and language, precisely because it has no language at all.</p>
+    </div>
+  </div>
+
+  <div class="container-narrow">
+    <blockquote class="story-pullquote reveal">
+      "The TikToker who creates videos where he appears to be the only human on the planet."
+    </blockquote>
+  </div>
+
+  <div class="container-narrow">
+    <div class="story-credits reveal">
+      <span class="credit-label">Featured &amp; Awarded</span>
+      <em>Winner, </em><span class="credit-name">Monaco Streaming Film Festival</span> <em>· Featured in </em><span class="credit-name">Wired Italia</span><em>, </em><span class="credit-name">Newsweek</span><em>, </em><span class="credit-name">Corriere della Sera</span><em>, </em><span class="credit-name">The Sun</span><em>, </em><span class="credit-name">Yahoo News</span><em>, </em><span class="credit-name">Benzinga</span><em>, and </em><span class="credit-name">Daily Dot</span><em>. Analyzed in long-form by </em><span class="credit-name">Corridor Crew</span> <em>(10M+ subs) and </em><span class="credit-name">Night Mind</span><em>.</em>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="container">
+    <p class="section-label reveal">The Audience</p>
+    <div class="audience-layout">
+      <div class="credit-list reveal">
+        <p class="credit-list-title">Geography</p>
+        <div class="credit-row"><span>Europe (UK, ES, IT, FR, DE)</span><span class="dots"></span><span class="value">28%</span></div>
+        <div class="credit-row"><span>United States</span><span class="dots"></span><span class="value">22%</span></div>
+        <div class="credit-row"><span>Southeast Asia</span><span class="dots"></span><span class="value">18%</span></div>
+        <div class="credit-row"><span>Rest of World</span><span class="dots"></span><span class="value">17%</span></div>
+        <div class="credit-row"><span>Latin America</span><span class="dots"></span><span class="value">15%</span></div>
+      </div>
+
+      <div class="credit-list reveal reveal-d1">
+        <p class="credit-list-title">Age &amp; Gender</p>
+        <div class="credit-row"><span>18 – 24</span><span class="dots"></span><span class="value">38%</span></div>
+        <div class="credit-row"><span>25 – 34</span><span class="dots"></span><span class="value">30%</span></div>
+        <div class="credit-row"><span>35 – 44</span><span class="dots"></span><span class="value">13%</span></div>
+        <div class="credit-row"><span>13 – 17</span><span class="dots"></span><span class="value">12%</span></div>
+        <div class="credit-row"><span>45+</span><span class="dots"></span><span class="value">7%</span></div>
+        <div class="credit-row" style="margin-top: 1rem; border-top: 1px solid var(--paper-faint); padding-top: 1.2rem;"><span>Male / Female</span><span class="dots"></span><span class="value">58 / 42</span></div>
+      </div>
+
+      <div class="engagement-spotlight reveal reveal-d2">
+        <div class="engagement-big">6.2%</div>
+        <div class="engagement-text">
+          <span class="label-inline">Avg. Engagement Rate</span>
+          Roughly three times the benchmark for creators above one million followers — driven by 87.5M likes and over 3M comments to date.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENES -->
+<section id="scenes">
+  <div class="container">
+    <p class="section-label reveal">The Scenes</p>
+    <div class="scenes">
+      <div class="scene reveal">
+        <div class="scene-number"><small>Scene I</small>I.</div>
+        <div class="scene-body">
+          <h3 class="scene-title">The Last Drive</h3>
+          <p class="scene-slug">Ext. Downtown — Night</p>
+          <p class="scene-desc">A solitary luxury car glides through the empty streets of a sleeping metropolis. No traffic, no pedestrians, no other headlights. Only the engine, echoing between skyscrapers. Kilmaru behind the wheel, hooded, silent.</p>
+          <p class="scene-brands">For automotive — <span>Mercedes-Benz · BMW · Porsche · Genesis · Hyundai</span></p>
+        </div>
+      </div>
+
+      <div class="scene reveal">
+        <div class="scene-number"><small>Scene II</small>II.</div>
+        <div class="scene-body">
+          <h3 class="scene-title">Sound of Silence</h3>
+          <p class="scene-slug">Int. International Airport — Dawn</p>
+          <p class="scene-desc">Footsteps through an empty terminal. A moving walkway with no one on it. Kilmaru lifts a pair of headphones. Music breaks the vacuum. The contrast between absolute silence and premium sound — felt, not explained.</p>
+          <p class="scene-brands">For audio — <span>Sony · Bose · Bang &amp; Olufsen · Apple AirPods Max</span></p>
+        </div>
+      </div>
+
+      <div class="scene reveal">
+        <div class="scene-number"><small>Scene III</small>III.</div>
+        <div class="scene-body">
+          <h3 class="scene-title">Empty Runway</h3>
+          <p class="scene-slug">Int. Luxury Arcade — Day</p>
+          <p class="scene-desc">A grand shopping arcade, every store open, not a single person inside. Every step frames the sneakers, the jacket, the silhouette. No crowd to compete with. The clothing holds the shot on its own.</p>
+          <p class="scene-brands">For fashion — <span>Nike · Adidas · New Balance · The North Face</span></p>
+        </div>
+      </div>
+
+      <div class="scene reveal">
+        <div class="scene-number"><small>Scene IV</small>IV.</div>
+        <div class="scene-body">
+          <h3 class="scene-title">The Last Guest</h3>
+          <p class="scene-slug">Int. Five-Star Hotel — Continuous</p>
+          <p class="scene-desc">A hotel with every light still on and not a soul behind the desk. Corridors, a lit pool, a rooftop with a view no one else is watching. The camera moves slowly. The brand isn't in the frame — it <em>is</em> the frame.</p>
+          <p class="scene-brands">For hospitality — <span>Hotel chains · Tourism boards · Airlines</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press">
+  <div class="container">
+    <p class="section-label reveal">The Press</p>
+    <div class="press-list">
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Wired Italia</span>
+        <span class="press-headline">"How the TikToker creates videos where he appears to be the only human on the planet."</span>
+        <span class="press-type">Feature</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Newsweek</span>
+        <span class="press-headline">"TikToker claims they're on a 'ghost ship' in latest video series."</span>
+        <span class="press-type">Feature</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Corriere della Sera</span>
+        <span class="press-headline">"Who is Kilmaru: the influencer making incredible videos where he seems alone in the world."</span>
+        <span class="press-type">Profile</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Benzinga</span>
+        <span class="press-headline">"Popular TikTok influencer claims to live in an alternative reality."</span>
+        <span class="press-type">Feature</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Yahoo News</span>
+        <span class="press-headline">"TikTok user shares disturbing tale of waking up in an 'empty world'."</span>
+        <span class="press-type">News</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Corridor Crew</span>
+        <span class="press-headline">"VFX artists react to Kilmaru's empty world videos." — on a 10M+ subscriber channel.</span>
+        <span class="press-type">Video</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">The Sun</span>
+        <span class="press-headline">Coverage of the empty world and ghost ship series.</span>
+        <span class="press-type">News</span>
+      </a>
+      <a class="press-entry reveal" href="#" target="_blank" rel="noopener">
+        <span class="press-outlet">Monaco Streaming Film Festival</span>
+        <span class="press-headline">Award winner — short-form cinematic content.</span>
+        <span class="press-type">Award</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container-narrow">
+    <p class="section-label reveal">Correspondence</p>
+    <h2 class="contact-statement reveal reveal-d1">
+      Let's make something <em>cinematic.</em>
+    </h2>
+    <form class="contact-form reveal reveal-d2" id="contact-form">
+      <input type="hidden" name="redirect" value="https://kilmaru.com/media-kit.html">
+      <input type="hidden" name="from_name" value="Kilmaru Media Kit">
+      <input type="hidden" name="subject" value="New Media Kit Inquiry">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your brand and what you have in mind…" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Inquiry</button>
+      <p class="form-status" id="form-status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-line">
+    <a href="https://kilmaru.com" target="_blank" rel="noopener">Kilmaru.com</a>
+    <span class="sep">·</span>
+    <a href="https://tiktok.com/@kilmaru" target="_blank" rel="noopener">TikTok</a>
+    <span class="sep">·</span>
+    <a href="https://instagram.com/kilmaruig" target="_blank" rel="noopener">Instagram</a>
+    <span class="sep">·</span>
+    <a href="https://youtube.com/@kilmaruyt" target="_blank" rel="noopener">YouTube</a>
+    <span class="sep">·</span>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 Kilmaru. Filed from an empty world.</p>
 </footer>
 
 <script>
-// Pre-compute bar scaling: normalize each bar-group so its max bar fills ~95%
-document.querySelectorAll('.bar-group').forEach(group => {
-  const bars = [...group.querySelectorAll('.bar-fill')];
-  const values = bars.map(b => parseFloat(b.getAttribute('data-width')) || 0);
-  const max = Math.max(...values);
-  if (max <= 0) return;
-  bars.forEach((bar, i) => {
-    const pct = (values[i] / max) * 95;
-    bar.dataset.targetWidth = pct.toFixed(2) + '%';
-  });
-});
-
-// Intersection Observer for scroll reveal
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-
-      // Animate bars inside this element using their pre-computed target width
-      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
-        if (bar.dataset.targetWidth) bar.style.width = bar.dataset.targetWidth;
-      });
-
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.15,
-  rootMargin: '0px 0px -40px 0px'
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Running frame counter (subtle cinematic HUD)
+(() => {
+  const el = document.getElementById('frameCount');
+  if (!el) return;
+  const start = Date.now();
+  const pad = n => String(n).padStart(2, '0');
+  setInterval(() => {
+    const t = Math.floor((Date.now() - start) / 1000);
+    const h = Math.floor(t / 3600);
+    const m = Math.floor((t % 3600) / 60);
+    const s = t % 60;
+    const f = Math.floor((Date.now() - start) / 42) % 24; // ~24fps
+    el.textContent = `MK · ${pad(h + 2)}:${pad(m + 38)}:${pad(s)}:${pad(f)}`;
+  }, 42);
+})();
+
+// Contact form — Web3Forms (same service as kilmaru.com/contact.html)
+(() => {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('.submit-btn');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = '';
+
+    const formData = new FormData(form);
+    formData.append('access_key', 'ccf14269-30c1-4db4-a7f4-c10b52a942b0');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        status.textContent = 'Thank you. Your message has been filed.';
+        status.className = 'form-status show success';
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong — ' + (data.message || 'please try again.');
+        status.className = 'form-status show error';
+      }
+    } catch (err) {
+      status.textContent = 'Network error — please try again.';
+      status.className = 'form-status show error';
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+})();
 </script>
 </body>
 </html>
