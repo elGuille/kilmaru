@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Kilmaru — Media Kit</title>
 <meta name="description" content="Press kit for Kilmaru, the solitude explorer. 4.1M followers. 2B+ views. Cinematic content from the world's emptiest cities.">
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -1147,9 +1150,11 @@ footer {
   const canvas = document.getElementById('particles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d', { alpha: true });
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
   let w = 0, h = 0, cx = 0, cy = 0;
-  const COUNT = 140;
+  // Scale particle count by viewport area (fewer on mobile)
+  const isMobile = window.innerWidth < 768;
+  const COUNT = isMobile ? 60 : 100;
   const SPEED = 0.55;
   const FOCAL = 420;
   const MAX_Z = 1100;
@@ -1189,9 +1194,8 @@ footer {
 
   const loop = () => {
     if (!running) return;
-    // Subtle trail: clear with low-alpha fill for motion blur-ish fade
-    ctx.fillStyle = 'rgba(12, 10, 8, 0.28)';
-    ctx.fillRect(0, 0, w, h);
+    // Clear fully — no motion trail (cheaper; cleaner look on busy pages)
+    ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = 'rgba(235, 227, 213, 1)';
 
     for (const p of particles) {
