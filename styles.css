@@ -572,6 +572,33 @@ body::before {
     display: none !important;
 }
 
+/* ─── FOOTER MINI MENU (home) ─── */
+.footer-menu {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+}
+
+.footer-menu a {
+    color: var(--ink-mute);
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.footer-menu a:hover {
+    color: var(--ink);
+}
+
+.footer-menu span {
+    opacity: 0.5;
+}
+
 /* ─── ABOUT PAGE TABLES ─── */
 .dl-grid {
     width: 100%;
