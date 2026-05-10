@@ -6,23 +6,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    /* Color — pulled from the portrait */
-    --ink: #0a0a0a;            /* hoodie / cap */
-    --ink-soft: #2a2826;
-    --ink-mute: #6e6a60;
-    --paper: #ece4d2;          /* warm concrete wall */
-    --paper-pure: #f5efde;     /* lifted cream for cards */
-    --rule: rgba(10, 10, 10, 0.14);
-    --rule-soft: rgba(10, 10, 10, 0.07);
-    --sky: #1f6dd0;            /* LA cobalt */
-    --sky-bright: #2c83f0;
+    /* Two-tone palette from the portrait: matte black hoodie + warm concrete wall. */
+    --ink: #0a0a0a;            /* hoodie, cap */
+    --ink-soft: #1f1d1a;
+    --ink-mute: #6f6a60;
+    --paper: #e8e0cd;          /* warm concrete */
+    --paper-pure: #f1ebd9;     /* lifted cream for cards */
+    --paper-deep: #d4cab2;     /* shadowed concrete */
+    --rule: rgba(10, 10, 10, 0.16);
+    --rule-soft: rgba(10, 10, 10, 0.08);
 
-    /* Typography — single sans, expressive weight contrast */
+    /* Single sans, expressive weight contrast */
     --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-    --shadow: 0 8px 32px rgba(10, 10, 10, 0.08);
-    --shadow-lift: 0 16px 48px rgba(10, 10, 10, 0.14);
+    --shadow: 0 8px 32px rgba(10, 10, 10, 0.07);
+    --shadow-lift: 0 16px 48px rgba(10, 10, 10, 0.12);
 
     --radius: 14px;
     --radius-pill: 999px;
@@ -126,7 +125,7 @@ body::before {
 .ox-mark {
     width: 44px;
     height: 14px;
-    color: var(--sky);
+    color: var(--ink);
     margin-top: -0.25rem;
     display: block;
 }
@@ -185,19 +184,19 @@ body::before {
 
 .link-item:hover::after {
     transform: translateX(4px);
-    color: var(--sky);
+    color: var(--ink);
 }
 
 /* "Story" link gets the cobalt blue treatment */
 .sora-link {
-    background: var(--sky);
+    background: var(--ink);
     color: var(--paper-pure);
-    border-color: var(--sky);
+    border-color: var(--ink);
 }
 
 .sora-link:hover {
-    background: var(--sky-bright);
-    border-color: var(--sky-bright);
+    background: var(--ink-soft);
+    border-color: var(--ink-soft);
 }
 
 .sora-link::after {
@@ -221,7 +220,7 @@ body::before {
 }
 
 .link-item.info-link:hover::after {
-    color: var(--sky);
+    color: var(--ink);
     transform: none;
 }
 
@@ -242,7 +241,7 @@ body::before {
 }
 
 .social-links a:hover {
-    color: var(--sky);
+    color: var(--ink);
     transform: translateY(-1px);
 }
 
@@ -310,7 +309,7 @@ body::before {
     font-weight: 600;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--sky);
+    color: var(--ink-mute);
     margin-bottom: 1.25rem;
 }
 
@@ -335,8 +334,8 @@ body::before {
 
 .page-title em {
     font-style: normal;
-    font-weight: 700;
-    color: var(--sky);
+    font-weight: 300;
+    color: var(--ink);
 }
 
 .page-subtitle {
@@ -383,7 +382,7 @@ body::before {
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--sky);
+    color: var(--ink-mute);
     margin: 0 0 0.25rem 0;
 }
 
@@ -478,8 +477,8 @@ body::before {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--sky);
-    box-shadow: 0 0 0 3px rgba(31, 109, 208, 0.15);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px var(--rule-soft);
     outline: none;
 }
 
@@ -500,8 +499,8 @@ body::before {
 }
 
 .submit-btn:hover {
-    background: var(--sky);
-    border-color: var(--sky);
+    background: var(--ink);
+    border-color: var(--ink);
     transform: translateY(-2px);
 }
 
@@ -525,8 +524,8 @@ body::before {
 }
 
 .form-message.success {
-    border-color: var(--sky);
-    color: var(--sky);
+    border-color: var(--ink);
+    color: var(--ink);
 }
 
 .form-message.error {
@@ -562,8 +561,8 @@ body::before {
 }
 
 .brands-cta:hover {
-    background: var(--sky);
-    border-color: var(--sky);
+    background: var(--ink);
+    border-color: var(--ink);
     transform: translateY(-2px);
     box-shadow: none;
 }
@@ -613,7 +612,7 @@ body::before {
 
 .dl-grid dd em {
     font-style: normal;
-    color: var(--sky);
+    color: var(--ink);
     font-weight: 600;
 }
 
@@ -661,12 +660,12 @@ body::before {
 
 .faq-question {
     font-family: var(--display);
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--ink);
     line-height: 1.3;
-    margin: 0 0 0.6rem 0;
+    margin: 0 0 0.7rem 0;
 }
 
 .faq-answer {
@@ -677,14 +676,14 @@ body::before {
 }
 
 .faq-answer a {
-    color: var(--sky);
+    color: var(--ink);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
 }
 
 .faq-answer a:hover {
-    color: var(--ink);
+    color: var(--ink-mute);
 }
 
 .faq-intro {
