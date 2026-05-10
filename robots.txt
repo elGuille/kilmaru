@@ -1,38 +1,62 @@
-# Robots.txt for Kilmaru - TikTok Creator & Influencer
+# Robots.txt for Kilmaru — kilmaru.com
 
-# Allow all search engines to crawl the site
-User-agent: *
+# AI assistants and LLM crawlers — explicitly allowed
+User-agent: GPTBot
 Allow: /
-Disallow: /admin
-Disallow: /.git
-Disallow: /images/
 
-# Specific rules for Googlebot
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
 
-# Specific rules for Bingbot
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
-# Specific rules for search engine crawlers
 User-agent: Slurp
 Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
 
-User-agent: Baiduspider
+# Default — allow all
+User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /admin/
 
-# Block bad bots
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-# Sitemap location
 Sitemap: https://kilmaru.com/sitemap.xml

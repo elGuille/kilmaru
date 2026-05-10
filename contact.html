@@ -4,7 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Kilmaru</title>
+    <title>Contact Kilmaru — Brand Partnerships and Inquiries</title>
+    <meta name="description" content="Contact Kilmaru for brand partnerships, sponsored content, and press inquiries. Use the form below or email sagalabs@proton.me.">
+    <meta name="keywords" content="contact kilmaru, kilmaru email, kilmaru brand partnership, kilmaru inquiries">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kilmaru.com/contact.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kilmaru.com/contact.html">
+    <meta property="og:title" content="Contact Kilmaru">
+    <meta property="og:description" content="Reach Kilmaru for brand partnerships and press inquiries.">
+    <meta property="og:image" content="https://kilmaru.com/images/profile.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kilmaru.com/contact.html">
+    <meta property="twitter:title" content="Contact Kilmaru">
+    <meta property="twitter:description" content="Reach Kilmaru for brand partnerships and press inquiries.">
+    <meta property="twitter:image" content="https://kilmaru.com/images/profile.jpg">
+
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="shortcut icon" href="images/favicon.png">
@@ -12,119 +32,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@500;600&display=swap"
         rel="stylesheet">
-    <meta name="description" content="Contact Kilmaru for brand partnerships and collaborations">
-    <link rel="stylesheet" href="styles.css?v=2.0">
+    <link rel="stylesheet" href="styles.css?v=3.0">
     <style>
         .contact-form {
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 1rem auto 0;
         }
-
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--text-color-light);
-            font-weight: 500;
-            font-size: 0.95rem;
         }
-
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--card-border);
-            border-radius: 8px;
-            background-color: var(--card-bg);
-            color: var(--text-color-light);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
         }
-
-        [data-theme="classic"] .form-group input,
-        [data-theme="classic"] .form-group textarea {
-            color: var(--text-color-dark);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 2px var(--shadow-color);
-        }
-
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
         }
-
         .submit-btn {
             width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-primary-bright) 100%);
-            color: var(--button-text);
-            border: 2px solid var(--button-border);
-            border-radius: var(--button-radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: var(--button-transform);
-            letter-spacing: var(--button-spacing);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px var(--shadow-color);
         }
-
-        [data-theme="classic"] .submit-btn {
-            background: var(--button-bg);
-            box-shadow: 4px 4px 0px var(--button-border);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--shadow-color);
-        }
-
-        [data-theme="classic"] .submit-btn:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--button-border);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-message {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border-radius: 12px;
+        .contact-tagline {
+            font-family: var(--display);
+            font-style: italic;
             text-align: center;
-            font-weight: 500;
-            display: none;
-            border: 2px solid var(--button-border);
-            box-shadow: 4px 4px 0px var(--button-border);
+            color: var(--ink-mute);
+            font-size: 1rem;
+            max-width: 420px;
+            margin: 0 auto;
         }
-
-        .form-message.success {
-            background-color: var(--card-bg);
-            color: var(--text-color-light);
-            border-color: var(--accent-secondary);
-            box-shadow: 4px 4px 0px var(--accent-secondary);
+        .contact-direct {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--ink-mute);
+            margin-top: 0.5rem;
         }
-
-        .form-message.error {
-            background-color: #ff6b6b;
-            color: #ffffff;
-            border-color: #ff4757;
-            box-shadow: 4px 4px 0px #ff4757;
+        .contact-direct a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
     </style>
 </head>
@@ -132,12 +83,13 @@
 <body>
     <a href="./" class="fixed-back-button">← Back</a>
     <div class="main-container">
-        <div class="profile-section">
-            <a href="./">
-                <img src="images/profile.jpg" alt="Kilmaru" class="profile-image">
-            </a>
-            <h1 class="username">Contact</h1>
+        <div class="page-header" style="margin-bottom: 1rem;">
+            <span class="page-label">Correspondence</span>
+            <h1 class="page-title">Let's <em>talk.</em></h1>
+            <p class="page-subtitle">For brand partnerships and press.</p>
         </div>
+
+        <p class="contact-tagline">Send a brief below or email <a href="mailto:sagalabs@proton.me" style="color: var(--ink); text-decoration: underline; text-underline-offset: 3px;">sagalabs@proton.me</a>.</p>
 
         <form id="contact-form" class="contact-form">
             <input type="hidden" name="redirect" value="https://kilmaru.com/">
@@ -241,9 +193,6 @@
         }
     </script>
 
-    <!-- Theme Toggle Switch -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Switch theme" title="Switch theme"></button>
-    <script src="theme-toggle.js"></script>
 </body>
 
 </html>
