@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
+    color-scheme: light only;
     /* Two-tone palette from the portrait: matte black hoodie + warm concrete wall. */
     --ink: #0a0a0a;            /* hoodie, cap */
     --ink-soft: #1f1d1a;
