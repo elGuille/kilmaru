@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilmaru Media Kit — Stats, Audience, Brand Partnership Deck</title>
     <meta name="description"
-        content="Kilmaru media kit: 5.2M followers combined, 2B+ views, 6.2% engagement rate (3x the benchmark for 1M+ creators), 1,900 years of watch time. Audience mostly in the United States and Europe. Past brands include Netflix, Disney, 20th Century, Mandarin Oriental, Insta360, Virgin Voyages, Empire State Building.">
+        content="Kilmaru media kit: 5.2M followers combined, 2B+ views, 6.2% engagement rate (3x the benchmark for 1M+ creators). Audience mostly in the United States and Europe. Past brands include Netflix, Disney, 20th Century, Mandarin Oriental, Insta360, Virgin Voyages, Empire State Building.">
     <meta name="keywords"
         content="kilmaru media kit, kilmaru creator media kit, kilmaru audience demographics, kilmaru brand partnership, kilmaru rate card, kilmaru pricing, empty world creator press kit, cinematic creator press kit, anonymous creator media kit, US-based creator media kit">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -88,7 +88,7 @@
         /* STAT STRIP */
         .stat-strip {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 0;
             border-top: 1px solid var(--rule);
             border-bottom: 1px solid var(--rule);
@@ -144,16 +144,13 @@
 
         @media (max-width: 768px) {
             .stat-strip {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
             .mk-stat {
+                border-right: none;
                 border-bottom: 1px solid var(--rule);
             }
-            .mk-stat:nth-child(2) {
-                border-right: none;
-            }
-            .mk-stat:nth-child(3),
-            .mk-stat:nth-child(4) {
+            .mk-stat:last-child {
                 border-bottom: none;
             }
         }
@@ -620,11 +617,6 @@
                 <span class="mk-stat-label">Engagement</span>
                 <span class="mk-stat-value">250<em>M+</em></span>
                 <span class="mk-stat-caption">likes &amp; reactions</span>
-            </div>
-            <div class="mk-stat">
-                <span class="mk-stat-label">Watch time</span>
-                <span class="mk-stat-value">1,900<em>yrs</em></span>
-                <span class="mk-stat-caption">content consumed</span>
             </div>
         </div>
 
