@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kilmaru × Nova — Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page { size: letter; margin: 0; }
+
+:root {
+  --ink: #0a0a0a;
+  --ink-soft: #1f1d1a;
+  --ink-mute: #6f6a60;
+  --paper: #e8e0cd;
+  --paper-pure: #f1ebd9;
+  --paper-deep: #d4cab2;
+  --rule: rgba(10, 10, 10, 0.16);
+  --rule-soft: rgba(10, 10, 10, 0.08);
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --shadow: 0 8px 32px rgba(10, 10, 10, 0.07);
+  --shadow-lift: 0 16px 48px rgba(10, 10, 10, 0.12);
+  --radius: 14px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--paper); }
+
+body {
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "cv11", "tnum";
+  font-weight: 400;
+}
+
+::selection { background: var(--ink); color: var(--paper-pure); }
+
+/* PAGE */
+.page {
+  min-height: 100vh;
+  padding: 88px 96px 72px;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  border-bottom: 1px solid var(--rule);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.page:last-of-type { page-break-after: auto; border-bottom: none; }
+
+/* EYEBROW (editorial em-dash label) */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1.75rem;
+}
+.eyebrow::before { content: '— '; color: var(--rule); }
+.eyebrow::after  { content: ' —'; color: var(--rule); }
+
+/* DISPLAY */
+h1 {
+  font-family: var(--body);
+  font-size: clamp(4rem, 9vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+
+h2 {
+  font-family: var(--body);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+/* The Kilmaru signature: <em> = lighter weight, not heavier */
+h1 em, h2 em, .lead em {
+  font-style: normal;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+p + p { margin-top: 1rem; }
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--ink);
+  max-width: 62ch;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+/* COVER */
+.cover { justify-content: center; }
+
+.cover-marks {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.cover-portrait {
+  width: clamp(140px, 18vw, 200px);
+  height: clamp(140px, 18vw, 200px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  background: var(--ink);
+  display: block;
+  flex-shrink: 0;
+}
+.cover-x {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 200;
+  color: var(--ink-mute);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+.cover-nova {
+  width: clamp(200px, 26vw, 320px);
+  height: auto;
+  fill: var(--ink);
+  display: block;
+}
+
+.cover .wordmark-line {
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink-mute);
+  margin-top: 0.75rem;
+}
+.cover .wordmark-line em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cover .tagline {
+  margin-top: 2.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+.cover .meta {
+  margin-top: auto;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 60px;
+  font-weight: 500;
+}
+
+/* STATS GRID */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.stat-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 2.25rem 1.75rem 2rem;
+  text-align: center;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.stat-card:hover {
+  border-color: var(--ink);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-feature-settings: "tnum", "lnum";
+}
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--ink-mute);
+  margin-top: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.stat-sub {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* MARKETS */
+.markets {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.markets-list {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 0.5rem;
+}
+.markets-list em { font-style: normal; font-weight: 300; }
+.markets-list .dot { color: var(--ink-mute); margin: 0 0.4em; font-weight: 300; }
+
+/* BRAND GRID — naked logos, no frame */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem 3rem;
+  margin-top: 2.5rem;
+  align-items: center;
+}
+.brand-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+}
+.brand-tile img {
+  max-height: 108px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* "& Others" inline row */
+.brand-others {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+.brand-others .label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-right: 0.5rem;
+}
+.brand-others .name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.brand-others .name::after {
+  content: '·';
+  margin-left: 1rem;
+  color: var(--ink-mute);
+}
+.brand-others .name:last-child::after { content: ''; }
+
+@media (max-width: 900px) {
+  .brand-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* QUOTE */
+.quote-block {
+  margin: 2.5rem 0 2rem;
+  padding: 0;
+  max-width: 760px;
+}
+.quote-mark {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.7;
+  color: var(--ink-mute);
+  margin-bottom: 0.5rem;
+}
+.quote-text {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--ink);
+  max-width: 760px;
+}
+.quote-text em { font-style: normal; font-weight: 300; }
+.attribution {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 1.75rem;
+  font-weight: 600;
+}
+
+/* MENU PAGE — tier ladder */
+.tier-list {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.tier-row {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  display: grid;
+  grid-template-columns: 110px 1fr 160px;
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  text-decoration: none;
+  color: var(--ink);
+}
+.tier-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.tier-row.featured {
+  background: var(--ink);
+  color: var(--paper-pure);
+  border-color: var(--ink);
+}
+.tier-row.featured .tier-num,
+.tier-row.featured .tier-sub { color: var(--paper-deep); }
+.tier-row.featured .tier-price { color: var(--paper-pure); }
+
+.tier-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.tier-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+.tier-sub {
+  font-size: 0.92rem;
+  color: var(--ink-mute);
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.tier-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-align: right;
+  font-feature-settings: "tnum", "lnum";
+  line-height: 1.05;
+}
+.tier-price .rrp {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-mute);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15rem;
+}
+.tier-price small {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 0.35rem;
+}
+.tier-price .badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper-pure);
+  padding: 0.32rem 0.6rem 0.28rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.5rem;
+  line-height: 1;
+}
+.tier-row.featured .tier-price small { color: var(--paper-deep); }
+.tier-row.featured .tier-price .rrp { color: var(--paper-deep); }
+.tier-row.featured .tier-price .badge {
+  background: var(--paper-pure);
+  color: var(--ink);
+}
+
+/* OPTION DETAIL PAGE */
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.option-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.option-num::before { content: '— '; color: var(--rule); }
+.option-num::after  { content: ' —'; color: var(--rule); }
+.option-price-tag {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-feature-settings: "tnum", "lnum";
+  text-align: right;
+}
+.option-price-tag .rrp {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink-mute);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.35rem;
+}
+.option-price-tag .badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper-pure);
+  padding: 0.4rem 0.75rem 0.36rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.65rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.option-price-tag small {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 0.5rem;
+}
+
+.scenario {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0 1.5rem;
+  max-width: 820px;
+}
+.scenario .label {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.scenario p {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.55;
+  max-width: none;
+  font-weight: 400;
+}
+.scenario p em { font-style: normal; font-weight: 300; color: var(--ink-soft); }
+
+/* INCLUDES — definition list style */
+.includes-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+  margin: 1.75rem 0 0.5rem;
+}
+.includes {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+.includes li {
+  font-size: 0.98rem;
+  color: var(--ink);
+  padding: 0.95rem 0 0.95rem 1.75rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: 12px;
+  height: 1px;
+  background: var(--ink);
+}
+
+.tag-gift {
+  display: inline-block;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper-pure);
+  padding: 0.28rem 0.55rem 0.24rem;
+  border-radius: var(--radius-pill);
+  margin-left: 0.6rem;
+  line-height: 1;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* META ROWS — like dl-grid */
+.meta-grid {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.meta-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.meta-row dt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-mute);
+}
+.meta-row dd {
+  font-size: 0.98rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.meta-row dd em { font-style: normal; font-weight: 600; color: var(--ink); }
+
+/* CONTACT */
+.contact-block {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.contact-row .label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.contact-row .value {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+a.contact-row .value,
+.contact-row a.value { transition: color 0.18s ease; }
+.contact-row a.value:hover { color: var(--ink-mute); text-decoration: underline; text-underline-offset: 3px; }
+
+/* CTA PILL */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: var(--paper-pure);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 0.95rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: transform 0.2s ease;
+}
+.cta-pill:hover { transform: translateY(-2px); }
+.cta-pill::after { content: '→'; }
+
+/* FOOTER MARK */
+.footer-mark {
+  margin-top: auto;
+  padding-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+.footer-mark em { font-style: normal; color: var(--ink); font-weight: 700; }
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { page-break-after: always; min-height: auto; padding: 64px 64px 48px; }
+}
+
+@media (max-width: 760px) {
+  .page { padding: 56px 24px 48px; min-height: auto; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1.5rem; }
+  .brand-tile { height: 80px; }
+  .brand-tile img { max-height: 72px; }
+  .tier-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.4rem 1.4rem;
+  }
+  .tier-price {
+    text-align: left;
+    font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.65rem;
+  }
+  .tier-price .rrp { display: inline-block; margin: 0; }
+  .tier-price small { display: inline-block; margin: 0; }
+  .tier-price .badge { margin: 0; }
+  .meta-row, .contact-row { grid-template-columns: 1fr; gap: 0.35rem; padding: 0.9rem 0; }
+  .option-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .option-price-tag {
+    text-align: left;
+    font-size: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+  }
+  .option-price-tag .rrp { display: inline-block; margin: 0; }
+  .option-price-tag small { display: inline-block; margin: 0; }
+  .option-price-tag .badge { margin: 0; }
+  .cover-marks { justify-content: flex-start; gap: 1.25rem; }
+  .stat-card { padding: 1.75rem 1.25rem 1.5rem; }
+  .stat-number { font-size: 2.75rem; }
+  .quote-text { font-size: 1.35rem; }
+  .scenario { padding: 1.25rem 1.25rem; }
+  .scenario p { font-size: 0.98rem; }
+  .includes li { padding: 0.85rem 0 0.85rem 1.5rem; font-size: 0.95rem; }
+  .markets-list { font-size: 1.15rem; }
+}
+
+@media (max-width: 420px) {
+  .page { padding: 48px 20px 40px; }
+  .brand-grid { gap: 1.25rem 1rem; }
+  .stat-number { font-size: 2.4rem; }
+  .cta-pill { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="cover-marks">
+    <img src="images/kilmaru-profile.jpg" alt="Kilmaru" class="cover-portrait">
+    <span class="cover-x" aria-hidden="true">×</span>
+    <svg class="cover-nova" viewBox="0 0 1200 303" xmlns="http://www.w3.org/2000/svg" aria-label="Nova">
+      <title>NOVA</title>
+      <path d="M0 0V302.488H64.4007V75.6219L139.535 151.244V64.8188L75.1342 0H0ZM214.669 226.866L139.535 151.244V237.669L203.936 302.488H279.07V0H214.669V226.866Z"></path>
+      <path d="M521.646 0H371.377V64.8188H521.646V237.669L586.047 172.85V64.8188L521.646 0ZM371.377 237.669V64.8188L306.977 129.638V216.063L392.844 302.488H521.646V237.669H371.377Z"></path>
+      <path d="M613.953 172.85L678.354 237.669V0H613.953V172.85ZM828.623 237.669L893.023 172.85V0H828.623V237.669ZM764.222 302.488L828.623 237.669H678.354L742.755 302.488H764.222Z"></path>
+      <path d="M1092.67 0H1049.73L985.331 64.8188H1135.6V302.488H1200V107.599L1092.67 0ZM920.93 129.638V302.488H985.331V216.063H1070.77L1135.6 151.244H985.331V64.8188L920.93 129.638Z"></path>
+    </svg>
+  </div>
+  <p class="wordmark-line"><em>Kilmaru</em> &times; <em>Nova</em></p>
+  <p class="tagline">Partnership Proposal</p>
+  <p class="meta">2026 · 5.2M followers · kilmaru.com</p>
+</section>
+
+<!-- ABOUT -->
+<section class="page">
+  <p class="eyebrow">About Kilmaru</p>
+  <h2>Filming the world's most iconic places <em>as if humanity vanished overnight.</em></h2>
+  <p class="lead">An anonymous US-based cinematic creator. First-person POV. No dialogue, no visible face, no heavy editing. Active since 2021. Five million people return weekly to watch one protagonist move through places that should be full <em>but aren't.</em></p>
+  <p style="margin-top: 1.5rem;">Brand partners get a piece of work made to the same restrained standard as the show — not a sponsored post pasted onto an existing video.</p>
+  <p class="footer-mark"><em>Kilmaru</em> · The Empty World Cinematic Creator</p>
+</section>
+
+<!-- REACH + AUDIENCE -->
+<section class="page">
+  <p class="eyebrow">The Numbers</p>
+  <h2>What the audience <em>actually looks like.</em></h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <p class="stat-number">5.2M</p>
+      <p class="stat-label">Followers</p>
+      <p class="stat-sub">4.1M TikTok · 940K Instagram</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-number">2B+</p>
+      <p class="stat-label">Total Views</p>
+      <p class="stat-sub">250M+ likes · 3M+ comments</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-number">6.2%</p>
+      <p class="stat-label">Engagement</p>
+      <p class="stat-sub">3× the benchmark for 1M+ creators</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-number">23.9M</p>
+      <p class="stat-label">Top Brand Piece</p>
+      <p class="stat-sub">Single Virgin Voyages integration</p>
+    </div>
+  </div>
+
+  <div class="markets">
+    <h3>Top Markets</h3>
+    <p class="markets-list"><em>Primary</em> United States <span class="dot">·</span> <em>Secondary</em> Europe</p>
+    <p style="margin-top: 0.75rem; color: var(--ink-mute); font-size: 0.95rem;">English-first audience, US-led.</p>
+  </div>
+</section>
+
+<!-- BRAND PARTNERS -->
+<section class="page">
+  <p class="eyebrow">Brand Partners</p>
+  <h2>Who we've <em>worked with.</em></h2>
+  <p class="lead">Every campaign is built into the world of Kilmaru — woven into the story, not pasted on top.</p>
+
+  <div class="brand-grid">
+    <div class="brand-tile"><img src="brand-logos/netflix_PNG25-2535868234.png" alt="Netflix"></div>
+    <div class="brand-tile"><img src="brand-logos/disney.png" alt="Disney"></div>
+    <div class="brand-tile"><img src="brand-logos/20th-Century-Fox-Logo-PNG-Image.png" alt="20th Century Studios"></div>
+    <div class="brand-tile"><img src="brand-logos/virgin.png" alt="Virgin Voyages"></div>
+    <div class="brand-tile"><img src="brand-logos/volkswagen.png" alt="Volkswagen"></div>
+    <div class="brand-tile"><img src="brand-logos/mandarin.png" alt="Mandarin Oriental"></div>
+    <div class="brand-tile"><img src="brand-logos/nsta360.jpg" alt="Insta360"></div>
+    <div class="brand-tile"><img src="brand-logos/empire-state-building-new-york-logo-free-vector.jpg" alt="Empire State Building"></div>
+    <div class="brand-tile"><img src="brand-logos/One-World-Observatory-Logo-Vector.svg--3909273627.png" alt="One World Observatory"></div>
+    <div class="brand-tile"><img src="brand-logos/edge%20nyc.webp" alt="Edge NY"></div>
+    <div class="brand-tile"><img src="brand-logos/citizenm-logo-png_seeklogo-561600.png" alt="CitizenM"></div>
+    <div class="brand-tile"><img src="brand-logos/crocs.png" alt="Crocs"></div>
+    <div class="brand-tile"><img src="brand-logos/surfshark-logo-freelogovectors.net_.png" alt="Surfshark"></div>
+    <div class="brand-tile"><img src="brand-logos/free2move-logo-FCEDA8A0B4-seeklogo.com-1228252629.png" alt="Free2Move"></div>
+    <div class="brand-tile"><img src="brand-logos/monacair.png" alt="Monacair"></div>
+  </div>
+</section>
+
+<!-- CASE IN POINT -->
+<section class="page">
+  <p class="eyebrow">Case in Point</p>
+  <h2>23.9M views <em>from a single video.</em></h2>
+
+  <div class="quote-block">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">Her views <em>exceeded all other influencers</em> in that campaign combined.</p>
+    <span class="attribution">Lauren Goerl · Influencer Marketing, Virgin Voyages</span>
+  </div>
+
+  <p>Our top-performing brand integration was a single Kilmaru piece for Virgin Voyages that hit <strong>23.9 million views</strong>. One video outperformed every other creator's entire contribution to the same campaign — confirmed by their own influencer marketing manager.</p>
+  <p style="margin-top: 1rem; font-weight: 500; color: var(--ink);">That is the standard partners are signing up to.</p>
+</section>
+
+<!-- MENU PAGE -->
+<section class="page">
+  <p class="eyebrow">The Proposal</p>
+  <h2>Three ways <em>to work together.</em></h2>
+  <p class="lead">A ladder from a single Reel to a full quarter of work. Each tier builds on the one before it. Pick the entry point that fits where Nova is right now.</p>
+
+  <ul class="tier-list">
+    <li>
+      <a class="tier-row featured" href="#tier1">
+        <div class="tier-num">Tier 01</div>
+        <div>
+          <div class="tier-title">The Studio Reel + Story</div>
+          <div class="tier-sub">A full Kilmaru piece filmed at Nova Studios LA, plus a teaser Story driving traffic to it. Cross-posted TikTok + Instagram.</div>
+        </div>
+        <div class="tier-price">$12,000<small>One-Off</small></div>
+      </a>
+    </li>
+    <li>
+      <a class="tier-row" href="#tier2">
+        <div class="tier-num">Tier 02</div>
+        <div>
+          <div class="tier-title">The Casting Drop</div>
+          <div class="tier-sub">Everything in Tier 01, plus a Kilmaru video opening a real gig on Nova, driving audience straight to the platform.</div>
+        </div>
+        <div class="tier-price">$22,000<small>One-Off</small></div>
+      </a>
+    </li>
+    <li>
+      <a class="tier-row" href="#tier3">
+        <div class="tier-num">Tier 03</div>
+        <div>
+          <div class="tier-title">The Quarter</div>
+          <div class="tier-sub">Three months. Studio shoot, casting drop, and a third concept developed together. A season, not a campaign.</div>
+        </div>
+        <div class="tier-price">$40,000<small>3 Months</small></div>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<!-- TIER 1 -->
+<section class="page" id="tier1">
+  <div class="option-header">
+    <p class="option-num">Tier 01 of 03</p>
+    <p class="option-price-tag">$12,000<small>One-Off</small></p>
+  </div>
+  <h2>The Studio Reel + Story.</h2>
+  <p class="lead">A full Kilmaru piece filmed inside Nova Studios LA, built around the part of the studio Nova most wants to highlight — <em>cyclorama, courtyard, lighting setups.</em></p>
+
+  <div class="scenario">
+    <p class="label">Picture it</p>
+    <p>Midday. Kilmaru walks into Nova Studios LA. A shoot is set up. Kilmaru moves through a film set frozen mid-production. The 32-ft cyclorama glows behind an abandoned camera rig. Every amenity Nova Studios offers, on screen, in use, empty. <em>This is just one direction.</em> The actual concept gets built around whatever Nova wants to showcase, or whatever will drive the most attention to the studio.</p>
+  </div>
+
+  <p class="includes-heading">What is included</p>
+  <ul class="includes">
+    <li>One Kilmaru Reel filmed at Nova Studios LA</li>
+    <li>One teaser Instagram Story driving traffic to the Reel</li>
+    <li>Cross-posted on TikTok and Instagram</li>
+    <li>Custom creative concept developed with Nova: showcase exactly what you want, or build a hook designed to drive attention to the studio</li>
+    <li>@itsnova and Nova Studios LA tagged in every piece</li>
+  </ul>
+
+  <dl class="meta-grid">
+    <div class="meta-row"><dt>Timeline</dt><dd>1 to 2 weeks from go-ahead</dd></div>
+  </dl>
+</section>
+
+<!-- TIER 2 -->
+<section class="page" id="tier2">
+  <div class="option-header">
+    <p class="option-num">Tier 02 of 03</p>
+    <p class="option-price-tag">$22,000<small>One-Off</small></p>
+  </div>
+  <h2>The Casting Drop.</h2>
+  <p class="lead">Tier 01 plus a Kilmaru video opening a real gig on Nova — <em>driving the audience straight to the platform.</em></p>
+
+  <div class="scenario">
+    <p class="label">Picture it</p>
+    <p>Kilmaru posts a piece opening a casting call on Nova. <em>Instagram tags @itsnova directly</em> so the CTA lives inside the platform. <em>TikTok links straight to the gig listing.</em> The piece drives real attention toward Nova accounts and the open gig. A follow-up post shows the response.</p>
+  </div>
+
+  <p class="includes-heading">What is included</p>
+  <ul class="includes">
+    <li>Everything in Tier 01 (Studio Reel + teaser Story)</li>
+    <li>One additional Kilmaru piece opening a real Nova casting call</li>
+    <li>@itsnova tag on Instagram, direct gig listing link on TikTok</li>
+    <li>Real role posted on Nova for the campaign duration — type chosen together with Nova</li>
+    <li>One follow-up Instagram image post (or carousel) showing the casting result</li>
+  </ul>
+
+  <dl class="meta-grid">
+    <div class="meta-row"><dt>Timeline</dt><dd>2 to 3 weeks from go-ahead</dd></div>
+  </dl>
+</section>
+
+<!-- TIER 3 -->
+<section class="page" id="tier3">
+  <div class="option-header">
+    <p class="option-num">Tier 03 of 03</p>
+    <p class="option-price-tag">$40,000<small>3 Months · 3 Pieces</small></p>
+  </div>
+  <h2>The Quarter.</h2>
+  <p class="lead">Three months. Three pieces. Studio shoot, casting drop, and a third concept developed together based on what is performing. <em>A season, not a campaign.</em></p>
+
+  <div class="scenario">
+    <p class="label">Picture it</p>
+    <p><em>Month 1.</em> Kilmaru films at Nova Studios LA. <em>Month 2.</em> We open a Kilmaru casting call on the app. <em>Month 3.</em> A third concept developed together based on what is working best. By the end of three months, Nova has three original Kilmaru pieces, real traffic data from each, and sustained visibility for Nova Studios LA.</p>
+  </div>
+
+  <p class="includes-heading">What is included</p>
+  <ul class="includes">
+    <li>Three Kilmaru pieces over three months, cross-posted TikTok + Instagram</li>
+    <li>Three companion Stories driving traffic to each piece</li>
+    <li>Each piece anchored on a different Nova use case</li>
+    <li>@itsnova tagged or linked in every piece</li>
+  </ul>
+
+  <dl class="meta-grid">
+    <div class="meta-row"><dt>Timeline</dt><dd>3-month engagement, kicks off within 1 week of go-ahead</dd></div>
+  </dl>
+</section>
+
+<!-- NEXT STEP -->
+<section class="page">
+  <p class="eyebrow">Next Step</p>
+  <h2>Pick a tier <em>and we ship.</em></h2>
+  <p class="lead">Let us know which tier fits and we'll send a short scope document to lock it in. Open to mixing elements across the three or adjusting scale on any one.</p>
+
+  <a href="mailto:hi@kilmaru.com" class="cta-pill">Reply to lock it in</a>
+
+  <div class="contact-block">
+    <div class="contact-row"><div class="label">Email</div><a class="value" href="mailto:hi@kilmaru.com">hi@kilmaru.com</a></div>
+    <div class="contact-row"><div class="label">Instagram</div><a class="value" href="https://instagram.com/kilmaruig" target="_blank" rel="noopener">@kilmaruig</a></div>
+    <div class="contact-row"><div class="label">TikTok</div><a class="value" href="https://tiktok.com/@kilmaru" target="_blank" rel="noopener">@kilmaru</a></div>
+  </div>
+
+  <p class="footer-mark"><em>Kilmaru</em> × <em>Nova</em> · Partnership Proposal · 2026</p>
+</section>
+
+</body>
+</html>
