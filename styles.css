@@ -206,10 +206,12 @@ body::before {
 
 /* "Free Videos" link — small black cartoon star spinning beside the label */
 .fv-star {
-    width: 0.95em;
-    height: 0.95em;
-    margin-left: 0.4em;
-    vertical-align: -0.12em;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    flex: none;
+    margin-left: 0.45em;
+    vertical-align: -0.08em;
     color: var(--ink);
     transform-origin: center;
     animation: fv-star-spin 3.2s linear infinite;
