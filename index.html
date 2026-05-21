@@ -47,56 +47,83 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Kilmaru",
-        "alternateName": "@kilmaru",
-        "url": "https://kilmaru.com",
-        "image": "https://kilmaru.com/images/profile.jpg",
-        "description": "Anonymous cinematic creator known as Kilmaru. Films the world's most iconic cities as if humanity had vanished, in first-person, hooded, with no dialogue. Active since 2021. 5.2M followers combined across TikTok, Instagram, and YouTube. 2B+ total views.",
-        "jobTitle": "Cinematic Content Creator",
-        "knowsLanguage": "en",
-        "nationality": {
-            "@type": "Country",
-            "name": "United States"
-        },
-        "workLocation": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "US"
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://kilmaru.com/#kilmaru",
+                "name": "Kilmaru",
+                "alternateName": "@kilmaru",
+                "url": "https://kilmaru.com",
+                "mainEntityOfPage": "https://kilmaru.com/",
+                "image": "https://kilmaru.com/images/profile.jpg",
+                "description": "Anonymous cinematic creator known as Kilmaru. Films the world's most iconic cities as if humanity had vanished, in first-person, hooded, with no dialogue. Active since 2021. 5.2M followers combined across TikTok, Instagram, and YouTube. 2B+ total views.",
+                "jobTitle": "Cinematic Content Creator",
+                "knowsLanguage": "en",
+                "nationality": {
+                    "@type": "Country",
+                    "name": "United States"
+                },
+                "workLocation": {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "US"
+                    }
+                },
+                "email": "hi@kilmaru.com",
+                "sameAs": [
+                    "https://www.tiktok.com/@kilmaru",
+                    "https://www.instagram.com/kilmaruig",
+                    "https://www.youtube.com/@kilmaruyt",
+                    "https://kilmaru.substack.com"
+                ],
+                "knowsAbout": [
+                    "Cinematic content creation",
+                    "First-person video",
+                    "POV storytelling",
+                    "Empty world aesthetics",
+                    "Solitude exploration",
+                    "Speculative fiction",
+                    "Atmospheric short-form film",
+                    "Vertical video",
+                    "Brand partnerships",
+                    "Sponsored content",
+                    "UGC creation",
+                    "Branded entertainment",
+                    "Travel content",
+                    "Hospitality content",
+                    "Luxury content",
+                    "Automotive content",
+                    "Audio and headphones content",
+                    "Fashion and sneakers content",
+                    "Technology and camera content",
+                    "Streaming and entertainment content"
+                ],
+                "audience": {
+                    "@type": "PeopleAudience",
+                    "audienceType": "Global audience, mostly United States and Europe"
+                }
+            },
+            {
+                "@type": "CreativeWorkSeries",
+                "@id": "https://kilmaru.com/#empty-world",
+                "name": "Empty World",
+                "alternateName": "Kilmaru Empty World series",
+                "creator": { "@id": "https://kilmaru.com/#kilmaru" },
+                "datePublished": "2021-03-23",
+                "genre": ["Speculative fiction", "Science fiction", "Cinematic"],
+                "description": "An ongoing first-person video series depicting the world's most iconic cities as if every human had vanished."
+            },
+            {
+                "@type": "Book",
+                "@id": "https://kilmaru.com/#book",
+                "name": "Kilmaru and the Empty World",
+                "author": { "@id": "https://kilmaru.com/#kilmaru" },
+                "url": "https://book.kilmaru.com",
+                "genre": "Speculative fiction",
+                "bookFormat": "https://schema.org/EBook"
             }
-        },
-        "email": "hi@kilmaru.com",
-        "sameAs": [
-            "https://www.tiktok.com/@kilmaru",
-            "https://www.instagram.com/kilmaruig",
-            "https://www.youtube.com/@kilmaruyt"
-        ],
-        "knowsAbout": [
-            "Cinematic content creation",
-            "First-person video",
-            "POV storytelling",
-            "Empty world aesthetics",
-            "Solitude exploration",
-            "Atmospheric short-form film",
-            "Vertical video",
-            "Brand partnerships",
-            "Sponsored content",
-            "UGC creation",
-            "Branded entertainment",
-            "Travel content",
-            "Hospitality content",
-            "Luxury content",
-            "Automotive content",
-            "Audio and headphones content",
-            "Fashion and sneakers content",
-            "Technology and camera content",
-            "Streaming and entertainment content"
-        ],
-        "audience": {
-            "@type": "PeopleAudience",
-            "audienceType": "Global audience, mostly United States and Europe"
-        }
+        ]
     }
     </script>
 
