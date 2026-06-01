@@ -1,0 +1,38 @@
+{{Short description|Anonymous cinematic video creators}}
+
+'''Kilmaru''' is the pseudonym used by an anonymous [[content creator]] — reported by several outlets to be a duo — known for first-person [[short-form video]]s that depict well-known cities and locations as if they were empty of all other people. The account, which also uses the handle ''kilianandmaruta'', has been active since 2021; the videos contain no spoken dialogue and no visible performer.<ref name="yahoo"/><ref name="geopop"/>
+
+== Background ==
+The "empty world" videos began appearing on [[TikTok]] in 2021.<ref name="yahoo"/> They are presented as the account of a narrator who describes himself as a former [[artificial intelligence]] programmer who, after hacking a quantum computer, is transported to an uninhabited parallel world.<ref name="geopop"/> In June 2021 a series in which the narrator claims to be living aboard a deserted cruise ship — described as a "ghost ship" — was reported by ''[[Newsweek]]'' and other outlets.<ref name="newsweek"/><ref name="yahoo"/> At the time of that coverage the account had about 2.3 million TikTok followers;<ref name="yahoo"/> a 2024 Italian report put the following at nearly four million on TikTok and around 680,000 on [[Instagram]].<ref name="geopop"/>
+
+== Content and style ==
+Filmed in the first person, the videos show deserted versions of locations such as the [[Colosseum]], New York and London, along with airports, hotels, stadiums and cruise ships.<ref name="geopop"/><ref name="newsweek"/> The performer is never shown and there is no dialogue. The empty-location effect has been attributed to filming at quiet times and to removing remaining people in [[post-production]] using software tools; the fact-checking website ''[[Snopes]]'' reached a similar conclusion about the videos.<ref name="geopop"/><ref name="snopes"/>
+
+== Reception ==
+The videos received coverage in several countries. In Italy they were reported by ''[[Corriere della Sera]]'', ''[[Wired (magazine)|Wired]]'', ''[[Fanpage.it|Fanpage]]'', ''Geopop'' and ''Lo Speciale''.<ref name="corriere"/><ref name="wired"/><ref name="fanpage"/><ref name="geopop"/><ref name="lospeciale"/> In the United Kingdom they were covered by ''[[The Sun (United Kingdom)|The Sun]]'',<ref name="thesun"/> in the United States by ''Newsweek'' and Yahoo's ''In the Know'',<ref name="newsweek"/><ref name="yahoo"/> and in France by ''[[20 Minutes (France)|20 Minutes]]''.<ref name="20min"/> The visual-effects channel [[Corridor Crew]] and the online-mystery analysis channel Night Mind each produced videos about the work.<ref name="corridor"/><ref name="nightmind"/>
+
+== Awards ==
+At the 2021 [[Monaco]] Streaming Film Festival, the work received the award for Best Creative Content, credited to the duo "Kilian and Maruta".<ref name="monaco"/>
+
+== References ==
+{{reflist|refs=
+<ref name="yahoo">{{cite web |title=TikTok user shares disturbing tale of waking up in an 'empty world' |website=Yahoo (In the Know) |date=2021-06-09 |url=https://www.yahoo.com/lifestyle/tiktok-user-shares-disturbing-tale-185909151.html |access-date=2026-05-22}}</ref>
+<ref name="geopop">{{cite web |title=Kilmaru: come fa il tiktoker a realizzare video in cui sembra l'unico essere umano sul pianeta |website=Geopop |date=2024-02-26 |url=https://www.geopop.it/kilmaru-come-fa-il-tiktoker-a-realizzare-video-in-cui-sembra-lunico-essere-umano-sul-pianeta/ |language=Italian |access-date=2026-05-22}}</ref>
+<ref name="newsweek">{{cite web |title=TikToker Claims They're on a 'Ghost Ship' in Latest Video Series |website=Newsweek |date=2021-06-09 |url=https://www.newsweek.com/tiktoker-claims-theyre-ghost-ship-latest-video-series-1599203 |access-date=2026-05-22}}</ref>
+<ref name="snopes">{{cite web |title=TikTok Videos Show Life on a 'Ghost Ship' in 'Empty World' |website=Snopes |url=https://www.snopes.com/articles/346388/kilian-maruta-tiktok/ |access-date=2026-05-22}}</ref>
+<ref name="corriere">{{cite web |title=Chi è Kilmaru, l'influencer che fa video incredibili in cui sembra rimasto solo al mondo |website=Corriere della Sera |date=2024-02-22 |url=https://www.corriere.it/tecnologia/24_febbraio_22/chi-e-kilmaru-l-influencer-che-fa-video-incredibili-in-cui-sembra-rimasto-solo-al-mondo-qual-e-trucco-c1db412a-72bd-4ebd-8621-6bc3e3659xlk_amp.shtml |language=Italian |access-date=2026-05-22}}</ref>
+<ref name="wired">{{cite web |title=Kilmaru, come fa il tiktoker a realizzare i video del mondo vuoto |website=Wired Italia |url=https://www.wired.it/article/kilmaru-tiktok-video-mondo-vuoto-come/ |language=Italian |access-date=2026-05-22}}</ref>
+<ref name="fanpage">{{cite web |title=«Mi sono svegliato in un mondo vuoto»: i video su TikTok mostrano le città dopo l'apocalisse dell'IA |website=Fanpage.it |url=https://www.fanpage.it/innovazione/tecnologia/mi-sono-svegliato-in-un-mondo-vuoto-i-video-su-tiktok-mostrano-le-citta-dopo-lapocalisse-dellia/ |language=Italian |access-date=2026-05-22}}</ref>
+<ref name="lospeciale">{{cite web |title=Kilmaru: Matrix all'amatriciana |website=Lo Speciale |date=2024-02-18 |url=https://www.lospecialegiornale.it/2024/02/18/kilmaru-matrix-allamatriciana/ |language=Italian |access-date=2026-05-22}}</ref>
+<ref name="thesun">{{cite web |title=Alternative reality 'empty world' ghost ship videos |website=The Sun |url=https://www.thesun.co.uk/news/26288261/alternative-reality-world-empty-ghost-ship-kilmaru/ |access-date=2026-05-22}}</ref>
+<ref name="20min">{{cite web |title=TikTok: les comptes de « voyageurs du futur » prolifèrent sur la plateforme |website=20 Minutes |date=2022-12-21 |url=https://www.20minutes.fr/by-the-web/4014991-20221221-tiktok-voyageurs-futur-comptes-proliferent-plateforme-entrainent-monde-postapo |language=French |access-date=2026-05-22}}</ref>
+<ref name="corridor">{{cite web |title=VFX Artists React to Kilmaru's Empty World Videos |website=Corridor Crew |via=YouTube |url=https://www.youtube.com/watch?v=SHx4xVhfS3w |access-date=2026-05-22}}</ref>
+<ref name="nightmind">{{cite web |title=Analysis of Kilmaru's empty world videos |website=Night Mind |via=YouTube |url=https://www.youtube.com/watch?v=Tu9hsBGtfLQ |access-date=2026-05-22}}</ref>
+<ref name="monaco">{{cite web |title=Monaco Streaming Film Festival award winners |website=Monaco Life |date=2021 |url=https://monacolife.net/monaco-streaming-film-festival-award-winners/ |access-date=2026-05-22}}</ref>
+}}
+
+[[Category:Living people]]
+[[Category:Anonymous people]]
+[[Category:TikTok]]
+[[Category:Pseudonymous artists]]
+[[Category:Internet memes]]
