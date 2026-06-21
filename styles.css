@@ -11,9 +11,9 @@
     --ink: #0a0a0a;            /* hoodie, cap */
     --ink-soft: #1f1d1a;
     --ink-mute: #6f6a60;
-    --paper: #e8e0cd;          /* warm concrete */
-    --paper-pure: #f1ebd9;     /* lifted cream for cards */
-    --paper-deep: #d4cab2;     /* shadowed concrete */
+    --paper: #ffffff;          /* white background (matches the book site) */
+    --paper-pure: #ffffff;     /* cards */
+    --paper-deep: #f4f4f4;     /* subtle shaded surface */
     --rule: rgba(10, 10, 10, 0.16);
     --rule-soft: rgba(10, 10, 10, 0.08);
 
@@ -200,6 +200,48 @@ body::before {
     color: var(--paper-pure);
 }
 
+/* Book presale — the hero link: slightly taller, with a cover thumbnail + gold star */
+.presale-link {
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.5rem;
+}
+.presale-cover {
+    width: 104px;
+    height: auto;
+    border-radius: 5px;
+    flex: none;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+.presale-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+.presale-kicker {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #caa64a;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+.presale-link .link-text {
+    flex: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+}
+.presale-star {
+    display: inline-block;
+    transform-origin: center;
+    animation: fv-star-spin 7s linear infinite;
+}
+
 .pixelated-star-img {
     display: none;
 }
@@ -290,7 +332,7 @@ body::before {
     left: 1.5rem;
     z-index: 100;
     backdrop-filter: blur(8px);
-    background: rgba(245, 239, 222, 0.85);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 .simple-back-button {
