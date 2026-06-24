@@ -61,6 +61,11 @@ body {
     font-feature-settings: "ss01", "cv11", "tnum";
 }
 
+@keyframes cinematicFadeUp {
+    0% { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
 /* hairline at the top */
 body::before {
     content: '';
@@ -82,6 +87,7 @@ body::before {
     flex-direction: column;
     align-items: center;
     gap: 2.25rem;
+    animation: cinematicFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .profile-section {
@@ -180,24 +186,27 @@ body::before {
     color: var(--ink);
 }
 
-/* "Story" link gets the cobalt blue treatment */
+/* Book presale link gets a cinematic dark treatment with subtle gold glow */
 .sora-link {
-    background: var(--ink);
-    color: var(--paper-pure);
-    border-color: var(--ink);
+    background: linear-gradient(135deg, #1f1f1f 0%, #050505 100%);
+    color: #ffffff;
+    border-color: #000000;
+    box-shadow: 0 10px 24px rgba(200, 166, 74, 0.15); /* subtle gold glow */
 }
 
 .sora-link:hover {
-    background: var(--ink-soft);
-    border-color: var(--ink-soft);
+    background: linear-gradient(135deg, #2a2a2a 0%, #111111 100%);
+    border-color: #caa64a;
+    box-shadow: 0 12px 30px rgba(200, 166, 74, 0.25);
+    transform: translateY(-2px);
 }
 
 .sora-link::after {
-    color: var(--paper-pure);
+    color: #caa64a;
 }
 
 .sora-link:hover::after {
-    color: var(--paper-pure);
+    color: #caa64a;
 }
 
 /* Book presale — the hero link: slightly taller, with a cover thumbnail + gold star */
@@ -207,11 +216,11 @@ body::before {
     padding: 1.5rem 1.5rem;
 }
 .presale-cover {
-    width: 104px;
+    width: 130px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 6px;
     flex: none;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
 .presale-copy {
     display: flex;

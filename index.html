@@ -163,17 +163,35 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="profile-section">
             <img src="images/profile.jpg?v=2026-05-10" alt="Kilmaru" class="profile-image">
             <h1 class="username">@kilmaru</h1>
-            <p class="hero-subtitle">The empty world traveler.</p>
+            <p class="hero-subtitle">I explore a world where everyone else has vanished.</p>
         </div>
 
         <div class="links-section">
             <a href="https://book.kilmaru.com" class="link-item sora-link presale-link" data-umami-event="link: Book Presale">
-                <img src="images/book-cover.webp" alt="" class="presale-cover" aria-hidden="true">
+                <img src="images/cover-a.png" alt="" class="presale-cover" id="ab-cover" aria-hidden="true">
                 <span class="presale-copy">
                     <span class="presale-kicker"><span class="presale-star" aria-hidden="true">★</span> Book presale — open now</span>
                     <span class="link-text">Kilmaru and the Empty World</span>
                 </span>
             </a>
+            <script>
+                // A/B Test for Cover Design
+                (function() {
+                    var coverImg = document.getElementById("ab-cover");
+                    var link = coverImg.closest("a");
+                    var isCoverA = Math.random() < 0.5;
+                    var abVersion = isCoverA ? "cover_a" : "cover_b";
+                    
+                    if (isCoverA) {
+                        coverImg.src = "images/cover-a.png"; // Transparent Cover A
+                    } else {
+                        coverImg.src = "images/cover-b.png"; // Transparent Cover B
+                    }
+                    
+                    // Add the AB version to the umami event name so we can track it
+                    link.setAttribute("data-umami-event", "link: Book Presale (" + abVersion + ")");
+                })();
+            </script>
             <a href="media.html" class="link-item" data-umami-event="link: Media">
                 <span class="link-text">Media</span>
             </a>
