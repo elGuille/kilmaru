@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kilmaru × Nova — Partnership Proposal</title>
+<title>Kilmaru × [Brand] — Template Proposal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,11 +12,11 @@
 
 :root {
   --ink: #0a0a0a;
-  --ink-soft: #1f1d1a;
-  --ink-mute: #6f6a60;
-  --paper: #e8e0cd;
-  --paper-pure: #f1ebd9;
-  --paper-deep: #d4cab2;
+  --ink-soft: #1a1a1a;
+  --ink-mute: #6b6b6b;
+  --paper: #ffffff;
+  --paper-pure: #ffffff;
+  --paper-deep: #ededed;
   --rule: rgba(10, 10, 10, 0.16);
   --rule-soft: rgba(10, 10, 10, 0.08);
   --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -150,11 +150,19 @@ p + p { margin-top: 1rem; }
   letter-spacing: -0.04em;
   line-height: 0.9;
 }
-.cover-nova {
-  width: clamp(200px, 26vw, 320px);
-  height: auto;
-  fill: var(--ink);
-  display: block;
+.cover-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(200px, 26vw, 320px);
+  padding: 1.1rem 1.75rem;
+  border: 2px dashed var(--rule);
+  border-radius: var(--radius);
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
 }
 
 .cover .wordmark-line {
@@ -723,6 +731,10 @@ a.contact-row .value,
   .stat-number { font-size: 2.4rem; }
   .cta-pill { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
 }
+
+/* Black & white: render all imagery (brand logos, portrait) in grayscale */
+.brand-tile img,
+.cover-portrait { filter: grayscale(1); }
 </style>
     <script src="/umami.js" defer></script>
   <!-- Meta Pixel Code -->
@@ -754,16 +766,10 @@ document.head.appendChild(o)}initApollo();</script>
   <div class="cover-marks">
     <img src="images/kilmaru-profile.jpg" alt="Kilmaru" class="cover-portrait">
     <span class="cover-x" aria-hidden="true">×</span>
-    <svg class="cover-nova" viewBox="0 0 1200 303" xmlns="http://www.w3.org/2000/svg" aria-label="Nova">
-      <title>NOVA</title>
-      <path d="M0 0V302.488H64.4007V75.6219L139.535 151.244V64.8188L75.1342 0H0ZM214.669 226.866L139.535 151.244V237.669L203.936 302.488H279.07V0H214.669V226.866Z"></path>
-      <path d="M521.646 0H371.377V64.8188H521.646V237.669L586.047 172.85V64.8188L521.646 0ZM371.377 237.669V64.8188L306.977 129.638V216.063L392.844 302.488H521.646V237.669H371.377Z"></path>
-      <path d="M613.953 172.85L678.354 237.669V0H613.953V172.85ZM828.623 237.669L893.023 172.85V0H828.623V237.669ZM764.222 302.488L828.623 237.669H678.354L742.755 302.488H764.222Z"></path>
-      <path d="M1092.67 0H1049.73L985.331 64.8188H1135.6V302.488H1200V107.599L1092.67 0ZM920.93 129.638V302.488H985.331V216.063H1070.77L1135.6 151.244H985.331V64.8188L920.93 129.638Z"></path>
-    </svg>
+    <span class="cover-brand" aria-label="Brand logo">Brand Logo</span>
   </div>
-  <p class="wordmark-line"><em>Kilmaru</em> &times; <em>Nova</em></p>
-  <p class="tagline">Partnership Proposal</p>
+  <p class="wordmark-line"><em>Kilmaru</em> &times; <em>[Brand]</em></p>
+  <p class="tagline">Template Proposal</p>
   <p class="meta">2026 · 5.2M followers · kilmaru.com</p>
 </section>
 
@@ -855,7 +861,7 @@ document.head.appendChild(o)}initApollo();</script>
 <section class="page">
   <p class="eyebrow">The Proposal</p>
   <h2>Three ways <em>to work together.</em></h2>
-  <p class="lead">A ladder from a single Reel to a full quarter of work. Each tier builds on the one before it. Pick the entry point that fits where Nova is right now.</p>
+  <p class="lead">A ladder from a single Reel to a full quarter of work. Each tier builds on the one before it. Pick the entry point that fits where [Brand] is right now.</p>
 
   <ul class="tier-list">
     <li>
@@ -863,7 +869,7 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="tier-num">Tier 01</div>
         <div>
           <div class="tier-title">The Studio Reel + Story</div>
-          <div class="tier-sub">A full Kilmaru piece filmed at Nova Studios LA, plus a teaser Story driving traffic to it. Cross-posted TikTok + Instagram.</div>
+          <div class="tier-sub">A full Kilmaru piece filmed at [Brand]'s location, plus a teaser Story driving traffic to it. Cross-posted TikTok + Instagram.</div>
         </div>
         <div class="tier-price">$12,000<small>One-Off</small></div>
       </a>
@@ -873,7 +879,7 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="tier-num">Tier 02</div>
         <div>
           <div class="tier-title">The Casting Drop</div>
-          <div class="tier-sub">Everything in Tier 01, plus a Kilmaru video opening a real gig on Nova, driving audience straight to the platform.</div>
+          <div class="tier-sub">Everything in Tier 01, plus a Kilmaru video opening a real gig on [Brand], driving audience straight to the platform.</div>
         </div>
         <div class="tier-price">$22,000<small>One-Off</small></div>
       </a>
@@ -898,20 +904,20 @@ document.head.appendChild(o)}initApollo();</script>
     <p class="option-price-tag">$12,000<small>One-Off</small></p>
   </div>
   <h2>The Studio Reel + Story.</h2>
-  <p class="lead">A full Kilmaru piece filmed inside Nova Studios LA, built around the part of the studio Nova most wants to highlight — <em>cyclorama, courtyard, lighting setups.</em></p>
+  <p class="lead">A full Kilmaru piece filmed inside [Brand]'s location, built around the part of the space [Brand] most wants to highlight — <em>products, spaces, or experiences.</em></p>
 
   <div class="scenario">
     <p class="label">Picture it</p>
-    <p>Midday. Kilmaru walks into Nova Studios LA. A shoot is set up. Kilmaru moves through a film set frozen mid-production. The 32-ft cyclorama glows behind an abandoned camera rig. Every amenity Nova Studios offers, on screen, in use, empty. <em>This is just one direction.</em> The actual concept gets built around whatever Nova wants to showcase, or whatever will drive the most attention to the studio.</p>
+    <p>Midday. Kilmaru walks into [Brand]'s location. Everything is set up but empty. Kilmaru moves through it as if frozen mid-use, every detail on screen, in use, abandoned. <em>This is just one direction.</em> The actual concept gets built around whatever [Brand] wants to showcase, or whatever will drive the most attention to it.</p>
   </div>
 
   <p class="includes-heading">What is included</p>
   <ul class="includes">
-    <li>One Kilmaru Reel filmed at Nova Studios LA</li>
+    <li>One Kilmaru Reel filmed at [Brand]'s location</li>
     <li>One teaser Instagram Story driving traffic to the Reel</li>
     <li>Cross-posted on TikTok and Instagram</li>
-    <li>Custom creative concept developed with Nova: showcase exactly what you want, or build a hook designed to drive attention to the studio</li>
-    <li>@itsnova and Nova Studios LA tagged in every piece</li>
+    <li>Custom creative concept developed with [Brand]: showcase exactly what you want, or build a hook designed to drive attention to it</li>
+    <li>@[handle] and [Brand] tagged in every piece</li>
   </ul>
 
   <dl class="meta-grid">
@@ -926,19 +932,19 @@ document.head.appendChild(o)}initApollo();</script>
     <p class="option-price-tag">$22,000<small>One-Off</small></p>
   </div>
   <h2>The Casting Drop.</h2>
-  <p class="lead">Tier 01 plus a Kilmaru video opening a real gig on Nova — <em>driving the audience straight to the platform.</em></p>
+  <p class="lead">Tier 01 plus a Kilmaru video opening a real gig on [Brand] — <em>driving the audience straight to the platform.</em></p>
 
   <div class="scenario">
     <p class="label">Picture it</p>
-    <p>Kilmaru posts a piece opening a casting call on Nova. <em>Instagram tags @itsnova directly</em> so the CTA lives inside the platform. <em>TikTok links straight to the gig listing.</em> The piece drives real attention toward Nova accounts and the open gig. A follow-up post shows the response.</p>
+    <p>Kilmaru posts a piece opening a casting call on [Brand]. <em>Instagram tags @[handle] directly</em> so the CTA lives inside the platform. <em>TikTok links straight to the gig listing.</em> The piece drives real attention toward [Brand] accounts and the open gig. A follow-up post shows the response.</p>
   </div>
 
   <p class="includes-heading">What is included</p>
   <ul class="includes">
     <li>Everything in Tier 01 (Studio Reel + teaser Story)</li>
-    <li>One additional Kilmaru piece opening a real Nova casting call</li>
-    <li>@itsnova tag on Instagram, direct gig listing link on TikTok</li>
-    <li>Real role posted on Nova for the campaign duration — type chosen together with Nova</li>
+    <li>One additional Kilmaru piece opening a real [Brand] casting call</li>
+    <li>@[handle] tag on Instagram, direct gig listing link on TikTok</li>
+    <li>Real role posted on [Brand] for the campaign duration — type chosen together with [Brand]</li>
     <li>One follow-up Instagram image post (or carousel) showing the casting result</li>
   </ul>
 
@@ -958,15 +964,15 @@ document.head.appendChild(o)}initApollo();</script>
 
   <div class="scenario">
     <p class="label">Picture it</p>
-    <p><em>Month 1.</em> Kilmaru films at Nova Studios LA. <em>Month 2.</em> We open a Kilmaru casting call on the app. <em>Month 3.</em> A third concept developed together based on what is working best. By the end of three months, Nova has three original Kilmaru pieces, real traffic data from each, and sustained visibility for Nova Studios LA.</p>
+    <p><em>Month 1.</em> Kilmaru films at [Brand]'s location. <em>Month 2.</em> We open a Kilmaru casting call on [Brand]. <em>Month 3.</em> A third concept developed together based on what is working best. By the end of three months, [Brand] has three original Kilmaru pieces, real traffic data from each, and sustained visibility for [Brand].</p>
   </div>
 
   <p class="includes-heading">What is included</p>
   <ul class="includes">
     <li>Three Kilmaru pieces over three months, cross-posted TikTok + Instagram</li>
     <li>Three companion Stories driving traffic to each piece</li>
-    <li>Each piece anchored on a different Nova use case</li>
-    <li>@itsnova tagged or linked in every piece</li>
+    <li>Each piece anchored on a different [Brand] use case</li>
+    <li>@[handle] tagged or linked in every piece</li>
   </ul>
 
   <dl class="meta-grid">
@@ -989,7 +995,7 @@ document.head.appendChild(o)}initApollo();</script>
     <div class="contact-row"><div class="label">TikTok</div><a class="value" href="https://tiktok.com/@kilmaru" target="_blank" rel="noopener">@kilmaru</a></div>
   </div>
 
-  <p class="footer-mark"><em>Kilmaru</em> × <em>Nova</em> · Partnership Proposal · 2026</p>
+  <p class="footer-mark"><em>Kilmaru</em> × <em>[Brand]</em> · Template Proposal · 2026</p>
 </section>
 
 </body>
