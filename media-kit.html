@@ -223,6 +223,27 @@
             text-align: center;
         }
 
+        .filmstrip-views {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-transform: none;
+            letter-spacing: normal;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.3;
+        }
+
+        .filmstrip-title {
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-mute);
+        }
+
         @media (max-width: 640px) {
             .mk-filmstrip {
                 grid-template-columns: none;
@@ -520,6 +541,10 @@
             border-radius: 0;
         }
 
+        .scene-views-num {
+            font-weight: 600;
+        }
+
         .scene-title {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Inter, sans-serif;
             font-size: 1.25rem;
@@ -722,25 +747,25 @@ document.head.appendChild(o)}initApollo();</script>
                 <div class="film-box">
                     <img src="images/frames/ig-63876140-c.webp" alt="Empty Berlin cobblestone street with a vintage Porsche" loading="eager" fetchpriority="high" width="360" height="640">
                 </div>
-                <figcaption class="film-caption">The last drive · 63.9M views</figcaption>
+                <figcaption class="film-caption"><span class="filmstrip-views">63.9M views</span><span class="filmstrip-title">The last drive</span></figcaption>
             </figure>
             <figure class="film-frame">
                 <div class="film-box">
                     <img src="images/frames/01-27800000-c.webp" alt="Empty Rome alley shot in first person, no pedestrians in sight" loading="eager" width="360" height="640">
                 </div>
-                <figcaption class="film-caption">Am I alone? · 27.8M views</figcaption>
+                <figcaption class="film-caption"><span class="filmstrip-views">27.8M views</span><span class="filmstrip-title">Am I alone?</span></figcaption>
             </figure>
             <figure class="film-frame">
                 <div class="film-box">
                     <img src="images/frames/02-26100000-a.webp" alt="Deserted cruise ship deck stretching out with no passengers" loading="lazy" width="360" height="640">
                 </div>
-                <figcaption class="film-caption">Ghost ship · 26.1M views</figcaption>
+                <figcaption class="film-caption"><span class="filmstrip-views">26.1M views</span><span class="filmstrip-title">Ghost ship</span></figcaption>
             </figure>
             <figure class="film-frame">
                 <div class="film-box">
                     <img src="images/frames/08-11800000-b.webp" alt="Replica of the empty Oval Office with no one inside" loading="lazy" width="360" height="640">
                 </div>
-                <figcaption class="film-caption">The empty Oval Office · 11.8M views</figcaption>
+                <figcaption class="film-caption"><span class="filmstrip-views">11.8M views</span><span class="filmstrip-title">The empty Oval Office</span></figcaption>
             </figure>
         </div>
         <p class="mk-filmstrip-note">Views on the platform where each release performed best · TikTok and Instagram</p>
@@ -769,9 +794,8 @@ document.head.appendChild(o)}initApollo();</script>
             <p class="mk-section-label">01</p>
             <h2 class="mk-section-title">What if you woke up,<br>and everyone was <em>gone?</em></h2>
             <div class="mk-story">
-                <p>Kilmaru is a cinematic content creator who explores the world's most iconic cities, completely empty. Times Square with no crowds. Shibuya Crossing in silence. Airports, hotels, stadiums, cruise ships: abandoned, as if humanity had simply vanished overnight.</p>
-                <p>Filmed in first person, always hooded, never showing a face, with no dialogue. Just atmospheric sound and a haunting sense of solitude. The result is a genre-defining body of work that sits somewhere between social media and short film.</p>
-                <p>Since 2021, Kilmaru has been pioneering what is now known as <em>solitude exploration</em>, a style that resonates across every culture and language, precisely because it has no language at all.</p>
+                <p>Kilmaru films the world's most iconic cities completely empty. Times Square with no crowds. Shibuya Crossing in silence. Airports, hotels, stadiums, cruise ships: abandoned, as if humanity had vanished overnight.</p>
+                <p>First person, no face, no dialogue. Just atmospheric sound and the feeling of being the last person alive, somewhere between social media and short film. Since 2021 it has become its own genre, <em>solitude exploration</em>, and it travels across every culture because it has no language at all.</p>
             </div>
 
             <blockquote class="mk-pullquote">
@@ -838,17 +862,17 @@ document.head.appendChild(o)}initApollo();</script>
                 <div class="scene-card">
                     <div class="scene-media">
                         <img src="images/frames/ig-18318506-c.webp" alt="Empty Rome street at dusk with lit facades" loading="lazy" width="360" height="640">
-                        <span class="scene-views">▶ 18.3M views</span>
+                        <span class="scene-views">▶ <span class="scene-views-num">18.3M views</span></span>
                     </div>
                     <h3 class="scene-title">The last drive</h3>
-                    <p class="scene-desc">A solitary luxury car glides through the empty streets of a sleeping metropolis. No traffic, no pedestrians, no other headlights. Only the engine, echoing between skyscrapers. Kilmaru behind the wheel, hooded, silent.</p>
+                    <p class="scene-desc">A solitary luxury car glides through the empty streets of a sleeping metropolis. No traffic, no pedestrians, no other headlights. Only the engine, echoing between skyscrapers. Kilmaru behind the wheel, silent.</p>
                     <p class="scene-fit">Fit: automotive · luxury cars · urban transportation</p>
                 </div>
 
                 <div class="scene-card">
                     <div class="scene-media">
                         <img src="images/frames/ig-9894557-a.webp" alt="Long empty corridor on a ship, warm lighting" loading="lazy" width="360" height="640">
-                        <span class="scene-views">▶ 9.9M views</span>
+                        <span class="scene-views">▶ <span class="scene-views-num">9.9M views</span></span>
                     </div>
                     <h3 class="scene-title">Sound of silence</h3>
                     <p class="scene-desc">Footsteps through an empty terminal. A moving walkway with no one on it. Kilmaru lifts a pair of headphones. Music breaks the vacuum. The contrast between absolute silence and premium sound. Felt, not explained.</p>
@@ -858,7 +882,7 @@ document.head.appendChild(o)}initApollo();</script>
                 <div class="scene-card">
                     <div class="scene-media">
                         <img src="images/frames/06-15300000-b.webp" alt="Empty bookstore aisle in long perspective" loading="lazy" width="360" height="640">
-                        <span class="scene-views">▶ 15.3M views</span>
+                        <span class="scene-views">▶ <span class="scene-views-num">15.3M views</span></span>
                     </div>
                     <h3 class="scene-title">Empty runway</h3>
                     <p class="scene-desc">A grand shopping arcade, every store open, not a single person inside. Every step frames the sneakers, the jacket, the silhouette. No crowd to compete with. The clothing holds the shot on its own.</p>
@@ -868,7 +892,7 @@ document.head.appendChild(o)}initApollo();</script>
                 <div class="scene-card">
                     <div class="scene-media">
                         <img src="images/frames/04-17900000-b.webp" alt="Empty hotel lobby with reflective floor and red accent" loading="lazy" width="360" height="640">
-                        <span class="scene-views">▶ 17.9M views</span>
+                        <span class="scene-views">▶ <span class="scene-views-num">17.9M views</span></span>
                     </div>
                     <h3 class="scene-title">The last guest</h3>
                     <p class="scene-desc">A hotel with every light still on and not a soul behind the desk. Corridors, a lit pool, a rooftop with a view no one else is watching. The camera moves slowly. The brand isn't in the frame. It is the frame.</p>
