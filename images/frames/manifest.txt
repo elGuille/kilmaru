@@ -103,3 +103,98 @@ Ranking method: TikTok flat-playlist JSON metadata (view_count field) via
 700 videos were returned and sorted by view_count descending; the top 8 are
 listed above. Instagram fallback was not needed — TikTok scraping succeeded
 on the first attempt with no extractor-args or cookies required.
+
+================================================================================
+
+kilmaru Instagram (@kilmaru) — 6 most-viewed videos (pre-downloaded set), 3 still frames each
+Extracted with ffmpeg (dense fps=2-3 sampling, manual frame-by-frame review), ranked by play count.
+Frame files: images/frames/ig-<playcount>-<a|b|c>.webp (max width 1600px, quality 82)
+
+================================================================================
+
+IG 63876140
+Plays: 63,900,000
+Shortcode: C3TKTtFrE7u
+URL: https://instagram.com/p/C3TKTtFrE7u
+Duration: 14.9s
+Note: this is the same footage as IG 33542619 (DGfb9IkzuLZ) below — same Berlin
+apartment/garden/street content, re-encoded at a different resolution
+(720x1280 vs 576x1024) and re-posted. Both are included per instructions;
+frames below are near-identical between the two entries.
+Frames:
+  ig-63876140-a.webp  (t=3.0s)   Berlin apartment interior, bed foreground, doorway to living room
+  ig-63876140-b.webp  (t=6.0s)   garden view through window, red flowers, autumn trees
+  ig-63876140-c.webp  (t=11.0s)  empty cobblestone street, parked cars, green Porsche 924
+
+IG 33542619
+Plays: 33,500,000
+Shortcode: DGfb9IkzuLZ
+URL: https://instagram.com/p/DGfb9IkzuLZ
+Duration: 14.9s
+Note: same underlying footage as IG 63876140 (C3TKTtFrE7u) above — see note there.
+Frames:
+  ig-33542619-a.webp  (t=3.0s)   Berlin apartment interior, bed foreground, doorway to living room
+  ig-33542619-b.webp  (t=6.0s)   garden view through window, red flowers, autumn trees
+  ig-33542619-c.webp  (t=11.0s)  empty cobblestone street, parked cars, green Porsche 924
+
+IG 23969647
+Plays: 24,000,000
+Shortcode: C302U4dL8Iw
+URL: https://instagram.com/p/C302U4dL8Iw
+Duration: 40.0s
+Frames:
+  ig-23969647-a.webp  (t=17.33s) empty ferry pool deck, curved tile floor, caution tape
+  ig-23969647-b.webp  (t=20.67s) ferry stern railing over ocean wake, yellow lifeboats
+  ig-23969647-c.webp  (t=30.0s)  restricted-area engine corridor, ladder, green floor
+
+IG 18318506
+Plays: 18,300,000
+Shortcode: C0EaNBFLhmd
+URL: https://instagram.com/p/C0EaNBFLhmd
+Caption: "#rome"
+Duration: 45.7s
+Note: this video revisits the same Rome shoot as existing TikTok ranks 01 and
+06 — it contains the identical obelisk/elephant-statue plaza, bookstore aisle,
+and "ICE BAR" street-sign shots already in the TikTok set (see
+06-15300000-a/b/c). Those overlapping frames were intentionally skipped in
+favor of scenes unique to this video (gelato shop, restaurant, dusk street)
+to avoid showing the same location twice on the site.
+Frames:
+  ig-18318506-a.webp  (t=32.0s)  empty gelato shop interior, display cases, wine rack
+  ig-18318506-b.webp  (t=39.0s)  stacked plates and glasses on restaurant shelf
+  ig-18318506-c.webp  (t=42.33s) dusk Rome street, green-illuminated building facade
+
+IG 10933400
+Plays: 10,900,000
+Shortcode: C3VzKEDrHDl
+URL: https://instagram.com/p/C3VzKEDrHDl
+Duration: 9.3s
+Frames:
+  ig-10933400-a.webp  (t=3.67s)  empty apartment living room, couch, coffee table, kitchen doorway
+  ig-10933400-b.webp  (t=5.67s)  apartment kitchen counter, microwave, cabinets
+  ig-10933400-c.webp  (t=7.67s)  countertop still life, olive oil, almonds, apple
+
+IG 9894557
+Plays: 9,900,000
+Shortcode: C35ugrjNunc
+URL: https://instagram.com/p/C35ugrjNunc
+Caption: "day 4"
+Duration: 41.7s
+Note: another empty-ship exploration video ("Day 4 alone on a Ghost Ship"),
+thematically similar to TikTok ranks 02/03 (cruise ship) and to IG 23969647
+(ferry) above, but a visibly different vessel/interior (red-and-white dining
+lounge, "Family Burger" signage, gold-tiled corridor) — not the same footage.
+Frames:
+  ig-9894557-a.webp  (t=2.33s)  golden ship hallway, reflective tile floor, red curtain
+  ig-9894557-b.webp  (t=6.33s)  empty red/white dining lounge, tables and chairs
+  ig-9894557-c.webp  (t=23.67s) blue-lit ship corridor, "Family Burger" signage, glossy tile
+
+================================================================================
+Ranking method: pre-downloaded set of 6 Instagram videos (filenames already
+included <playcount>-<shortcode>.mp4); ranked by the playcount encoded in
+each filename, descending. No additional scraping was performed for this pass.
+Frame selection: dense fps=2-3 ffmpeg extraction per video, reviewed via
+tiled contact-sheet montages plus individual frame inspection, picking 3
+frames per video free of burned-in captions/UI, sharp, and visually distinct.
+No persistent corner/edge overlays were found on any of the 6 videos, so no
+cropping was required (unlike TikTok ranks 02/03 above).
