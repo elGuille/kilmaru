@@ -1,0 +1,105 @@
+kilmaru TikTok (@kilmaru) — top 8 most-viewed videos, 3 still frames each
+Extracted with yt-dlp + ffmpeg, ranked by view_count (TikTok flat-playlist metadata).
+Frame files: images/frames/<rank>-<viewcount>-<a|b|c>.webp (max width 1600px, quality 82)
+
+================================================================================
+
+RANK 01
+Views: 27,800,000
+Video ID: 6942744190308617478
+URL: https://www.tiktok.com/@kilmaru/video/6942744190308617478
+Title/description: "Am I alone?"
+Duration: 41s
+Frames:
+  01-27800000-a.webp  (t=25.06s)  narrow Rome street, cobblestone/pavement detail
+  01-27800000-b.webp  (t=36.20s)  empty Rome street, apartment facade, parked bike
+  01-27800000-c.webp  (t=40.38s)  empty narrow Rome alley, lamp post, Pizza sign
+
+RANK 02
+Views: 26,100,000
+Video ID: 7202998965669793029
+URL: https://www.tiktok.com/@kilmaru/video/7202998965669793029
+Title/description: "Replying to @Jade Shing Parsons #kilmaru #ghostship"
+Duration: 37s
+Note: source video has a persistent TikTok reply-comment bubble in the top-left
+corner for its full duration; all 3 frames were cropped (top ~420px removed) to
+exclude it.
+Frames:
+  02-26100000-a.webp  (t=8.57s)   cruise ship deck, wake trail, yellow lifeboats
+  02-26100000-b.webp  (t=17.13s)  cruise ship corridor, striped carpet, empty
+  02-26100000-c.webp  (t=27.5s)   cruise ship interior architectural walkway
+
+RANK 03
+Views: 24,200,000
+Video ID: 7149193103360986373
+URL: https://www.tiktok.com/@kilmaru/video/7149193103360986373
+Title/description: "#virginvoyages"
+Duration: 20s
+Note: frame c was cropped to its top half (bottom ~960px removed) to exclude an
+on-screen caption.
+Frames:
+  03-24200000-a.webp  (t=7.4s)   cruise ship sauna interior, wood paneling, empty
+  03-24200000-b.webp  (t=6.82s)  designer handbag on roulette table, casino
+  03-24200000-c.webp  (t=8.2s)   sauna porthole window, ocean view (top-crop)
+
+RANK 04
+Views: 17,900,000
+Video ID: 6959854754918911237
+URL: https://www.tiktok.com/@kilmaru/video/6959854754918911237
+Title/description: (no on-screen title/description text)
+Duration: 40s
+Frames:
+  04-17900000-a.webp  (t=2.5s)   empty parking lot, dusk, guardrail
+  04-17900000-b.webp  (t=17.39s) hotel lobby, reflective floor, red accent stripe
+  04-17900000-c.webp  (t=33.44s) aerial rooftop view over Italian town, railway
+
+RANK 05
+Views: 16,900,000
+Video ID: 7335491048644300065
+URL: https://www.tiktok.com/@kilmaru/video/7335491048644300065
+Title/description: "It follows me"
+Duration: 15s
+Frames:
+  05-16900000-a.webp  (t=6.4s)   garden view through window ledge, autumn colors
+  05-16900000-b.webp  (t=8.8s)   garden bushes, red flowers, residential backdrop
+  05-16900000-c.webp  (t=10.8s)  empty cobblestone street, Berlin, vintage car
+
+RANK 06
+Views: 15,300,000
+Video ID: 6951415815438683397
+URL: https://www.tiktok.com/@kilmaru/video/6951415815438683397
+Title/description: "Did I really see someone?"
+Duration: 46s
+Frames:
+  06-15300000-a.webp  (t=10.68s) Rome plaza, obelisk/elephant statue, empty
+  06-15300000-b.webp  (t=15.25s) empty bookstore aisle, long symmetric view
+  06-15300000-c.webp  (t=30.0s)  empty Rome street, ICE BAR sign, church facade
+
+RANK 07
+Views: 11,900,000
+Video ID: 6974820979184798981
+URL: https://www.tiktok.com/@kilmaru/video/6974820979184798981
+Title/description: (no on-screen title/description text)
+Duration: 48s
+Frames:
+  07-11900000-a.webp  (t=3.2s)   ocean horizon from boat bow, cloudy sky
+  07-11900000-b.webp  (t=8.7s)   ocean wave close-up, moody teal tones
+  07-11900000-c.webp  (t=46.53s) dramatic dark storm clouds over ocean
+
+RANK 08
+Views: 11,800,000
+Video ID: 7416423839548132641
+URL: https://www.tiktok.com/@kilmaru/video/7416423839548132641
+Title/description: "Replying to @Abdullah the new president of the united states is..."
+Duration: 21s
+Frames:
+  08-11800000-a.webp  (t=3.4s)   Oval Office replica desk, vintage phone, empty
+  08-11800000-b.webp  (t=16.02s) Oval Office replica, ceiling medallion, sofas
+  08-11800000-c.webp  (t=18.11s) Oval Office replica hallway, bookshelf, red carpet
+
+================================================================================
+Ranking method: TikTok flat-playlist JSON metadata (view_count field) via
+  yt-dlp --flat-playlist -J "https://www.tiktok.com/@kilmaru"
+700 videos were returned and sorted by view_count descending; the top 8 are
+listed above. Instagram fallback was not needed — TikTok scraping succeeded
+on the first attempt with no extractor-args or cookies required.

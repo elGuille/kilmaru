@@ -167,30 +167,12 @@ document.head.appendChild(o)}initApollo();</script>
 
         <div class="links-section">
             <a href="https://book.kilmaru.com" class="link-item sora-link presale-link" data-umami-event="link: Book Presale">
-                <img alt="Portada de Kilmaru and the Empty World" class="presale-cover" id="ab-cover">
+                <img src="images/cover-b.png" alt="Portada de Kilmaru and the Empty World" class="presale-cover" fetchpriority="high">
                 <span class="presale-copy">
                     <span class="presale-kicker"><span class="presale-star" aria-hidden="true">★</span> Book presale — open now</span>
                     <span class="link-text">Kilmaru and the Empty World</span>
                 </span>
             </a>
-            <script>
-                // A/B Test for Cover Design
-                (function() {
-                    var coverImg = document.getElementById("ab-cover");
-                    var link = coverImg.closest("a");
-                    var isCoverA = Math.random() < 0.5;
-                    var abVersion = isCoverA ? "cover_a" : "cover_b";
-                    
-                    if (isCoverA) {
-                        coverImg.src = "images/cover-a.png"; // Transparent Cover A
-                    } else {
-                        coverImg.src = "images/cover-b.png"; // Transparent Cover B
-                    }
-                    
-                    // Add the AB version to the umami event name so we can track it
-                    link.setAttribute("data-umami-event", "link: Book Presale (" + abVersion + ")");
-                })();
-            </script>
             <a href="media.html" class="link-item" data-umami-event="link: Media">
                 <span class="link-text">Media</span>
             </a>
