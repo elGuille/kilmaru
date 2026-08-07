@@ -1,14 +1,16 @@
+{{AfC submission|||u=Kombolatrix|ns=118|ts=20260807144839}} <!-- Do not remove this line! -->
+
 {{Short description|Anonymous video creator known for "empty world" videos}}
 [[File:Kilmaru.png|thumb|Kilmaru]]
 
 '''Kilmaru''' is the pseudonym used by an anonymous video creator whose first-person videos depict famous cities and public locations as though no other people are present.<ref name="corriere"/> The account started publishing videos on [[TikTok]] in 2021.<ref name="wired"/><ref name="newsweek"/> The videos contain no dialogue, and the individual behind the camera never appears on screen.<ref name="corriere"/>
 
 == Videos ==
-The earliest uploads featured deserted streets, supermarkets and a [[McDonald's]] restaurant.<ref name="wired"/> Later videos expanded to city centres including New York, London, Rome and Barcelona, as well as the [[Vatican Museums]] and the [[Colosseum]], each shown without any visible people.<ref name="wired"/> Other videos have shown Berlin, [[Tokyo]], Florence and Pisa in broad daylight, with no pedestrians, no museum visitors, and no customers or employees visible inside shops.<ref name="corriere"/> The locations are places that are usually busy, such as [[Piccadilly Circus]] and [[Times Square]]. A repeated line appears throughout the videos: "I woke up here and I am alone".<ref name="corriere"/>
+The earliest uploads featured deserted streets, supermarkets and a [[McDonald's]] restaurant.<ref name="wired"/> Later videos expanded to city centres including New York, London, Rome, Barcelona as well as the [[Vatican Museums]] and the [[Colosseum]], each shown without any visible people.<ref name="wired"/> Other videos have shown Berlin, [[Tokyo]], Florence and Pisa in broad daylight, with no pedestrians, no museum visitors, and no customers or employees visible inside shops.<ref name="corriere"/> The locations are places that are usually busy, such as [[Piccadilly Circus]] and [[Times Square]]. A repeated line appears throughout the videos: "I woke up here and I am alone".<ref name="corriere"/>
 
 According to the narrative presented on the account, the narrator previously worked as a programmer of artificial intelligence systems and arrived in an uninhabited parallel world after hacking a quantum computer.<ref name="geopop"/> In June 2021, a five-part series showed the narrator waking up aboard an abandoned cruise ship. ''[[Newsweek]]'' described the series as a continuation of the "empty world" videos, which had begun in March of that year.<ref name="newsweek"/>
 
-Media organisations in Italy, France and the United States have covered the videos.<ref name="newsweek"/><ref name="yahoo"/><ref name="corriere"/><ref name="wired"/><ref name="fanpage"/><ref name="20min"/>
+Media organisations in the United State France and Italy have covered the videos.<ref name="newsweek"/><ref name="yahoo"/><ref name="corriere"/><ref name="wired"/><ref name="fanpage"/><ref name="20min"/>
 
 == Production ==
 The fact-checking website ''[[Snopes]]'' examined the cruise ship videos and concluded that they had been filmed under normal conditions before the other people were removed during [[post-production]].<ref name="snopes"/> ''Geopop'' reported the same process, describing the use of object-removal software similar to Google's Magic Eraser together with filming early in the morning, when fewer people are present and need to be removed.<ref name="geopop"/> The visual effects channel [[Corridor Crew]] dedicated an episode of its ''VFX Artists React'' series to the videos.<ref name="corridor"/>
@@ -30,7 +32,6 @@ During the 2021 Monaco Streaming Film Festival, the account received the Best Cr
 <ref name="monaco">{{cite web |title=Monaco Streaming Film Festival award winners |website=Monaco Life |url=https://monacolife.net/monaco-streaming-film-festival-award-winners/ |access-date=2026-08-07}}</ref>
 }}
 
-[[Category:Living people]]
-[[Category:Anonymous people]]
-[[Category:TikTokers]]
-[[Category:Pseudonymous artists]]
+[[:Category:Living people]]
+[[:Category:TikTokers]]
+[[:Category:Pseudonymous artists]]
